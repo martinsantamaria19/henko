@@ -1,9 +1,9 @@
 ---
-
+import decorativeCircle from "../assets/decorative-circle.webp";
 ---
 
 <section
-    class="relative bg-gray-50 overflow-hidden min-h-screen flex items-center pt-20"
+    class="relative bg-gray-50 overflow-hidden min-h-screen flex items-center pt-0"
 >
     <!-- Background Shape -->
     <div class="absolute top-0 right-0 w-[60%] h-full pointer-events-none">
@@ -36,9 +36,9 @@
         </svg>
     </div>
 
-    <div class="container mx-auto px-8 relative z-10 h-full flex items-center">
+    <div class="container mx-auto max-w-18/20 px-8 relative z-100 h-full flex items-center">
         <!-- Text Content -->
-        <div class="w-full lg:w-[60%] space-y-10">
+        <div class="w-full lg:w-[70%] space-y-30">
             <h1 class="leading-[1.1] text-slate-900">
                 <span class="font-light block text-[clamp(2.5rem,5vw,5rem)]"
                     >Transformamos ideas</span
@@ -63,15 +63,6 @@
                     PEDÍ UN PRESUPUESTO
                 </a>
             </div>
-
-            <!-- Navigation/Pagination Indicators -->
-            <div
-                class="flex items-center gap-4 text-xs font-bold text-gray-400 mt-20"
-            >
-                <span>PREV</span>
-                <div class="h-[2px] w-12 bg-gray-300"></div>
-                <span>NEXT</span>
-            </div>
         </div>
     </div>
 
@@ -92,7 +83,7 @@
 
         <!-- Floating Pills -->
         <div
-            class="absolute top-[55%] -left-16 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl transform -translate-y-1/2 z-20 border border-gray-800"
+            class="absolute top-[60%] -left-16 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl transform -translate-y-1/2 z-20 border border-gray-800"
         >
             <span class="text-yellow-400 text-lg">⚡</span>
             <span class="font-medium text-lg">Evolución</span>
@@ -111,19 +102,16 @@
             <span class="text-emerald-400 text-lg">↗</span>
             <span class="font-medium text-lg">Impacto</span>
         </div>
-        <!-- Decorative Circle -->
+
+        <!-- Decorative Circle usando imagen -->
         <div
-            class="absolute top-[15%] -right-16 w-32 h-32 rounded-full bg-blue-300/60 z-0"
+            class="absolute top-[15%] -right-12 md:-right-16 w-32 h-32 md:w-40 md:h-40 z-0"
         >
-        </div>
-        <div
-            class="absolute top-[15%] -right-16 w-32 h-32 rounded-full overflow-hidden z-10"
-        >
-            <div
-                class="absolute inset-0 bg-blue-600/80"
-                style="clip-path: polygon(50% 50%, 100% 0, 100% 100%);"
-            >
-            </div>
+            <img
+                src={decorativeCircle.src}
+                alt="Elemento decorativo"
+                class="w-full h-full object-contain"
+            />
         </div>
     </div>
 </section>

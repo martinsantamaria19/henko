@@ -6,11 +6,47 @@ import estrategiaImage from "../assets/estrategia.webp";
 import campanasImage from "../assets/campanas.webp";
 import desarrolloImage from "../assets/desarrollo.webp";
 import entregaImage from "../assets/entrega.webp";
+
+// Colores de los brillos en las 4 esquinas (formato HEX)
+// Podés modificar cada uno de forma independiente (ej: "#60A5FA").
+const CORNER_GLOW_LEFT_TOP_HEX = "#00213a";
+const CORNER_GLOW_RIGHT_TOP_HEX = "#00213a";
+const CORNER_GLOW_LEFT_BOTTOM_HEX = "#00213a";
+const CORNER_GLOW_RIGHT_BOTTOM_HEX = "#00213a";
+
+// Utilidad para convertir HEX a "r, g, b"
+function hexToRgb(hex: string): string {
+    let cleaned = hex.replace("#", "");
+    if (cleaned.length === 3) {
+        cleaned =
+            cleaned[0] +
+            cleaned[0] +
+            cleaned[1] +
+            cleaned[1] +
+            cleaned[2] +
+            cleaned[2];
+    }
+    const r = parseInt(cleaned.substring(0, 2), 16);
+    const g = parseInt(cleaned.substring(2, 4), 16);
+    const b = parseInt(cleaned.substring(4, 6), 16);
+    return `${r}, ${g}, ${b}`;
+}
+
+// RGB derivados de los HEX (no tocar salvo que quieras sobreescribir manualmente)
+const CORNER_GLOW_LEFT_TOP_RGB = hexToRgb(CORNER_GLOW_LEFT_TOP_HEX);
+const CORNER_GLOW_RIGHT_TOP_RGB = hexToRgb(CORNER_GLOW_RIGHT_TOP_HEX);
+const CORNER_GLOW_LEFT_BOTTOM_RGB = hexToRgb(CORNER_GLOW_LEFT_BOTTOM_HEX);
+const CORNER_GLOW_RIGHT_BOTTOM_RGB = hexToRgb(CORNER_GLOW_RIGHT_BOTTOM_HEX);
 ---
 
 <div
-    class="relative bg-primary-dark text-white overflow-hidden flex flex-col min-h-[80vh] group"
-    style="background-color: #0B1B32;"
+    class="relative bg-primary-dark text-white overflow-hidden flex flex-col min-h-[80vh] group max-w-19/20 mx-auto rounded-[3vw]"
+    style={`background:
+        radial-gradient(circle at top left, rgba(${CORNER_GLOW_LEFT_TOP_RGB},0.10) 0%, rgba(${CORNER_GLOW_LEFT_TOP_RGB},0) 40%),
+        radial-gradient(circle at top right, rgba(${CORNER_GLOW_RIGHT_TOP_RGB},0.10) 0%, rgba(${CORNER_GLOW_RIGHT_TOP_RGB},0) 40%),
+        radial-gradient(circle at bottom left, rgba(${CORNER_GLOW_LEFT_BOTTOM_RGB},0.10) 0%, rgba(${CORNER_GLOW_LEFT_BOTTOM_RGB},0) 40%),
+        radial-gradient(circle at bottom right, rgba(${CORNER_GLOW_RIGHT_BOTTOM_RGB},0.10) 0%, rgba(${CORNER_GLOW_RIGHT_BOTTOM_RGB},0) 40%),
+        #0B1B32;`}
 >
     <button
         id="prevArrow"
