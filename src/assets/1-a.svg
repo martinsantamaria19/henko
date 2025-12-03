@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360.56 534.3">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.11em;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #042038;
+      }
+
+      .cls-6 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-5 {
+        font-family: Garet-Book, Garet;
+        font-size: 62.12px;
+      }
+
+      .cls-10 {
+        letter-spacing: 0em;
+      }
+
+      .cls-11 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-12 {
+        letter-spacing: -.05em;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g>
+      <text class="cls-5" transform="translate(212.5 514.17)"><tspan class="cls-9" x="0" y="0">R</tspan><tspan x="39.57" y="0">ei</tspan><tspan class="cls-7" x="95.92" y="0">v</tspan><tspan x="129.46" y="0">e</tspan><tspan class="cls-2" x="169.41" y="0">n</tspan><tspan class="cls-11" x="209.54" y="0">t</tspan><tspan x="235.75" y="0">á, Im</tspan><tspan class="cls-10" x="388.94" y="0">p</tspan><tspan x="432.12" y="0">a</tspan><tspan class="cls-2" x="470.88" y="0">c</tspan><tspan class="cls-6" x="509.33" y="0">t</tspan><tspan x="535.55" y="0">á,</tspan><tspan class="cls-12" x="590.46" y="0"> </tspan><tspan class="cls-3" x="603.82" y="0">T</tspan><tspan class="cls-1" x="635.5" y="0">r</tspan><tspan x="659.85" y="0">ascend</tspan><tspan class="cls-8" x="897.03" y="0">é</tspan></text>
+      <g>
+        <path class="cls-4" d="M1219.81,130.4c85.68-5.27,161.2,77.46,135.73,162.62-31.31,104.71-174.57,128.1-238.6,40.37-63.42-86.89.83-196.71,102.87-202.99ZM1220.4,152.01c-102.4,3.61-147.85,126.63-65.21,191.61,59.48,46.76,159.97,19.78,180.64-55.13,19.5-70.65-34.69-135.69-105.65-136.67l-9.78.2Z"/>
+        <g>
+          <rect class="cls-4" x="315.81" y="133.15" width="155.31" height="23.94"/>
+          <rect class="cls-4" x="315.81" y="239.43" width="155.31" height="23.94"/>
+          <rect class="cls-4" x="315.81" y="357.98" width="155.31" height="23.94"/>
+        </g>
+        <path class="cls-4" d="M186.84,136.07v.88s0,98.11,0,98.11c0,.02-.02.06-.05.11v3.97H23.35V0H0v381.92h23.35v-113.58h0v-4.99h163.43v4.3s.05.08.05.11v114.17h23.94v-245.86h-23.94Z"/>
+        <path class="cls-4" d="M767.66,381.92v-245.86h-23.93v.88s-.01,157.67-.01,157.67c0,.01,0,.03-.02.05v20.38l-167.55-178.98v245.86h23.35v-179.31l168.15,179.31Z"/>
+        <path class="cls-4" d="M926.3,259l5.57-5.56s0-.02.01-.02l117.1-117.35h-31.24l-113.24,113.32s-.08.07-.11.1h-11.42v-14.59h.03v-98.83h-23.94v245.86h23.94v-97.55h-.03v-10.87h15.8l.73.73c.09.06.17.12.25.2l107.4,107.48h31.82l-113.14-113.38-9.55-9.55Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

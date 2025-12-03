@@ -1,0 +1,124 @@
+---
+
+---
+
+<section
+    class="relative bg-gray-50 overflow-hidden min-h-screen flex items-center pt-20"
+>
+    <!-- Background Shape -->
+    <div class="absolute top-0 right-0 w-[60%] h-full pointer-events-none">
+        <svg
+            viewBox="0 0 1000 1000"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full h-full"
+            preserveAspectRatio="none"
+        >
+            <path
+                d="M200 0 C 200 400 0 600 0 1000 L 1000 1000 L 1000 0 Z"
+                fill="#E2E8F0"
+                opacity="0.3"></path>
+            <defs>
+                <linearGradient
+                    id="heroGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                >
+                    <stop offset="0%" style="stop-color:#F1F5F9;stop-opacity:1"
+                    ></stop>
+                    <stop
+                        offset="100%"
+                        style="stop-color:#E2E8F0;stop-opacity:1"></stop>
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <div class="container mx-auto px-8 relative z-10 h-full flex items-center">
+        <!-- Text Content -->
+        <div class="w-full lg:w-[60%] space-y-10">
+            <h1 class="leading-[1.1] text-slate-900">
+                <span class="font-light block text-[clamp(2.5rem,5vw,5rem)]"
+                    >Transformamos ideas</span
+                >
+                <span
+                    class="font-black italic block text-[clamp(3rem,6vw,6rem)]"
+                    >en impacto positivo</span
+                >
+            </h1>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+                <a
+                    href="#"
+                    class="bg-[#64748B] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-slate-600 transition-colors shadow-lg tracking-wide"
+                >
+                    QUIERO UNA REUNIÓN
+                </a>
+                <a
+                    href="#"
+                    class="bg-[#0F172A] text-white px-8 py-4 rounded-full font-bold text-sm hover:bg-slate-800 transition-colors shadow-lg tracking-wide"
+                >
+                    PEDÍ UN PRESUPUESTO
+                </a>
+            </div>
+
+            <!-- Navigation/Pagination Indicators -->
+            <div
+                class="flex items-center gap-4 text-xs font-bold text-gray-400 mt-20"
+            >
+                <span>PREV</span>
+                <div class="h-[2px] w-12 bg-gray-300"></div>
+                <span>NEXT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image/Visual Content (Absolute Positioned) -->
+    <div
+        class="absolute right-0 top-9/20 -translate-y-1/2 w-[40%] h-[85%] z-20 hidden lg:block"
+    >
+        <!-- Main Image Mask/Shape -->
+        <div
+            class="relative w-full h-full rounded-tl-[12rem] rounded-bl-[30rem] rounded-tr-[3rem] rounded-br-[6rem] overflow-hidden shadow-2xl"
+        >
+            <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Team working"
+                class="w-full h-full object-cover object-center"
+            />
+        </div>
+
+        <!-- Floating Pills -->
+        <div
+            class="absolute top-[55%] -left-16 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl transform -translate-y-1/2 z-20 border border-gray-800"
+        >
+            <span class="text-yellow-400 text-lg">⚡</span>
+            <span class="font-medium text-lg">Evolución</span>
+        </div>
+
+        <div
+            class="absolute bottom-38 -left-0 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl z-20 border border-gray-800"
+        >
+            <span class="text-cyan-400 text-lg">✦</span>
+            <span class="font-medium text-lg">Innovación</span>
+        </div>
+
+        <div
+            class="absolute -bottom-0 right-120 translate-x-1/2 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl z-20 border border-gray-800"
+        >
+            <span class="text-emerald-400 text-lg">↗</span>
+            <span class="font-medium text-lg">Impacto</span>
+        </div>
+        <!-- Decorative Circle -->
+        <div
+            class="absolute top-1/4 -right-12 w-24 h-24 rounded-full border-[12px] border-[#0F172A]/20 z-0"
+        >
+        </div>
+        <div
+            class="absolute top-1/4 -right-12 w-24 h-24 rounded-full border-[12px] border-[#0F172A] border-t-transparent border-l-transparent transform rotate-45 z-10"
+        >
+        </div>
+    </div>
+</section>
