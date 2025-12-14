@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+
+// 1. Carga automática de logos
+const clientFiles = import.meta.glob<{ default: ImageMetadata }>('../assets/clients/*.webp', { eager: true });
+const logos = Object.values(clientFiles).map((file) => file.default);
+
+const getAltText = (path: string) => {
+    const fileName = path.split('/').pop()?.split('.')[0] || 'Cliente';
+    return fileName.replace(/-/g, ' ');
+};
+---
+
+<section class="py-24 relative overflow-hidden">
+    <div class="absolute top-10 left-10 text-slate-300 text-7xl font-light opacity-50 select-none pointer-events-none rotate-12">×</div>
+    <div class="absolute bottom-10 right-10 text-slate-300 text-7xl font-light opacity-50 select-none pointer-events-none -rotate-12">×</div>
+
+    <div class="container mx-auto px-8 mb-12">
+        <h3 class="text-center text-lg font-bold text-gray-400 uppercase italic tracking-[0.2em]">
+            Confían en nosotros
+        </h3>
+    </div>
+
+    <div 
+        class="relative w-full overflow-hidden"
+        style="-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);"
+    >
+        <div class="flex w-max animate-infinite-scroll group hover:pause-animation">
+            
+            <div class="flex items-center gap-16 md:gap-24 px-8 md:px-12">
+                {logos.map((logo) => (
+                    <div class="shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer">
+                        <Image 
+                            src={logo} 
+                            alt={getAltText(logo.src)} 
+                            class="h-14 md:h-20 w-auto object-contain grayscale opacity-50 brightness-0 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100"
+                        />
+                    </div>
+                ))}
+            </div>
+
+            <div class="flex items-center gap-16 md:gap-24 px-8 md:px-12" aria-hidden="true">
+                {logos.map((logo) => (
+                    <div class="shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer">
+                        <Image 
+                            src={logo} 
+                            alt={getAltText(logo.src)} 
+                            class="h-14 md:h-20 w-auto object-contain grayscale opacity-50 brightness-0 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100"
+                        />
+                    </div>
+                ))}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Definición de la animación */
+    @keyframes infinite-scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            /* Movemos el track exactamente el 50% hacia la izquierda.
+               Como tenemos dos sets idénticos de logos, al llegar al 50%
+               el segundo set está exactamente donde empezó el primero,
+               creando un loop perfecto sin saltos. */
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Clase de utilidad para aplicar la animación */
+    .animate-infinite-scroll {
+        animation: infinite-scroll 40s linear infinite; /* 40s es la velocidad, ajusta a gusto */
+    }
+
+    /* Utilidad para pausar al hacer hover */
+    .hover\:pause-animation:hover {
+        animation-play-state: paused;
+    }
+</style>
