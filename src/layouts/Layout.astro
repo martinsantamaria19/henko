@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Background from "../components/Background.astro";
+import Preloader from "../components/Preloader.astro";
 ---
 
 <!doctype html>
@@ -21,9 +22,10 @@ import Background from "../components/Background.astro";
 		<title>Henko</title>
 	</head>
 	<body class="flex flex-col min-h-screen">
+		<Preloader />
 		<Background />
 		<Header />
-		<main class="flex-grow pt-20 relative z-10">
+		<main class="flex-grow lg:pt-20 relative z-10">
 			<slot />
 		</main>
 		<Footer />
@@ -35,7 +37,40 @@ import Background from "../components/Background.astro";
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		/* height: 100%; Removed to avoid scroll locking */
 		overflow-x: hidden;
 	}
 </style>
+
+<script>
+	import gsap from "gsap";
+	import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+	gsap.registerPlugin(ScrollToPlugin);
+
+	document.addEventListener("DOMContentLoaded", () => {
+		const anchors = document.querySelectorAll('a[href^="#"]');
+
+		anchors.forEach((anchor) => {
+			anchor.addEventListener("click", function (e) {
+				const href = this.getAttribute("href");
+				if (href === "#") return;
+
+				const target = document.querySelector(href);
+				if (target) {
+					e.preventDefault();
+
+					gsap.to(window, {
+						duration: 1.2,
+						scrollTo: {
+							y: target,
+							offsetY: 120,
+						},
+						ease: "power2.inOut",
+						overwrite: "auto",
+					});
+				}
+			});
+		});
+	});
+</script>

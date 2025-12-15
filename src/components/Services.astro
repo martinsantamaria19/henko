@@ -8,9 +8,52 @@ import digitalGrowth from "../assets/digital-growth.webp";
 import performanceMarketing from "../assets/performance-marketing.webp";
 import socialMediaContent from "../assets/social-media-content.webp";
 import strategicPlanning from "../assets/strategic-planning.webp";
+
+const services = [
+    {
+        icon: brandBuilding,
+        title: "Publicidad Online y Performance Marketing",
+        description: "Campañas en Google Ads, Facebook, Instagram y WhatsApp Ads enfocadas en resultados. Generamos clientes reales con inversión eficiente."
+    },
+    {
+        icon: digitalGrowth,
+        title: "Brand Building",
+        description: "Construimos marcas sólidas con identidad y storytelling."
+    },
+    {
+        icon: performanceMarketing,
+        title: "Digital Growth",
+        description: "Estrategias para escalar tu negocio en el entorno digital."
+    },
+    {
+        icon: creativityAndBrandStrategy,
+        title: "Creatividad y Brand Strategy",
+        description: "Conceptos creativos que potencian tu comunicación."
+    },
+    {
+        icon: strategicPlanning,
+        title: "Planificación Estratégica",
+        description: "Diseñamos planes de acción con objetivos claros."
+    },
+    {
+        icon: socialMediaContent,
+        title: "Analytics & Reporting",
+        description: "Datos y métricas para tomar mejores decisiones."
+    },
+    {
+        icon: analyticsAndReporting,
+        title: "Consultoría",
+        description: "Acompañamos tu transformación digital."
+    },
+    {
+        icon: consulting,
+        title: "Social Media Content",
+        description: "Creamos contenidos que conectan con tu audiencia."
+    }
+];
 ---
 
-<section class="py-24 relative overflow-hidden">
+<section class="py-24 relative overflow-hidden" id="servicios">
 
     <div class="container mx-auto px-8 relative z-10">
         <!-- Header -->
@@ -22,7 +65,7 @@ import strategicPlanning from "../assets/strategic-planning.webp";
             </div>
 
             <a
-                href="#"
+                href="#contact"
                 class="inline-flex items-center gap-3 bg-[#0F172A] text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-opacity-95 transition-colors shadow-lg"
             >
                 PEDÍ UN PRESUPUESTO
@@ -37,280 +80,42 @@ import strategicPlanning from "../assets/strategic-planning.webp";
         <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 w-full"
         >
-            <!-- Card 1 -->
-            <div
-                class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05]"
-            >
-                <!-- Icono circular -->
+            {services.map((service) => (
                 <div
-                    class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
+                    class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05] flex flex-col h-full"
                 >
-                    <img
-                        src={brandBuilding.src}
-                        alt="Brand Building"
-                        class="w-10 h-10 object-contain"
-                    />
-                </div>
-
-                <h3
-                    class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
-                >
-                    Brand Building
-                </h3>
-                <p
-                    class="text-xs text-gray-500 text-center leading-relaxed mb-6"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                    egestas consectetur eros.
-                </p>
-
-                <!-- Botón flecha -->
-                <div class="flex justify-center">
+                    <!-- Icono circular -->
                     <div
-                        class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
+                        class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
                     >
-                        →
+                        <img
+                            src={service.icon.src}
+                            alt={service.title}
+                            class="w-10 h-10 object-contain"
+                        />
+                    </div>
+
+                    <h3
+                        class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
+                    >
+                        {service.title}
+                    </h3>
+                    <p
+                        class="text-s text-gray-500 text-center leading-relaxed mb-6 flex-grow"
+                    >
+                        {service.description}
+                    </p>
+
+                    <!-- Botón flecha -->
+                    <div class="flex justify-center mt-auto">
+                        <div
+                            class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
+                        >
+                            →
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div
-                class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05]"
-            >
-                <div
-                    class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
-                >
-                    <img
-                        src={digitalGrowth.src}
-                        alt="Digital Growth"
-                        class="w-10 h-10 object-contain"
-                    />
-                </div>
-
-                <h3
-                    class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
-                >
-                    Digital Growth
-                </h3>
-                <p
-                    class="text-xs text-gray-500 text-center leading-relaxed mb-6"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-
-                <div class="flex justify-center">
-                    <div
-                        class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
-                    >
-                        →
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div
-                class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05]"
-            >
-                <div
-                    class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
-                >
-                    <img
-                        src={performanceMarketing.src}
-                        alt="Performance Marketing"
-                        class="w-10 h-10 object-contain"
-                    />
-                </div>
-
-                <h3
-                    class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
-                >
-                    Performance Marketing
-                </h3>
-                <p
-                    class="text-xs text-gray-500 text-center leading-relaxed mb-6"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-
-                <div class="flex justify-center">
-                    <div
-                        class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
-                    >
-                        →
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div
-                class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05]"
-            >
-                <div
-                    class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
-                >
-                    <img
-                        src={creativityAndBrandStrategy.src}
-                        alt="Creativity & Brand Strategy"
-                        class="w-10 h-10 object-contain"
-                    />
-                </div>
-
-                <h3
-                    class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
-                >
-                    Creativity & Brand Strategy
-                </h3>
-                <p
-                    class="text-xs text-gray-500 text-center leading-relaxed mb-6"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-
-                <div class="flex justify-center">
-                    <div
-                        class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
-                    >
-                        →
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div
-                class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05]"
-            >
-                <div
-                    class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
-                >
-                    <img
-                        src={strategicPlanning.src}
-                        alt="Strategic Planning"
-                        class="w-10 h-10 object-contain"
-                    />
-                </div>
-
-                <h3
-                    class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
-                >
-                    Strategic Planning
-                </h3>
-                <p
-                    class="text-xs text-gray-500 text-center leading-relaxed mb-6"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-
-                <div class="flex justify-center">
-                    <div
-                        class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
-                    >
-                        →
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div
-                class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05]"
-            >
-                <div
-                    class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
-                >
-                    <img
-                        src={socialMediaContent.src}
-                        alt="Social Media Content"
-                        class="w-10 h-10 object-contain"
-                    />
-                </div>
-
-                <h3
-                    class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
-                >
-                    Social Media Content
-                </h3>
-                <p
-                    class="text-xs text-gray-500 text-center leading-relaxed mb-6"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-
-                <div class="flex justify-center">
-                    <div
-                        class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
-                    >
-                        →
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 7 -->
-            <div
-                class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05]"
-            >
-                <div
-                    class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
-                >
-                    <img
-                        src={analyticsAndReporting.src}
-                        alt="Analytics & Reporting"
-                        class="w-10 h-10 object-contain"
-                    />
-                </div>
-
-                <h3
-                    class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
-                >
-                    Analytics & Reporting
-                </h3>
-                <p
-                    class="text-xs text-gray-500 text-center leading-relaxed mb-6"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-
-                <div class="flex justify-center">
-                    <div
-                        class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
-                    >
-                        →
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 8 -->
-            <div
-                class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05]"
-            >
-                <div
-                    class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
-                >
-                    <img
-                        src={consulting.src}
-                        alt="Consulting"
-                        class="w-10 h-10 object-contain"
-                    />
-                </div>
-
-                <h3
-                    class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
-                >
-                    Consulting
-                </h3>
-                <p
-                    class="text-xs text-gray-500 text-center leading-relaxed mb-6"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-
-                <div class="flex justify-center">
-                    <div
-                        class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
-                    >
-                        →
-                    </div>
-                </div>
-            </div>
+            ))}
         </div>
     </div>
 </section>

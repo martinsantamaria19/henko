@@ -1,51 +1,357 @@
 ---
-
+import logo from "../assets/1-a.webp";
 ---
 
 <header
-class="fixed top-6 left-0 right-0 z-50 w-[90%] min-h-[88px] mx-auto
-       px-10 py-4
+    class="fixed top-6 left-0 right-0 z-[100] w-[90%] min-h-[88px] mx-auto
+       px-6 md:px-10 py-4
        bg-white/50 backdrop-blur-sm
        border border-white/60
        rounded-[50px]
        shadow-[0_8px_30px_rgba(0,0,0,0.06)]
-       flex justify-between items-center"
+       flex justify-between items-center transition-all duration-300"
+    id="main-header"
 >
-    <div class="logo">
-        <img src="src/assets/1-a.svg" alt="Henko" class="h-8" />
+    <!-- Logo -->
+    <div class="logo relative z-[110] pointer-events-auto">
+        <a href="#home">
+            <img
+                src={logo.src}
+                alt="Henko"
+                class="h-8 md:h-8 transition-all duration-300"
+            />
+        </a>
     </div>
-    <nav>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:block">
         <ul class="flex gap-8 text-sm font-medium text-gray-600">
             <li>
-                <a href="#" class="text-lg hover:text-primary-dark transition-colors"
-                    >Home</a
-                >
+                <a
+                    href="#home"
+                    class="text-lg hover:text-primary-dark transition-colors"
+                    >Home</a>
             </li>
             <li>
-                <a href="#" class="text-lg hover:text-primary-dark transition-colors"
-                    >Nosotros</a
-                >
+                <a
+                    href="#quienes-somos"
+                    class="text-lg hover:text-primary-dark transition-colors"
+                    >Nosotros</a>
             </li>
             <li>
-                <a href="#" class="text-lg hover:text-primary-dark transition-colors"
-                    >Servicios</a
-                >
+                <a
+                    href="#servicios"
+                    class="text-lg hover:text-primary-dark transition-colors"
+                    >Servicios</a>
             </li>
             <li>
-                <a href="#" class="text-lg hover:text-primary-dark transition-colors"
-                    >Casos</a
-                >
+                <a
+                    href="#casos"
+                    class="text-lg hover:text-primary-dark transition-colors"
+                    >Casos</a>
             </li>
             <li>
-                <a href="#" class="text-lg hover:text-primary-dark transition-colors"
-                    >Blog</a
-                >
+                <a
+                    href="#blog"
+                    class="text-lg hover:text-primary-dark transition-colors"
+                    >Blog</a>
             </li>
             <li>
-                <a href="#" class="text-lg hover:text-primary-dark transition-colors"
-                    >Contacto</a
-                >
+                <a
+                    href="#contact"
+                    class="text-lg hover:text-primary-dark transition-colors"
+                    >Contacto</a>
             </li>
         </ul>
     </nav>
+
+    <!-- Mobile Hamburger Button -->
+    <button
+        id="menu-toggle"
+        class="md:hidden relative z-[110] w-10 h-10 flex flex-col justify-center items-center gap-1.5 group pointer-events-auto"
+    >
+        <span
+            class="w-6 h-0.5 bg-slate-800 transition-all duration-300 origin-center group-[.is-active]:rotate-45 group-[.is-active]:translate-y-2"
+        ></span>
+        <span
+            class="w-6 h-0.5 bg-slate-800 transition-all duration-300 group-[.is-active]:opacity-0"
+        ></span>
+        <span
+            class="w-6 h-0.5 bg-slate-800 transition-all duration-300 origin-center group-[.is-active]:-rotate-45 group-[.is-active]:-translate-y-2"
+        ></span>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div
+        id="mobile-menu"
+        class="fixed inset-0 z-[90] bg-[#0B1C3E] flex flex-col justify-center items-center opacity-0 invisible pointer-events-none"
+    >
+        <!-- Background Decoration -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div
+                class="absolute -top-[20%] -right-[20%] w-[80vw] h-[80vw] bg-[#6B9AC4] rounded-full blur-[100px] opacity-20"
+            >
+            </div>
+            <div
+                class="absolute -bottom-[20%] -left-[20%] w-[80vw] h-[80vw] bg-white rounded-full blur-[100px] opacity-10"
+            >
+            </div>
+        </div>
+
+        <nav class="relative z-10 text-center pointer-events-auto">
+            <ul class="flex flex-col gap-6">
+                <li class="overflow-hidden">
+                    <a
+                        href="#home"
+                        class="mobile-link block text-4xl font-bold text-white translate-y-full"
+                        >Home</a
+                    >
+                </li>
+                <li class="overflow-hidden">
+                    <a
+                        href="#quienes-somos"
+                        class="mobile-link block text-4xl font-bold text-white translate-y-full"
+                        >Nosotros</a
+                    >
+                </li>
+                <li class="overflow-hidden">
+                    <a
+                        href="#servicios"
+                        class="mobile-link block text-4xl font-bold text-white translate-y-full"
+                        >Servicios</a
+                    >
+                </li>
+                <li class="overflow-hidden">
+                    <a
+                        href="#casos"
+                        class="mobile-link block text-4xl font-bold text-white translate-y-full"
+                        >Casos</a
+                    >
+                </li>
+                <li class="overflow-hidden">
+                    <a
+                        href="#blog"
+                        class="mobile-link block text-4xl font-bold text-white translate-y-full"
+                        >Blog</a
+                    >
+                </li>
+                <li class="overflow-hidden">
+                    <a
+                        href="#contact"
+                        class="mobile-link block text-4xl font-bold text-white translate-y-full"
+                        >Contacto</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Footer Info -->
+        <div
+            class="absolute bottom-12 left-0 w-full text-center text-white/50 text-sm mobile-footer opacity-0"
+        >
+            <p>Montevideo, Uruguay</p>
+            <p class="mt-2">(+598) 98 739 170</p>
+        </div>
+    </div>
 </header>
+
+<script>
+    import gsap from "gsap";
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+    const mobileFooter = document.querySelector(".mobile-footer");
+    const header = document.getElementById("main-header");
+    const logoImg = document.querySelector(".logo img");
+    const hamburgerSpans = document.querySelectorAll("#menu-toggle span");
+
+    let isOpen = false;
+
+    if (menuToggle && mobileMenu) {
+        // MOVE MENU TO BODY TO AVOID CLIPPING
+        document.body.appendChild(mobileMenu);
+
+        // Close on link click and scroll to section
+        mobileLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const href = link.getAttribute("href");
+                
+                if (isOpen) {
+                    // Close menu first
+                    isOpen = false;
+                    menuToggle.classList.remove("is-active");
+                    
+                    // Revert header styles
+                    gsap.to(header, {
+                        backgroundColor: "rgba(255,255,255,0.5)",
+                        borderColor: "rgba(255,255,255,0.6)",
+                        backdropFilter: "blur(4px)",
+                        boxShadow: "0 8px 30px rgba(0,0,0,0.06)",
+                        duration: 0.3,
+                    });
+                    header.style.pointerEvents = "auto";
+                    
+                    // Revert colors
+                    gsap.to(hamburgerSpans, {
+                        backgroundColor: "#1e293b",
+                        duration: 0.3,
+                    });
+                    gsap.to(logoImg, { filter: "none", duration: 0.3 });
+                    
+                    // Hide Overlay
+                    gsap.to(mobileMenu, {
+                        autoAlpha: 0,
+                        duration: 0.3,
+                        ease: "power3.in",
+                        onComplete: () => {
+                            mobileMenu.style.pointerEvents = "none";
+                        }
+                    });
+                    
+                    // Stagger Links Out
+                    gsap.to(mobileLinks, {
+                        y: "100%",
+                        duration: 0.3,
+                        stagger: 0.05,
+                        ease: "power3.in",
+                    });
+                    
+                    // Footer fade out
+                    gsap.to(mobileFooter, {
+                        opacity: 0,
+                        duration: 0.3,
+                    });
+                    
+                    document.body.style.overflow = "auto";
+                }
+                
+                // Scroll to section after menu closes
+                if (href && href.startsWith("#")) {
+                    setTimeout(() => {
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const headerHeight = header ? header.offsetHeight + 24 : 100;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: "smooth"
+                            });
+                        }
+                    }, 400);
+                }
+            });
+        });
+
+        menuToggle.addEventListener("click", () => {
+            isOpen = !isOpen;
+
+            // Toggle Hamburger Icon State
+            menuToggle.classList.toggle("is-active");
+
+            if (isOpen) {
+                // OPEN MENU
+
+                // 1. Make header transparent and pass-through clicks
+                gsap.to(header, {
+                    backgroundColor: "rgba(255,255,255,0)",
+                    borderColor: "rgba(255,255,255,0)",
+                    backdropFilter: "none",
+                    boxShadow: "none",
+                    duration: 0.3,
+                });
+                header.style.pointerEvents = "none"; // Allow clicks to pass through header container
+
+                // 2. Invert colors for visibility
+                gsap.to(hamburgerSpans, {
+                    backgroundColor: "#ffffff",
+                    duration: 0.3,
+                });
+                gsap.to(logoImg, {
+                    filter: "brightness(0) invert(1)",
+                    duration: 0.3,
+                });
+
+                // 3. Show Overlay (using autoAlpha for visibility handling)
+                gsap.to(mobileMenu, {
+                    autoAlpha: 1,
+                    duration: 0.5,
+                    ease: "power3.out",
+                    onStart: () => {
+                        mobileMenu.style.pointerEvents = "auto";
+                    }
+                });
+
+                // 4. Stagger Links
+                gsap.to(mobileLinks, {
+                    y: 0,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: "power4.out",
+                    delay: 0.2,
+                });
+
+                // 5. Footer fade in
+                gsap.to(mobileFooter, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    delay: 0.6,
+                });
+
+                document.body.style.overflow = "hidden";
+            } else {
+                // CLOSE MENU
+
+                // 1. Revert header styles
+                gsap.to(header, {
+                    backgroundColor: "rgba(255,255,255,0.5)",
+                    borderColor: "rgba(255,255,255,0.6)",
+                    backdropFilter: "blur(4px)",
+                    boxShadow: "0 8px 30px rgba(0,0,0,0.06)",
+                    duration: 0.3,
+                });
+                header.style.pointerEvents = "auto"; // Re-enable header clicks
+
+                // 2. Revert colors
+                gsap.to(hamburgerSpans, {
+                    backgroundColor: "#1e293b",
+                    duration: 0.3,
+                }); // slate-800
+                gsap.to(logoImg, { filter: "none", duration: 0.3 });
+
+                // 3. Hide Overlay (using autoAlpha)
+                gsap.to(mobileMenu, {
+                    autoAlpha: 0,
+                    duration: 0.5,
+                    ease: "power3.in",
+                    delay: 0.2,
+                    onComplete: () => {
+                        mobileMenu.style.pointerEvents = "none";
+                    }
+                });
+
+                // 4. Stagger Links Out
+                gsap.to(mobileLinks, {
+                    y: "100%",
+                    duration: 0.5,
+                    stagger: 0.05,
+                    ease: "power3.in",
+                });
+
+                // 5. Footer fade out
+                gsap.to(mobileFooter, {
+                    opacity: 0,
+                    duration: 0.3,
+                });
+
+                document.body.style.overflow = "auto";
+            }
+        });
+    }
+</script>

@@ -15,6 +15,6 @@
     font-family: var(--font-sans);
     background-color: var(--color-background-light);
     color: var(--color-text-main);
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; Removed to allow GSAP full control */
   }
 }

@@ -6,40 +6,38 @@ import equipamientoGastronomicoSantucciRound from "../assets/equipamiento-gastro
 const cases = [
     {
         id: 1,
-        name: "SANTUCCI",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc egestas consectetur eros ac dictum.",
-        circleColor: "#EF5533",
-        gradient: null,
-        image: equipamientoGastronomicoSantucciRound,
-    },
-    {
-        id: 2,
         name: "ARQUIBROKERS",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc egestas consectetur eros ac dictum.",
+        challenge: "Captar clientes en un mercado competitivo.",
+        strategy: "Performance marketing en Google y redes sociales.",
+        results: "+120% leads calificados en 6 meses.",
         circleColor: "#00205B",
         gradient: null,
         image: arquiBrokersRounded,
     },
     {
-        id: 3,
+        id: 2,
         name: "CASTELLS INMUEBLES",
-        description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc egestas consectetur eros ac dictum.",
+        challenge: "Potenciar la visibilidad y el retorno de inversión.",
+        strategy: "Optimización de presencia digital y pauta.",
+        results: "Duplicamos su presencia y mejoramos el ROI un 80%.",
         circleColor: null,
         gradient: "linear-gradient(180deg, #2B5C96 0%, #183052 100%)",
         image: castellsInmueblesRound,
     },
     {
-        id: 4,
-        name: "NUEVO CLIENTE",
-        description: "Proyecto destacado con foco en resultados medibles y escalables.",
-        circleColor: "#10B981",
+        id: 3,
+        name: "SANTUCCI",
+        challenge: "Impulsar el crecimiento de la comunidad y ventas.",
+        strategy: "Campañas creativas de contenido y ads.",
+        results: "Aumento significativo de comunidad y ventas online.",
+        circleColor: "#EF5533",
         gradient: null,
+        image: equipamientoGastronomicoSantucciRound,
     },
 ];
 ---
 
-<section class="py-24 relative overflow-hidden">
-
+<section class="py-24 relative overflow-hidden" id="casos">
     <div
         class="absolute inset-0 opacity-[0.3] z-0 pointer-events-none"
         style="background-image: radial-gradient(#94A3B8 1.5px, transparent 1.5px); background-size: 32px 32px;"
@@ -48,13 +46,12 @@ const cases = [
 
     <div class="container mx-auto px-4 md:px-8 relative z-10">
         <div class="mb-20 pl-4 md:pl-0">
-            <h2 class="text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4">
-                Casos de éxito
+            <h2
+                class="text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4 max-w-4xl"
+            >
+                Casos de éxito: campañas digitales que generan resultados en
+                Uruguay
             </h2>
-            <p class="text-slate-500 max-w-2xl text-lg font-light leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet dolore.
-            </p>
         </div>
 
         <div class="relative pt-10 overflow-hidden group">
@@ -62,41 +59,91 @@ const cases = [
                 id="infiniteCarousel"
                 class="flex gap-8 overflow-x-hidden pb-16 no-scrollbar px-4 cursor-grab active:cursor-grabbing"
             >
-                {cases.map((item) => (
-                    <div class="carousel-item flex-none">
-                        <div class="relative w-[320px] md:w-[400px] mt-24 hover:-translate-y-2 transition-transform duration-300">
-                            
-                            <div 
-                                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-xl z-20 overflow-hidden bg-white"
-                                style={!item.image ? `background:${item.gradient ?? item.circleColor ?? "#0B3B91"};` : ''}
-                            >
-                                {(item as any).image ? (
-                                    <img src={(item as any).image.src} alt={item.name} class="w-full h-full object-cover" />
-                                ) : (
-                                    <span class="px-4 text-center">{(item as any).name}</span>
-                                )}
-                            </div>
+                {
+                    cases.map((item) => (
+                        <div class="carousel-item flex-none flex flex-col">
+                            <div class="relative w-[320px] md:w-[400px] mt-24 hover:-translate-y-2 transition-transform duration-300 flex-1 flex flex-col">
+                                <div
+                                    class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-xl z-20 overflow-hidden bg-white"
+                                    style={
+                                        !item.image
+                                            ? `background:${item.gradient ?? item.circleColor ?? "#0B3B91"};`
+                                            : ""
+                                    }
+                                >
+                                    {(item as any).image ? (
+                                        <img
+                                            src={(item as any).image.src}
+                                            alt={item.name}
+                                            class="w-full h-full object-cover"
+                                        />
+                                    ) : (
+                                        <span class="px-4 text-center">
+                                            {(item as any).name}
+                                        </span>
+                                    )}
+                                </div>
 
-                            <div class="bg-white rounded-[35px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 pt-28 pb-8 text-center border border-slate-50 min-h-[320px] md:min-h-[340px] flex flex-col relative z-10">
-                                <h3 class="text-2xl font-extrabold text-[#0F172A] uppercase tracking-wide mb-3">
-                                    {item.name}
-                                </h3>
-                                <p class="text-slate-500 leading-relaxed mb-10 text-sm md:text-base font-light px-2">
-                                    {item.description}
-                                </p>
-                                <div class="mt-auto flex justify-end w-full">
-                                    <a href="#" class="group/btn">
-                                        <div class="w-12 h-12 rounded-full bg-[#0F172A] text-white flex items-center justify-center transition-transform transform group-hover/btn:scale-110 shadow-lg">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
+                                <div class="bg-white rounded-[35px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 pt-28 pb-8 text-center border border-slate-50 flex-1 flex flex-col relative z-10">
+                                    <h3 class="text-2xl font-extrabold text-[#0F172A] uppercase tracking-wide mb-8">
+                                        {item.name}
+                                    </h3>
+
+                                    <div class="space-y-6 flex-grow text-left px-2">
+                                        <div>
+                                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                                Desafío
+                                            </h4>
+                                            <p class="text-slate-700 text-sm font-medium leading-relaxed">
+                                                {item.challenge}
+                                            </p>
                                         </div>
-                                    </a>
+                                        <div>
+                                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                                Estrategia
+                                            </h4>
+                                            <p class="text-slate-700 text-sm font-medium leading-relaxed">
+                                                {item.strategy}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+                                                Resultados
+                                            </h4>
+                                            <p class="text-emerald-600 text-sm font-bold leading-relaxed">
+                                                {item.results}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-8 flex justify-center w-full">
+                                        <a
+                                            href="#"
+                                            class="inline-flex items-center gap-2 text-[#0F172A] font-bold hover:text-primary-light transition-colors"
+                                        >
+                                            Quiero estos resultados
+                                            <svg
+                                                width="20"
+                                                height="20"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                />
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                }
             </div>
         </div>
     </div>
@@ -118,41 +165,48 @@ const cases = [
 
         // 1. Duplicar contenido para efecto infinito
         // Clonamos los elementos suficientes para llenar la pantalla al menos dos veces
-        const items = Array.from(carousel ? carousel.children : []) as HTMLElement[];
+        const items = Array.from(
+            carousel ? carousel.children : [],
+        ) as HTMLElement[];
         const containerWidth = carousel.offsetWidth;
         const totalContentWidth = carousel.scrollWidth;
 
         // Si el contenido es poco, clonamos varias veces para asegurar el scroll suave
-        items.forEach(item => {
-                const clone = (item as HTMLElement).cloneNode(true) as HTMLElement;
-                clone.setAttribute('aria-hidden', 'true'); // Accesibilidad: ocultar duplicados
-                carousel.appendChild(clone);
+        items.forEach((item) => {
+            const clone = (item as HTMLElement).cloneNode(true) as HTMLElement;
+            clone.setAttribute("aria-hidden", "true"); // Accesibilidad: ocultar duplicados
+            carousel.appendChild(clone);
         });
-        
+
         // Si aún es muy corto, clonamos otra vez (seguridad para pantallas muy anchas)
         if (totalContentWidth < containerWidth * 2) {
-             items.forEach(item => {
-                const clone = (item as HTMLElement).cloneNode(true) as HTMLElement;
-                clone.setAttribute('aria-hidden', 'true');
+            items.forEach((item) => {
+                const clone = (item as HTMLElement).cloneNode(
+                    true,
+                ) as HTMLElement;
+                clone.setAttribute("aria-hidden", "true");
                 carousel.appendChild(clone);
-             });
+            });
         }
 
         // 2. Lógica de animación
         function step() {
             if (!isHovered) {
                 scrollAmount += SPEED;
-                
+
                 // El punto de reinicio es la mitad del contenido duplicado
                 // Cuando hemos scrolleado la longitud del set original de items, reseteamos a 0
                 // Nota: scrollWidth / 2 asume que duplicamos el contenido exactamente una vez (o pares)
                 // Para ser más precisos, medimos el primer item original hasta el último original.
-                const firstSetWidth = items.reduce((acc, item) => acc + (item as HTMLElement).offsetWidth + 32, 0); // 32 es el gap (gap-8 = 2rem = 32px)
+                const firstSetWidth = items.reduce(
+                    (acc, item) => acc + (item as HTMLElement).offsetWidth + 32,
+                    0,
+                ); // 32 es el gap (gap-8 = 2rem = 32px)
 
                 if (scrollAmount >= firstSetWidth) {
                     scrollAmount = 0;
                 }
-                
+
                 carousel.scrollLeft = scrollAmount;
             }
             animationId = requestAnimationFrame(step);
@@ -162,42 +216,42 @@ const cases = [
         animationId = requestAnimationFrame(step);
 
         // 3. Control de Pausa e Interacción
-        carousel.addEventListener('mouseenter', () => isHovered = true);
-        carousel.addEventListener('mouseleave', () => isHovered = false);
+        carousel.addEventListener("mouseenter", () => (isHovered = true));
+        carousel.addEventListener("mouseleave", () => (isHovered = false));
 
         // Soporte básico para arrastrar (Drag to scroll)
         let isDown = false;
         let startX: number;
         let startScrollLeft: number;
 
-        carousel.addEventListener('mousedown', (e) => {
+        carousel.addEventListener("mousedown", (e) => {
             isDown = true;
             isHovered = true; // Pausar autoscroll mientras arrastra
-            carousel.style.cursor = 'grabbing';
+            carousel.style.cursor = "grabbing";
             startX = e.pageX - carousel.offsetLeft;
             startScrollLeft = scrollAmount; // Usamos nuestra variable tracker
         });
 
-        carousel.addEventListener('mouseleave', () => {
+        carousel.addEventListener("mouseleave", () => {
             isDown = false;
             isHovered = false;
-            carousel.style.cursor = 'grab';
+            carousel.style.cursor = "grab";
         });
 
-        carousel.addEventListener('mouseup', () => {
+        carousel.addEventListener("mouseup", () => {
             isDown = false;
             // No seteamos isHovered = false aquí inmediatamente para evitar saltos bruscos si el mouse sigue encima
-            carousel.style.cursor = 'grab';
+            carousel.style.cursor = "grab";
         });
 
-        carousel.addEventListener('mousemove', (e) => {
+        carousel.addEventListener("mousemove", (e) => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - carousel.offsetLeft;
             const walk = (x - startX) * 2; // Velocidad del drag
             scrollAmount = startScrollLeft - walk;
             // Manejar límites en el drag manual para que no se rompa la ilusión infinita
-            if (scrollAmount < 0) scrollAmount = 0; 
+            if (scrollAmount < 0) scrollAmount = 0;
             carousel.scrollLeft = scrollAmount;
         });
     }
@@ -217,7 +271,7 @@ const cases = [
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
-    
+
     /* Opcional: Desvanecimiento en los bordes para mejorar el efecto infinito */
     /* .mask-gradient {
         mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);

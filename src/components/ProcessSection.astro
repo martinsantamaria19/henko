@@ -6,147 +6,82 @@ import evolucionIcon from "../assets/evolucion-icon.webp";
 import propositoIcon from "../assets/proposito-icon.webp";
 import pertinenciaIcon from "../assets/pertinencia-icon.webp";
 
-const services = [
+const values = [
     {
         id: "innovacion",
         icon: innovacionIcon,
         title: "Innovación",
-        shortDesc: "It is a long established fact that a reader will be distracted.",
-        rightTitle: "Innovación Constante",
-        rightDesc: [
-            "En un mercado saturado, la innovación no es una opción, es una supervivencia. Transformamos ideas convencionales en experiencias digitales disruptivas.",
-            "Utilizamos las últimas tecnologías para asegurar que tu marca siempre esté un paso adelante."
-        ],
-        marginClass: "ml-0" 
+        description: "Estrategias digitales actualizadas que se adaptan a tu rubro.",
+        color: "bg-blue-50",
+        accent: "text-blue-500"
     },
     {
         id: "impacto",
         icon: impactoIcon,
         title: "Impacto",
-        shortDesc: "Creating measurable impact in every interaction.",
-        rightTitle: "Impacto Medible",
-        rightDesc: [
-            "No solo creamos cosas bonitas; creamos soluciones que mueven la aguja. Cada píxel y cada línea de código está pensada para generar conversión.",
-            "Nos enfocamos en KPIs reales que hacen crecer tu negocio."
-        ],
-        marginClass: "ml-5" 
+        description: "Campañas de publicidad online que generan clientes y ventas.",
+        color: "bg-indigo-50",
+        accent: "text-indigo-500"
     },
     {
         id: "trascendencia",
         icon: trascendenciaIcon,
         title: "Trascendencia",
-        shortDesc: "Going beyond the ordinary to leave a mark.",
-        rightTitle: "Trascendencia de Marca",
-        rightDesc: [
-            "Construimos legados digitales. Tu marca no debe ser solo vista, debe ser recordada.",
-            "Desarrollamos estrategias a largo plazo que aseguran la relevancia de tu empresa en el futuro."
-        ],
-        marginClass: "ml-10" 
-    },
-    {
-        id: "evolucion",
-        icon: evolucionIcon,
-        title: "Evolución",
-        shortDesc: "Adapting and growing with the digital landscape.",
-        rightTitle: "Evolución Continua",
-        rightDesc: [
-            "El mundo digital cambia rápido. Nosotros te ayudamos a evolucionar con él, iterando y mejorando constantemente tus productos.",
-            "La adaptabilidad es la clave del éxito en la era moderna."
-        ],
-        marginClass: "ml-10" 
-    },
-    {
-        id: "proposito",
-        icon: propositoIcon,
-        title: "Propósito",
-        shortDesc: "Driven by a clear and meaningful purpose.",
-        rightTitle: "Propósito Definido",
-        rightDesc: [
-            "Trabajamos con marcas que tienen un porqué. Alineamos tu estrategia digital con los valores fundamentales de tu organización.",
-            "Conectamos emocionalmente con tu audiencia a través de historias auténticas."
-        ],
-        marginClass: "ml-5" 
-    },
-    {
-        id: "pertinencia",
-        icon: pertinenciaIcon,
-        title: "Pertinencia",
-        shortDesc: "Staying relevant in a fast-paced world.",
-        rightTitle: "Pertinencia Cultural",
-        rightDesc: [
-            "Entendemos el contexto cultural y social para crear mensajes que resuenen aquí y ahora.",
-            "Hacemos que tu marca forme parte de la conversación actual."
-        ],
-        marginClass: "ml-0" 
-    },
+        description: "Posicionamos tu marca entre las mejores de Uruguay.",
+        color: "bg-purple-50",
+        accent: "text-purple-500"
+    }
 ];
-
-// Estilos
-const cardStyles = "flex-1 bg-white rounded-tl-[20px] rounded-tr-[50px] rounded-br-[15px] rounded-bl-[80px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-6 pl-10 border-b-2 border-gray-50 relative top-4";
-const iconWrapperStyles = "flex-shrink-0 relative z-10 -mr-8 drop-shadow-xl hover:scale-110 transition-transform duration-300";
-const iconImageStyles = "w-20 h-20 object-contain";
-const itemWrapperStyles = "flex items-start group js-left-card opacity-0 translate-y-12 will-change-transform";
 ---
 
-<section class="py-20 relative overflow-hidden js-pin-section">
-    <div class="container mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center h-full">
-        
-        <div class="relative pr-4">
-            <svg 
-                class="absolute top-0 left-[2.5rem] h-full w-auto -z-0 pointer-events-none opacity-80" 
-                viewBox="0 0 60 900" 
-                fill="none" 
-                preserveAspectRatio="none"
-            >
-                <path 
-                    d="M 2 50 C 20 200, 42 300, 42 400 L 42 500 C 42 600, 20 700, 2 850" 
-                    stroke="#1e293b" 
-                    stroke-width="4" 
-                    stroke-linecap="round"
-                />
-            </svg>
-
-            <div class="space-y-8 relative z-10 pb-20">
-                {services.map((service) => (
-                    <div class={`${itemWrapperStyles} ${service.marginClass}`}>
-                        <div class={iconWrapperStyles}>
-                            <img src={service.icon.src} alt={service.title} class={iconImageStyles} />
-                        </div>
-                        <div class={cardStyles}>
-                            <h3 class="text-xl font-bold text-primary-dark italic">{service.title}</h3>
-                            <p class="text-sm text-gray-500 mt-2 leading-relaxed">
-                                {service.shortDesc}
-                            </p>
-                        </div>
-                    </div>
-                ))}
-            </div>
+<section class="relative py-24 md:py-32 bg-slate-50 overflow-hidden" id="nuestros-valores">
+    <div class="container mx-auto px-4 md:px-8">
+        <div class="mb-24 text-center max-w-3xl mx-auto">
+            <h2 class="js-fade-up text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight opacity-0">
+                ¿Por qué elegirnos?
+            </h2>
+            <p class="js-fade-up text-lg md:text-xl text-slate-600 leading-relaxed opacity-0">
+                Somos la agencia de marketing digital que tu empresa necesita
+            </p>
         </div>
 
-        <div class="lg:pl-12 relative h-[500px] flex items-center">
-            {services.map((service, index) => (
-                <div class="js-right-content absolute top-0 left-0 w-full opacity-0 translate-y-8 will-change-transform flex flex-col justify-center h-full pointer-events-none">
-                    <h2 class="text-4xl font-bold text-primary-dark mb-6">
-                        {service.rightTitle}
-                    </h2>
-                    <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
-                        {service.rightDesc.map(paragraph => (
-                            <p>{paragraph}</p>
-                        ))}
-                    </div>
+        <div class="relative pb-24">
+            {values.map((value, index) => (
+                <div 
+                    class="sticky-card sticky w-full max-w-5xl mx-auto mb-24 md:mb-32 last:mb-0 perspective-1000"
+                    style={`top: ${120 + index * 15}px; z-index: ${index + 1};`}
+                >
+                    <div class={`card-inner relative overflow-hidden rounded-[2.5rem] p-8 md:p-16 shadow-2xl transition-all duration-500 border border-white/60 backdrop-blur-xl ${value.color}`}>
+                        
+                        <!-- Decorative Background Gradient -->
+                        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-white/60 rounded-full blur-3xl pointer-events-none mix-blend-overlay"></div>
+                        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-white/60 rounded-full blur-3xl pointer-events-none mix-blend-overlay"></div>
 
-                    <a
-                        href="#"
-                        class="inline-flex w-fit items-center gap-2 bg-primary-light text-white px-8 py-4 rounded-full font-semibold mt-10 hover:bg-primary-dark transition-colors shadow-md pointer-events-auto"
-                    >
-                        MÁS SOBRE {service.title.toUpperCase()}
-                        <span>→</span>
-                    </a>
+                        <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
+                            <!-- Icon Container -->
+                            <div class="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-white shadow-xl flex items-center justify-center transform transition-transform hover:scale-110 duration-500 group">
+                                <img 
+                                    src={value.icon.src} 
+                                    alt={value.title} 
+                                    class="w-12 h-12 md:w-16 md:h-16 object-contain transition-transform duration-500 group-hover:rotate-12"
+                                />
+                            </div>
 
-                    <div class="flex gap-3 mt-16 justify-end opacity-80">
-                        <div class="w-10 h-10 rounded-full bg-primary-light opacity-50"></div>
-                        <div class="w-10 h-10 rounded-full bg-primary-dark"></div>
-                        <div class="w-10 h-10 rounded-full bg-primary-light"></div>
+                            <!-- Content -->
+                            <div class="flex-1 text-center md:text-left pt-2">
+                                <div class="flex items-center justify-center md:justify-start gap-6 mb-6 relative">
+                                    <span class={`text-8xl md:text-9xl font-black opacity-5 absolute -top-8 -left-8 md:-left-12 select-none ${value.accent}`}>
+                                        {String(index + 1).padStart(2, '0')}
+                                    </span>
+                                    <h3 class="text-3xl md:text-5xl font-black text-slate-900 relative z-10">
+                                        {value.title}
+                                    </h3>
+                                </div>
+                                <p class="text-lg md:text-2xl text-slate-700 leading-relaxed font-medium max-w-2xl">
+                                    {value.description}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             ))}
@@ -161,51 +96,71 @@ const itemWrapperStyles = "flex items-start group js-left-card opacity-0 transla
     gsap.registerPlugin(ScrollTrigger);
 
     document.addEventListener("DOMContentLoaded", () => {
-        const pinSection = document.querySelector(".js-pin-section");
-        const leftCards = document.querySelectorAll(".js-left-card");
-        const rightContents = document.querySelectorAll(".js-right-content");
-        
-        if (!pinSection || leftCards.length === 0 || rightContents.length === 0) return;
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: pinSection,
-                start: "top top", 
-                end: `+=${leftCards.length * 600}`, 
-                pin: true, 
-                scrub: 1, 
-                anticipatePin: 1
+        // Header Animation
+        const headerElements = document.querySelectorAll('.js-fade-up');
+        gsap.fromTo(headerElements, 
+            { y: 30, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 1, 
+                stagger: 0.2, 
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#nuestros-valores",
+                    start: "top 80%"
+                }
             }
-        });
+        );
 
-        leftCards.forEach((leftCard, index) => {
-            const rightContent = rightContents[index];
-            const prevRightContent = index > 0 ? rightContents[index - 1] : null;
+        // Cards Stacking Animation
+        const cards = document.querySelectorAll('.sticky-card');
+        
+        cards.forEach((card, index) => {
+            // Initial entrance animation
+            gsap.fromTo(card,
+                { y: 100, opacity: 0, scale: 0.9 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 90%",
+                    }
+                }
+            );
 
-            if (prevRightContent) {
-                tl.to(prevRightContent, {
-                    autoAlpha: 0, 
-                    y: -40,       
-                    duration: 0.25, 
-                    ease: "power2.in"
+            // Stacking effect (scale down when next card comes)
+            if (index < cards.length - 1) {
+                const nextCard = cards[index + 1];
+                const innerCard = card.querySelector('.card-inner');
+
+                gsap.to(innerCard, {
+                    scale: 0.85, // More pronounced scaling
+                    opacity: 0.5, // Keep it slightly more visible
+                    filter: "blur(8px)", // Stronger blur
+                    transformOrigin: "center top",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: nextCard,
+                        start: "top 75%", // Start earlier (when next card is lower)
+                        end: "top 25%", // End later (when next card is higher)
+                        scrub: true
+                    }
                 });
             }
-
-            tl.to(leftCard, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: "power2.out"
-            }, index === 0 ? "" : ">-0.15"); 
-
-            tl.to(rightContent, {
-                autoAlpha: 1,
-                y: 0, 
-                duration: 0.8,
-                ease: "power2.out"
-            }, "<"); 
-            
-            tl.to({}, { duration: 0.4 }); 
         });
     });
 </script>
+
+<style>
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+    .card-inner {
+        will-change: transform, opacity, filter;
+    }
+</style>
