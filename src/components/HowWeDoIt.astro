@@ -322,31 +322,61 @@ const CORNER_GLOW_RIGHT_BOTTOM_RGB = hexToRgb(CORNER_GLOW_RIGHT_BOTTOM_HEX);
                         id="illustration-0"
                         class="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500"
                     >
+                        <img
+                            src={meetingImage.src}
+                            alt="Meeting"
+                            class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl"
+                        />
                     </div>
                     <div
                         id="illustration-1"
                         class="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500"
                     >
+                        <img
+                            src={planningImage.src}
+                            alt="Planning"
+                            class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl"
+                        />
                     </div>
                     <div
                         id="illustration-2"
                         class="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500"
                     >
+                        <img
+                            src={estrategiaImage.src}
+                            alt="Estrategia"
+                            class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl"
+                        />
                     </div>
                     <div
                         id="illustration-3"
                         class="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500"
                     >
+                        <img
+                            src={campanasImage.src}
+                            alt="Campañas"
+                            class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl"
+                        />
                     </div>
                     <div
                         id="illustration-4"
                         class="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500"
                     >
+                        <img
+                            src={desarrolloImage.src}
+                            alt="Desarrollo"
+                            class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl"
+                        />
                     </div>
                     <div
                         id="illustration-5"
                         class="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-500"
                     >
+                        <img
+                            src={entregaImage.src}
+                            alt="Entrega"
+                            class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl"
+                        />
                     </div>
                 </div>
             </div>
@@ -354,91 +384,96 @@ const CORNER_GLOW_RIGHT_BOTTOM_RGB = hexToRgb(CORNER_GLOW_RIGHT_BOTTOM_HEX);
     </div>
 </div>
 
-<script
-    define:vars={{
-        meetingImageUrl: meetingImage.src,
-        planningImageUrl: planningImage.src,
-        estrategiaImageUrl: estrategiaImage.src,
-        campanasImageUrl: campanasImage.src,
-        desarrolloImageUrl: desarrolloImage.src,
-        entregaImageUrl: entregaImage.src,
-    }}
->
-    // Imágenes
-    const slideImages = [
-        `<img src="${meetingImageUrl}" alt="Meeting" class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl" />`,
-        `<img src="${planningImageUrl}" alt="Planning" class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl" />`,
-        `<img src="${estrategiaImageUrl}" alt="Estrategia" class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl" />`,
-        `<img src="${campanasImageUrl}" alt="Campañas" class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl" />`,
-        `<img src="${desarrolloImageUrl}" alt="Desarrollo" class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl" />`,
-        `<img src="${entregaImageUrl}" alt="Entrega" class="max-w-[300px] max-h-[300px] w-auto h-auto object-contain drop-shadow-xl" />`,
-    ];
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    let currentSlide = 1;
-    const totalSlides = 6;
-    let autoSlideInterval = null;
+    gsap.registerPlugin(ScrollTrigger);
 
-    function initSlider() {
-        const textSlides = document.querySelectorAll(".slide-text");
+    document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".slide-text");
         const indicators = document.querySelectorAll(".indicator");
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+        let isAnimating = false;
+        let autoSlideInterval;
 
-        // Precargar imágenes en el DOM
-        for (let i = 0; i < slideImages.length; i++) {
-            const container = document.getElementById(`illustration-${i}`);
-            if (container) container.innerHTML = slideImages[i];
-        }
+        // Initialize first slide
+        gsap.set(slides[0], { opacity: 1, y: 0, zIndex: 10 });
+        gsap.set(".indicator[data-index='0']", {
+            width: "48px",
+            backgroundColor: "#ffffff",
+        });
+        gsap.set("#illustration-0", { opacity: 1, scale: 1 });
 
-        function showSlide(index) {
-            // 1. Textos
-            textSlides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.remove("opacity-0", "translate-y-4");
-                    slide.classList.add("opacity-100", "translate-y-0", "z-10");
-                } else {
-                    slide.classList.remove(
-                        "opacity-100",
-                        "translate-y-0",
-                        "z-10",
-                    );
-                    slide.classList.add("opacity-0", "translate-y-4");
-                }
-            });
+        function goToSlide(index) {
+            if (isAnimating || index === currentSlide) return;
+            isAnimating = true;
 
-            // 2. Imágenes
-            for (let i = 0; i < totalSlides; i++) {
-                const container = document.getElementById(`illustration-${i}`);
-                if (container) {
-                    if (i === index) {
-                        container.style.opacity = "1";
-                        container.style.transform = "scale(1)";
-                    } else {
-                        container.style.opacity = "0";
-                        container.style.transform = "scale(0.9)";
-                    }
-                }
-            }
-
-            // 3. Indicadores
-            indicators.forEach((indicator, i) => {
-                if (i === index) {
-                    indicator.classList.remove("bg-gray-500");
-                    indicator.classList.add("bg-white");
-                    indicator.style.width = "48px";
-                } else {
-                    indicator.classList.remove("bg-white");
-                    indicator.classList.add("bg-gray-500");
-                    indicator.style.width = "32px";
-                }
-            });
-
+            const prevSlide = currentSlide;
             currentSlide = index;
+
+            // 1. Text Transition
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    isAnimating = false;
+                },
+            });
+
+            tl.to(slides[prevSlide], {
+                opacity: 0,
+                y: -20,
+                duration: 0.5,
+                ease: "power2.in",
+            })
+                .set(slides[prevSlide], { zIndex: 0 })
+                .set(slides[currentSlide], { zIndex: 10, y: 20 })
+                .to(
+                    slides[currentSlide],
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.5,
+                        ease: "power2.out",
+                    },
+                    "-=0.1",
+                );
+
+            // 2. Image Transition
+            gsap.to(`#illustration-${prevSlide}`, {
+                opacity: 0,
+                scale: 0.9,
+                duration: 0.5,
+                ease: "power2.inOut",
+            });
+
+            gsap.to(`#illustration-${currentSlide}`, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.5,
+                ease: "power2.inOut",
+            });
+
+            // 3. Indicators
+            gsap.to(indicators, {
+                width: "32px",
+                backgroundColor: "#6B7280", // gray-500
+                duration: 0.3,
+            });
+
+            gsap.to(indicators[currentSlide], {
+                width: "48px",
+                backgroundColor: "#ffffff",
+                duration: 0.3,
+            });
         }
 
         function nextSlide() {
-            showSlide((currentSlide + 1) % totalSlides);
+            goToSlide((currentSlide + 1) % totalSlides);
         }
+
         function prevSlide() {
-            showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+            goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
         }
 
         function startAutoSlide() {
@@ -454,12 +489,10 @@ const CORNER_GLOW_RIGHT_BOTTOM_RGB = hexToRgb(CORNER_GLOW_RIGHT_BOTTOM_HEX);
         }
 
         // Event Listeners
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener("click", () => {
-                showSlide(index);
-                stopAutoSlide();
-                startAutoSlide();
-            });
+        document.getElementById("nextArrow")?.addEventListener("click", () => {
+            nextSlide();
+            stopAutoSlide();
+            startAutoSlide();
         });
 
         document.getElementById("prevArrow")?.addEventListener("click", () => {
@@ -468,29 +501,49 @@ const CORNER_GLOW_RIGHT_BOTTOM_RGB = hexToRgb(CORNER_GLOW_RIGHT_BOTTOM_HEX);
             startAutoSlide();
         });
 
-        document.getElementById("nextArrow")?.addEventListener("click", () => {
-            nextSlide();
-            stopAutoSlide();
-            startAutoSlide();
+        indicators.forEach((indicator, i) => {
+            indicator.addEventListener("click", () => {
+                goToSlide(i);
+                stopAutoSlide();
+                startAutoSlide();
+            });
         });
 
-        // Hover pause
-        const section = document.querySelector("section");
-        section?.addEventListener("mouseenter", stopAutoSlide);
-        section?.addEventListener("mouseleave", startAutoSlide);
+        // Hover Pause
+        const container = document.querySelector(".group");
+        container?.addEventListener("mouseenter", stopAutoSlide);
+        container?.addEventListener("mouseleave", startAutoSlide);
 
-        // Init
-        showSlide(currentSlide);
+        // Magnetic Buttons
+        const buttons = document.querySelectorAll("#prevArrow, #nextArrow");
+        buttons.forEach((btn) => {
+            btn.addEventListener("mousemove", (e) => {
+                const mouseEvent = e as MouseEvent;
+                const rect = (btn as HTMLElement).getBoundingClientRect();
+                const x = mouseEvent.clientX - rect.left - rect.width / 2;
+                const y = mouseEvent.clientY - rect.top - rect.height / 2;
+
+                gsap.to(btn, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.3,
+                    ease: "power2.out",
+                });
+            });
+
+            btn.addEventListener("mouseleave", () => {
+                gsap.to(btn, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)",
+                });
+            });
+        });
+
+        // Start
         startAutoSlide();
-    }
-
-    if (typeof window !== "undefined") {
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", initSlider);
-        } else {
-            initSlider();
-        }
-    }
+    });
 </script>
 
 <style>

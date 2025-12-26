@@ -1,70 +1,103 @@
 ---
 import logo from "../assets/1-a.webp";
-
-// Base words
-const baseWords = [
-    "PUBLICIDAD",
-    "MARKETING",
-    "DIGITAL",
-    "INNOVACIÓN",
-    "TRASCENDENCIA",
-    "IMPACTO",
-];
-
-// Generate rows with rotated content so they don't all start with the same word
-const rows = Array.from({ length: 12 }, (_, i) => {
-    // Rotate the array based on the row index
-    const rotatedWords = [
-        ...baseWords.slice(i % baseWords.length),
-        ...baseWords.slice(0, i % baseWords.length),
-    ];
-    return rotatedWords.join(" ");
-});
 ---
 
 <div
     id="preloader"
-    class="fixed inset-0 z-[9999] bg-white flex items-center justify-center overflow-hidden"
+    class="fixed inset-0 z-[9999] bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center overflow-hidden"
 >
-    <!-- Background Text Container (Marquee) -->
-    <div
-        class="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none select-none z-0 opacity-10 md:opacity-20"
-    >
-        {
-            rows.map((text, index) => (
-                <div
-                    class="marquee-row flex whitespace-nowrap"
-                    data-direction={index % 2 === 0 ? "left" : "right"}
-                    data-speed={20 + Math.random() * 10}
-                >
-                    <h1 class="text-[7vh] md:text-[6vw] font-black text-gray-400 tracking-tighter leading-none px-4">
-                        {text} &nbsp; {text} &nbsp; {text} &nbsp; {text}
-                    </h1>
-                </div>
-            ))
-        }
+    <!-- Animated Gradient Mesh Background -->
+    <div class="absolute inset-0 opacity-30">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
     </div>
 
-    <!-- Particles Container -->
-    <div
-        id="particles"
-        class="absolute inset-0 pointer-events-none flex items-center justify-center z-0"
-    >
-    </div>
+    <!-- Geometric Particles -->
+    <div id="particles" class="absolute inset-0 pointer-events-none z-0"></div>
 
     <!-- Logo Container -->
     <div class="relative z-10 flex flex-col items-center">
-        <div class="logo-wrapper opacity-0 scale-90 blur-sm">
+        <div class="logo-wrapper opacity-0 scale-90">
             <img src={logo.src} alt="Henko Loading" class="w-40 md:w-48" />
         </div>
         <!-- Loading Bar -->
         <div
-            class="mt-8 md:mt-10 w-40 md:w-48 h-1 bg-gray-100 rounded-full overflow-hidden"
+            class="mt-8 md:mt-10 w-40 md:w-48 h-1 bg-gray-200 rounded-full overflow-hidden"
         >
-            <div class="loading-bar w-0 h-full bg-slate-800 rounded-full"></div>
+            <div
+                class="loading-bar w-0 h-full bg-gradient-to-r from-[#0B1C3E] to-[#6B9AC4] rounded-full"
+            >
+            </div>
         </div>
     </div>
 </div>
+
+<style>
+    .gradient-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.6;
+    }
+
+    .blob-1 {
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(135deg, #6b9ac4 0%, #0b1c3e 100%);
+        top: -10%;
+        left: -10%;
+        animation: float 20s ease-in-out infinite;
+    }
+
+    .blob-2 {
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(135deg, #0b1c3e 0%, #6b9ac4 100%);
+        bottom: -10%;
+        right: -10%;
+        animation: float 25s ease-in-out infinite reverse;
+    }
+
+    .blob-3 {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(
+            135deg,
+            #6b9ac4 0%,
+            rgba(11, 28, 62, 0.5) 100%
+        );
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse 15s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+        33% {
+            transform: translate(30px, -30px) scale(1.1);
+        }
+        66% {
+            transform: translate(-20px, 20px) scale(0.9);
+        }
+    }
+
+    @keyframes pulse {
+        0%,
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.6;
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.2);
+            opacity: 0.8;
+        }
+    }
+</style>
 
 <script>
     import gsap from "gsap";
@@ -84,93 +117,81 @@ const rows = Array.from({ length: 12 }, (_, i) => {
         // Lock scroll
         document.body.style.overflow = "hidden";
 
-        // Create particles (Monochrome)
+        // Create geometric particles
         const particlesContainer = document.getElementById("particles");
-        const particleCount = 40;
-        const colors = ["#cbd5e1", "#94a3b8", "#64748b"]; // Slate grays
+        const particleCount = 30;
+        const shapes = ["circle", "square", "triangle"];
 
         if (particlesContainer) {
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement("div");
-                const size = Math.random() * 6 + 2; // Smaller, more subtle
-                const color = colors[Math.floor(Math.random() * colors.length)];
+                const size = Math.random() * 8 + 4;
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
 
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-                particle.style.backgroundColor = color;
                 particle.style.position = "absolute";
-                particle.style.borderRadius = "50%";
+                particle.style.opacity = "0";
+
+                // Shape styling
+                if (shape === "circle") {
+                    particle.style.borderRadius = "50%";
+                    particle.style.background =
+                        "linear-gradient(135deg, #6B9AC4, #0B1C3E)";
+                } else if (shape === "square") {
+                    particle.style.borderRadius = "2px";
+                    particle.style.background = "#0B1C3E";
+                    particle.style.transform = "rotate(45deg)";
+                } else {
+                    // Triangle using border trick
+                    particle.style.width = "0";
+                    particle.style.height = "0";
+                    particle.style.borderLeft = `${size / 2}px solid transparent`;
+                    particle.style.borderRight = `${size / 2}px solid transparent`;
+                    particle.style.borderBottom = `${size}px solid #6B9AC4`;
+                }
 
                 particlesContainer.appendChild(particle);
 
-                // Subtle floating/explosion
+                // Floating animation
                 gsap.fromTo(
                     particle,
-                    { x: 0, y: 0, opacity: 0, scale: 0 },
                     {
-                        x: (Math.random() - 0.5) * window.innerWidth * 0.8,
-                        y: (Math.random() - 0.5) * window.innerHeight * 0.8,
-                        opacity: Math.random() * 0.5 + 0.1, // Lower opacity
-                        scale: Math.random() * 1.5,
-                        duration: 2 + Math.random(),
-                        ease: "power2.out",
-                        delay: 0.1,
+                        x: Math.random() * window.innerWidth,
+                        y: Math.random() * window.innerHeight,
+                        opacity: 0,
+                        scale: 0,
+                    },
+                    {
+                        y: `+=${(Math.random() - 0.5) * 200}`,
+                        x: `+=${(Math.random() - 0.5) * 200}`,
+                        opacity: Math.random() * 0.4 + 0.1,
+                        scale: Math.random() * 1.5 + 0.5,
+                        duration: 2 + Math.random() * 2,
+                        ease: "sine.inOut",
+                        delay: Math.random() * 0.5,
+                        yoyo: true,
+                        repeat: -1,
                     },
                 );
             }
         }
 
-        // MARQUEE ANIMATION
-        document.querySelectorAll(".marquee-row").forEach((row) => {
-            const direction = row.getAttribute("data-direction");
-            const speed = Number(row.getAttribute("data-speed")) || 20;
-            const content = row.querySelector("h1");
+        // ANIMATION SEQUENCE
 
-            // Clone content to ensure seamless loop
-            // We have 4 repetitions in HTML, so we move 25% to loop seamlessly
-            if (content) {
-                // No need to clone in JS if we repeat enough in HTML for the loop
-                // But to be safe for wide screens, let's clone once
-                const clone = content.cloneNode(true);
-                row.appendChild(clone);
-            }
-
-            // If we have 4 sets in HTML + 1 clone = 5 sets.
-            // Actually, let's stick to the previous logic but adjust for the new 4-repeat structure
-            // If text is "{text} {text} {text} {text}", that's 4 sets.
-            // Moving 1/4th (25%) is enough for a loop if the content is identical.
-
-            const moveDistance = direction === "left" ? "-25%" : "25%";
-            const startPosition = direction === "left" ? "0%" : "-25%";
-
-            gsap.fromTo(
-                row,
-                { x: startPosition },
-                {
-                    x: moveDistance,
-                    duration: speed,
-                    ease: "none",
-                    repeat: -1,
-                },
-            );
-        });
-
-        // SOBER ANIMATION SEQUENCE (FASTER)
-
-        // 1. Logo Blur Reveal (Faster)
+        // 1. Logo Reveal
         tl.to(
             ".logo-wrapper",
             {
                 opacity: 1,
                 scale: 1,
-                filter: "blur(0px)",
                 duration: 0.8,
-                ease: "power3.out",
+                ease: "back.out(1.7)",
             },
             0,
         );
 
-        // 2. Loading Bar - Faster fill
+        // 2. Loading Bar
         tl.to(
             ".loading-bar",
             {
@@ -178,47 +199,36 @@ const rows = Array.from({ length: 12 }, (_, i) => {
                 duration: 2.5,
                 ease: "power2.inOut",
             },
-            0.1,
+            0.2,
         );
 
         // 3. Subtle Logo Breathe
         tl.to(
             ".logo-wrapper",
             {
-                scale: 1.02,
+                scale: 1.05,
                 duration: 0.8,
                 yoyo: true,
                 repeat: 2,
                 ease: "sine.inOut",
             },
-            0.4,
+            0.5,
         );
 
         // 4. EXIT
         tl.to(".logo-wrapper", {
             scale: 0.9,
             opacity: 0,
-            filter: "blur(10px)",
-            duration: 0.3,
+            duration: 0.4,
             ease: "power2.in",
-        })
-            .to(
-                ".marquee-row",
-                {
-                    // Fade out text
-                    opacity: 0,
-                    duration: 0.3,
-                },
-                "<",
-            )
-            .to(
-                "#preloader",
-                {
-                    yPercent: -100,
-                    duration: 0.6,
-                    ease: "power4.inOut",
-                },
-                "-=0.1",
-            );
+        }).to(
+            "#preloader",
+            {
+                yPercent: -100,
+                duration: 0.7,
+                ease: "power4.inOut",
+            },
+            "-=0.2",
+        );
     });
 </script>

@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute inset-0 pointer-events-none -z-10">
     <!-- Hero Background - Gray with curved shape on right -->
     <div class="absolute top-0 right-0 w-[60%] h-screen pointer-events-none">
         <svg
@@ -18,40 +18,18 @@
         </svg>
     </div>
 
-    <!-- Services Background - Blue gradient curve on right + dots pattern -->
-    <div class="absolute top-[100vh] right-0 w-full h-[800px] pointer-events-none">
-        <svg
-            viewBox="0 0 1440 800"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="absolute top-0 right-0 w-full h-full"
-            preserveAspectRatio="none"
-        >
-            <path
-                d="M520 0C520 0 640 620 1440 520V0H520Z"
-                fill="url(#blueGradientServices)"
-            />
-            <defs>
-                <linearGradient
-                    id="blueGradientServices"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                >
-                    <stop
-                        offset="0%"
-                        style="stop-color:#E5F0FF;stop-opacity:1"></stop>
-                    <stop
-                        offset="100%"
-                        style="stop-color:#DCEBFF;stop-opacity:1"></stop>
-                </linearGradient>
-            </defs>
-        </svg>
-        <!-- Dots pattern -->
+    <!-- Fondo global para la zona \"¿Qué hacemos?\" (dots + semicírculo) -->
+    <div class="absolute top-[95vh] inset-x-0 h-[700px] pointer-events-none">
+        <!-- Dots en todo el ancho -->
         <div
-            class="absolute inset-0 opacity-[0.4] pointer-events-none"
-            style="background-image: radial-gradient(#CBD5E1 1.5px, transparent 1.5px); background-size: 26px 26px;"
+            class="absolute inset-0 w-full h-full z-10"
+            style="background-image: radial-gradient(#CBD5E1 2px, transparent 2px); background-size: 30px 30px; opacity: 0.55;"
+        >
+        </div>
+
+        <!-- Semicírculo azul suave a la derecha -->
+        <div
+            class="absolute -top-[10%] right-[-20%] w-[70%] h-[65%] bg-gradient-to-b from-[#E6F0FA] to-[#D7E5F6] rounded-l-[999px] z-0"
         >
         </div>
     </div>
@@ -71,47 +49,9 @@
 
 <!-- Base background colors for sections -->
 <style>
+    /* Fondo base unificado para toda la página */
     body {
-        background-color: #F9FAFB;
-    }
-    
-    /* Hero section background */
-    main > section:first-of-type {
-        background-color: #F9FAFB;
-    }
-    
-    /* ProcessSection background */
-    main > section:nth-of-type(2) {
         background-color: #F8FAFC;
-    }
-    
-    /* Services section background */
-    main > section:nth-of-type(3) {
-        background-color: white;
-    }
-    
-    /* HowWeDoIt - mantiene su fondo oscuro propio */
-    
-    /* SuccessCases background */
-    main > section:nth-of-type(5) {
-        background-color: white;
-    }
-    
-    /* Testimonials - sin fondo específico */
-    
-    /* Cases background */
-    main > section:nth-of-type(7) {
-        background-color: #F1F5F9;
-    }
-    
-    /* ClientsBlog background */
-    main > section:nth-of-type(8) {
-        background-color: #F1F5F9;
-    }
-    
-    /* Contact background */
-    main > section:last-of-type {
-        background-color: #F5F7FA;
     }
 </style>
 

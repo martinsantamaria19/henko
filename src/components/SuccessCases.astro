@@ -44,8 +44,8 @@ const cases = [
     >
     </div>
 
-    <div class="container mx-auto px-4 md:px-8 relative z-10">
-        <div class="mb-20 pl-4 md:pl-0">
+    <div class="mx-auto relative z-10">
+        <div class="container mx-auto mb-20">
             <h2
                 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4 max-w-4xl"
             >
@@ -150,6 +150,8 @@ const cases = [
 </section>
 
 <script>
+    import { gsap } from "gsap";
+
     function initInfiniteCarousel() {
         const carouselEl = document.getElementById(
             "infiniteCarousel",
@@ -164,21 +166,18 @@ const cases = [
         let animationId;
 
         // 1. Duplicar contenido para efecto infinito
-        // Clonamos los elementos suficientes para llenar la pantalla al menos dos veces
         const items = Array.from(
             carousel ? carousel.children : [],
         ) as HTMLElement[];
         const containerWidth = carousel.offsetWidth;
         const totalContentWidth = carousel.scrollWidth;
 
-        // Si el contenido es poco, clonamos varias veces para asegurar el scroll suave
         items.forEach((item) => {
             const clone = (item as HTMLElement).cloneNode(true) as HTMLElement;
-            clone.setAttribute("aria-hidden", "true"); // Accesibilidad: ocultar duplicados
+            clone.setAttribute("aria-hidden", "true");
             carousel.appendChild(clone);
         });
 
-        // Si aún es muy corto, clonamos otra vez (seguridad para pantallas muy anchas)
         if (totalContentWidth < containerWidth * 2) {
             items.forEach((item) => {
                 const clone = (item as HTMLElement).cloneNode(
@@ -193,15 +192,10 @@ const cases = [
         function step() {
             if (!isHovered) {
                 scrollAmount += SPEED;
-
-                // El punto de reinicio es la mitad del contenido duplicado
-                // Cuando hemos scrolleado la longitud del set original de items, reseteamos a 0
-                // Nota: scrollWidth / 2 asume que duplicamos el contenido exactamente una vez (o pares)
-                // Para ser más precisos, medimos el primer item original hasta el último original.
                 const firstSetWidth = items.reduce(
                     (acc, item) => acc + (item as HTMLElement).offsetWidth + 32,
                     0,
-                ); // 32 es el gap (gap-8 = 2rem = 32px)
+                );
 
                 if (scrollAmount >= firstSetWidth) {
                     scrollAmount = 0;
@@ -212,7 +206,6 @@ const cases = [
             animationId = requestAnimationFrame(step);
         }
 
-        // Iniciar animación
         animationId = requestAnimationFrame(step);
 
         // 3. Control de Pausa e Interacción
@@ -226,10 +219,10 @@ const cases = [
 
         carousel.addEventListener("mousedown", (e) => {
             isDown = true;
-            isHovered = true; // Pausar autoscroll mientras arrastra
+            isHovered = true;
             carousel.style.cursor = "grabbing";
             startX = e.pageX - carousel.offsetLeft;
-            startScrollLeft = scrollAmount; // Usamos nuestra variable tracker
+            startScrollLeft = scrollAmount;
         });
 
         carousel.addEventListener("mouseleave", () => {
@@ -240,7 +233,6 @@ const cases = [
 
         carousel.addEventListener("mouseup", () => {
             isDown = false;
-            // No seteamos isHovered = false aquí inmediatamente para evitar saltos bruscos si el mouse sigue encima
             carousel.style.cursor = "grab";
         });
 
@@ -248,15 +240,54 @@ const cases = [
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2; // Velocidad del drag
+            const walk = (x - startX) * 2;
             scrollAmount = startScrollLeft - walk;
-            // Manejar límites en el drag manual para que no se rompa la ilusión infinita
             if (scrollAmount < 0) scrollAmount = 0;
             carousel.scrollLeft = scrollAmount;
         });
+
+        // 4. 3D Tilt Effect
+        const cards = document.querySelectorAll(".carousel-item > div");
+
+        cards.forEach((card) => {
+            const el = card as HTMLElement;
+
+            el.addEventListener("mousemove", (e) => {
+                if (isDown) return; // Disable tilt while dragging
+
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                gsap.to(el, {
+                    rotationX: rotateX,
+                    rotationY: rotateY,
+                    scale: 1.02,
+                    duration: 0.4,
+                    ease: "power2.out",
+                    transformPerspective: 1000,
+                    transformOrigin: "center",
+                });
+            });
+
+            el.addEventListener("mouseleave", () => {
+                gsap.to(el, {
+                    rotationX: 0,
+                    rotationY: 0,
+                    scale: 1,
+                    duration: 0.7,
+                    ease: "elastic.out(1, 0.5)",
+                });
+            });
+        });
     }
 
-    // Inicializar cuando el DOM esté listo
     if (typeof window !== "undefined") {
         document.addEventListener("DOMContentLoaded", initInfiniteCarousel);
     }

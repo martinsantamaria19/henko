@@ -6,7 +6,7 @@
   --color-accent: #FFFFFF;
   --color-text-main: #333333;
   --color-background-light: #F5F7FA;
-  
+
   --font-sans: 'Montserrat', sans-serif;
 }
 
@@ -15,6 +15,6 @@
     font-family: var(--font-sans);
     background-color: var(--color-background-light);
     color: var(--color-text-main);
-    /* scroll-behavior: smooth; Removed to allow GSAP full control */
+    scroll-behavior: smooth;
   }
 }

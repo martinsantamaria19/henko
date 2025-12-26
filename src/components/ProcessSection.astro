@@ -6,161 +6,175 @@ import evolucionIcon from "../assets/evolucion-icon.webp";
 import propositoIcon from "../assets/proposito-icon.webp";
 import pertinenciaIcon from "../assets/pertinencia-icon.webp";
 
-const values = [
-    {
-        id: "innovacion",
-        icon: innovacionIcon,
-        title: "Innovación",
-        description: "Estrategias digitales actualizadas que se adaptan a tu rubro.",
-        color: "bg-blue-50",
-        accent: "text-blue-500"
-    },
-    {
-        id: "impacto",
-        icon: impactoIcon,
-        title: "Impacto",
-        description: "Campañas de publicidad online que generan clientes y ventas.",
-        color: "bg-indigo-50",
-        accent: "text-indigo-500"
-    },
-    {
-        id: "trascendencia",
-        icon: trascendenciaIcon,
-        title: "Trascendencia",
-        description: "Posicionamos tu marca entre las mejores de Uruguay.",
-        color: "bg-purple-50",
-        accent: "text-purple-500"
-    }
-];
+// Definimos los estilos comunes para las cards para no repetir tanto código
+// Cada esquina tiene un radio diferente: top-left, top-right, bottom-right, bottom-left
+const cardStyles = "flex-1 bg-white rounded-tl-[20px] rounded-tr-[50px] rounded-br-[15px] rounded-bl-[80px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-6 pl-10 border-b-2 border-gray-50 relative top-4";
+const iconWrapperStyles = "flex-shrink-0 relative z-10 -mr-8 drop-shadow-xl hover:scale-110 transition-transform duration-300";
+const iconImageStyles = "w-20 h-20 object-contain";
 ---
 
-<section class="relative py-24 md:py-32 bg-slate-50 overflow-hidden" id="nuestros-valores">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="mb-24 text-center max-w-3xl mx-auto">
-            <h2 class="js-fade-up text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight opacity-0">
-                ¿Por qué elegirnos?
-            </h2>
-            <p class="js-fade-up text-lg md:text-xl text-slate-600 leading-relaxed opacity-0">
-                Somos la agencia de marketing digital que tu empresa necesita
-            </p>
-        </div>
+<section class="py-20 relative overflow-hidden">
+    <div
+        class="container mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center"
+    >
+        <div class="relative pr-4">
+            <svg 
+                class="absolute top-0 left-[2.5rem] h-full w-auto -z-0 pointer-events-none opacity-80" 
+                viewBox="0 0 120 800" 
+                fill="none" 
+                preserveAspectRatio="none"
+            >
 
-        <div class="relative pb-24">
-            {values.map((value, index) => (
-                <div 
-                    class="sticky-card sticky w-full max-w-5xl mx-auto mb-24 md:mb-32 last:mb-0 perspective-1000"
-                    style={`top: ${120 + index * 15}px; z-index: ${index + 1};`}
-                >
-                    <div class={`card-inner relative overflow-hidden rounded-[2.5rem] p-8 md:p-16 shadow-2xl transition-all duration-500 border border-white/60 backdrop-blur-xl ${value.color}`}>
-                        
-                        <!-- Decorative Background Gradient -->
-                        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-white/60 rounded-full blur-3xl pointer-events-none mix-blend-overlay"></div>
-                        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-white/60 rounded-full blur-3xl pointer-events-none mix-blend-overlay"></div>
+            </svg>
 
-                        <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
-                            <!-- Icon Container -->
-                            <div class="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-white shadow-xl flex items-center justify-center transform transition-transform hover:scale-110 duration-500 group">
-                                <img 
-                                    src={value.icon.src} 
-                                    alt={value.title} 
-                                    class="w-12 h-12 md:w-16 md:h-16 object-contain transition-transform duration-500 group-hover:rotate-12"
-                                />
-                            </div>
-
-                            <!-- Content -->
-                            <div class="flex-1 text-center md:text-left pt-2">
-                                <div class="flex items-center justify-center md:justify-start gap-6 mb-6 relative">
-                                    <span class={`text-8xl md:text-9xl font-black opacity-5 absolute -top-8 -left-8 md:-left-12 select-none ${value.accent}`}>
-                                        {String(index + 1).padStart(2, '0')}
-                                    </span>
-                                    <h3 class="text-3xl md:text-5xl font-black text-slate-900 relative z-10">
-                                        {value.title}
-                                    </h3>
-                                </div>
-                                <p class="text-lg md:text-2xl text-slate-700 leading-relaxed font-medium max-w-2xl">
-                                    {value.description}
-                                </p>
-                            </div>
-                        </div>
+            <div class="space-y-8 relative z-10">
+                <div class="flex items-start group">
+                    <div class={iconWrapperStyles}>
+                        <img
+                            src={innovacionIcon.src}
+                            alt="Innovación"
+                            class={iconImageStyles}
+                        />
+                    </div>
+                    <div class={cardStyles}>
+                        <h3 class="text-xl font-bold text-primary-dark italic">
+                            Innovación
+                        </h3>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                            It is a long established fact that a reader will be
+                            distracted by the readable content of a page when looking at its layout.
+                        </p>
                     </div>
                 </div>
-            ))}
+
+                <div class="flex items-start group ml-8">
+                    <div class={iconWrapperStyles}>
+                        <img
+                            src={impactoIcon.src}
+                            alt="Impacto"
+                            class={iconImageStyles}
+                        />
+                    </div>
+                     <div class={cardStyles}>
+                        <h3 class="text-xl font-bold text-primary-dark italic">
+                            Impacto
+                        </h3>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                            It is a long established fact that a reader will be
+                            distracted by the readable content of a page when looking at its layout.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-start group ml-16">
+                    <div class={iconWrapperStyles}>
+                        <img
+                            src={trascendenciaIcon.src}
+                            alt="Trascendencia"
+                            class={iconImageStyles}
+                        />
+                    </div>
+                     <div class={cardStyles}>
+                        <h3 class="text-xl font-bold text-primary-dark italic">
+                            Trascendencia
+                        </h3>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                            It is a long established fact that a reader will be
+                            distracted by the readable content of a page when looking at its layout.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-start group ml-16">
+                    <div class={iconWrapperStyles}>
+                        <img
+                            src={evolucionIcon.src}
+                            alt="Evolución"
+                            class={iconImageStyles}
+                        />
+                    </div>
+                     <div class={cardStyles}>
+                        <h3 class="text-xl font-bold text-primary-dark italic">
+                            Evolución
+                        </h3>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                            It is a long established fact that a reader will be
+                            distracted by the readable content of a page when looking at its layout.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-start group ml-8">
+                    <div class={iconWrapperStyles}>
+                        <img
+                            src={propositoIcon.src}
+                            alt="Propósito"
+                            class={iconImageStyles}
+                        />
+                    </div>
+                     <div class={cardStyles}>
+                        <h3 class="text-xl font-bold text-primary-dark italic">
+                            Propósito
+                        </h3>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                            It is a long established fact that a reader will be
+                            distracted by the readable content of a page when looking at its layout.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-start group">
+                    <div class={iconWrapperStyles}>
+                        <img
+                            src={pertinenciaIcon.src}
+                            alt="Pertinencia"
+                            class={iconImageStyles}
+                        />
+                    </div>
+                     <div class={cardStyles}>
+                        <h3 class="text-xl font-bold text-primary-dark italic">
+                            Pertinencia
+                        </h3>
+                        <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                            It is a long established fact that a reader will be
+                            distracted by the readable content of a page when looking at its layout.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:pl-12">
+            <h2 class="text-4xl font-bold text-primary-dark mb-6">
+                ¿Por qué Henko?
+            </h2>
+            <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+                    magna aliquam erat volutpat.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+                    magna aliquam erat volutpat.
+                </p>
+            </div>
+
+            <a
+                href="#"
+                class="inline-flex items-center gap-2 bg-primary-light text-white px-8 py-4 rounded-full font-semibold mt-10 hover:bg-primary-dark transition-colors shadow-md"
+            >
+                CONTAME MÁS
+                <span>→</span>
+            </a>
+
+            <div class="flex gap-3 mt-16 justify-end opacity-80">
+                <div class="w-10 h-10 rounded-full bg-primary-light opacity-50">
+                </div>
+                <div class="w-10 h-10 rounded-full bg-primary-dark"></div>
+                <div class="w-10 h-10 rounded-full bg-primary-light"></div>
+            </div>
         </div>
     </div>
 </section>
-
-<script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    document.addEventListener("DOMContentLoaded", () => {
-        // Header Animation
-        const headerElements = document.querySelectorAll('.js-fade-up');
-        gsap.fromTo(headerElements, 
-            { y: 30, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 1, 
-                stagger: 0.2, 
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: "#nuestros-valores",
-                    start: "top 80%"
-                }
-            }
-        );
-
-        // Cards Stacking Animation
-        const cards = document.querySelectorAll('.sticky-card');
-        
-        cards.forEach((card, index) => {
-            // Initial entrance animation
-            gsap.fromTo(card,
-                { y: 100, opacity: 0, scale: 0.9 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    scale: 1,
-                    duration: 0.8,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 90%",
-                    }
-                }
-            );
-
-            // Stacking effect (scale down when next card comes)
-            if (index < cards.length - 1) {
-                const nextCard = cards[index + 1];
-                const innerCard = card.querySelector('.card-inner');
-
-                gsap.to(innerCard, {
-                    scale: 0.85, // More pronounced scaling
-                    opacity: 0.5, // Keep it slightly more visible
-                    filter: "blur(8px)", // Stronger blur
-                    transformOrigin: "center top",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: nextCard,
-                        start: "top 75%", // Start earlier (when next card is lower)
-                        end: "top 25%", // End later (when next card is higher)
-                        scrub: true
-                    }
-                });
-            }
-        });
-    });
-</script>
-
-<style>
-    .perspective-1000 {
-        perspective: 1000px;
-    }
-    .card-inner {
-        will-change: transform, opacity, filter;
-    }
-</style>

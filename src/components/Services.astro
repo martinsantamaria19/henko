@@ -54,6 +54,21 @@ const services = [
 ---
 
 <section class="py-24 relative overflow-hidden" id="servicios">
+    <!-- Fondo de puntos + semicírculo a la derecha -->
+    <div class="absolute inset-0 pointer-events-none">
+        <!-- Patrón de puntos a la izquierda -->
+        <div
+            class="absolute inset-0 w-full h-full z-10"
+            style="background-image: radial-gradient(#CBD5E1 2px, transparent 2px); background-size: 30px 30px; opacity: 0.55;"
+        >
+        </div>
+
+        <!-- Semicírculo suave a la derecha -->
+        <div
+            class="absolute -top-[-10%] right-[-20%] w-[70%] h-[60%] bg-gradient-to-b from-[#E6F0FA] to-[#D7E5F6] rounded-l-[999px] z-0"
+        >
+        </div>
+    </div>
 
     <div class="container mx-auto px-8 relative z-10">
         <!-- Header -->
@@ -82,11 +97,13 @@ const services = [
         >
             {services.map((service) => (
                 <div
-                    class="relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-[0_24px_60px_rgba(15,23,42,0.18)] transition-all duration-300 transform hover:scale-[1.05] flex flex-col h-full"
+                    class="service-card relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-all duration-300 flex flex-col h-full opacity-0 translate-x-10"
+                    style="transform-style: preserve-3d; perspective: 1000px;"
                 >
                     <!-- Icono circular -->
                     <div
-                        class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100"
+                        class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2"
+                        style="transform: translateZ(20px);"
                     >
                         <img
                             src={service.icon.src}
@@ -96,20 +113,22 @@ const services = [
                     </div>
 
                     <h3
-                        class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center"
+                        class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center transition-colors group-hover:text-blue-900"
+                        style="transform: translateZ(10px);"
                     >
                         {service.title}
                     </h3>
                     <p
                         class="text-s text-gray-500 text-center leading-relaxed mb-6 flex-grow"
+                        style="transform: translateZ(10px);"
                     >
                         {service.description}
                     </p>
 
                     <!-- Botón flecha -->
-                    <div class="flex justify-center mt-auto">
+                    <div class="flex justify-center mt-auto" style="transform: translateZ(20px);">
                         <div
-                            class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:translate-y-[-4px]"
+                            class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-110"
                         >
                             →
                         </div>
@@ -119,3 +138,64 @@ const services = [
         </div>
     </div>
 </section>
+
+<script>
+    import gsap from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // 1. Entrance Animation (Stagger)
+        gsap.to(".service-card", {
+            scrollTrigger: {
+                trigger: "#servicios",
+                start: "top 80%", // Start when top of section hits 80% of viewport
+            },
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power3.out",
+        });
+
+        // 2. 3D Tilt Effect
+        const cards = document.querySelectorAll(".service-card");
+
+        cards.forEach((card) => {
+            card.addEventListener("mousemove", (e) => {
+                const mouseEvent = e as MouseEvent;
+                // Cast to HTMLElement to access offset properties
+                const el = card as HTMLElement;
+                const rect = el.getBoundingClientRect();
+                const x = mouseEvent.clientX - rect.left;
+                const y = mouseEvent.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
+                const rotateY = ((x - centerX) / centerX) * 10;
+
+                gsap.to(el, {
+                    rotationX: rotateX,
+                    rotationY: rotateY,
+                    scale: 1.05,
+                    boxShadow: "0 24px 60px rgba(15,23,42,0.25)",
+                    duration: 0.4,
+                    ease: "power2.out",
+                });
+            });
+
+            card.addEventListener("mouseleave", () => {
+                gsap.to(card, {
+                    rotationX: 0,
+                    rotationY: 0,
+                    scale: 1,
+                    boxShadow: "0 18px 40px rgba(15,23,42,0.08)",
+                    duration: 0.7,
+                    ease: "elastic.out(1, 0.5)",
+                });
+            });
+        });
+    });
+</script>
