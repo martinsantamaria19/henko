@@ -1,57 +1,156 @@
 ---
+
 ---
 
-<div class="absolute inset-0 pointer-events-none -z-10">
-    <!-- Hero Background - Gray with curved shape on right -->
-    <div class="absolute top-0 right-0 w-[60%] h-screen pointer-events-none">
+<div class="absolute inset-0 pointer-events-none" style="z-index: 0;">
+    <!-- Hero Background - Decorative shapes que fluyen entre secciones -->
+    <!-- Círculo gris grande y sutil en el lado izquierdo (detrás del texto) -->
+    <div
+        class="absolute top-[15%] left-[2%] w-[700px] h-[700px] rounded-full pointer-events-none"
+        style="background: radial-gradient(circle, rgba(226, 232, 240, 0.6) 0%, rgba(226, 232, 240, 0.4) 30%, rgba(226, 232, 240, 0.25) 50%, rgba(226, 232, 240, 0.15) 70%, transparent 100%); filter: blur(15px); z-index: 0;"
+    >
+    </div>
+
+    <!-- Forma curvada suave en el lado derecho (detrás de la imagen) - 150vh, principio y fin en el borde derecho -->
+    <div
+        class="absolute top-0 right-0 w-[65%] pointer-events-none"
+        style="z-index: 0; height: 80vh; min-height: 110vh;"
+    >
         <svg
-            viewBox="0 0 1000 1000"
+            viewBox="0 0 1000 1500"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             class="w-full h-full"
             preserveAspectRatio="none"
         >
+            <!-- Gradiente suave para bordes mezclados que se desvanece gradualmente -->
+            <defs>
+                <linearGradient
+                    id="curvedGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                >
+                    <stop
+                        offset="0%"
+                        style="stop-color:#E2E8F0;stop-opacity:0.9"></stop>
+                    <stop
+                        offset="40%"
+                        style="stop-color:#E2E8F0;stop-opacity:0.75"></stop>
+                    <stop
+                        offset="70%"
+                        style="stop-color:#E2E8F0;stop-opacity:0.4"></stop>
+                    <stop
+                        offset="90%"
+                        style="stop-color:#E2E8F0;stop-opacity:0.1"></stop>
+                    <stop
+                        offset="100%"
+                        style="stop-color:#E2E8F0;stop-opacity:0"></stop>
+                </linearGradient>
+            </defs>
+            <!-- Curva rediseñada: Más ancha, extendiéndose hasta x=200 -->
             <path
-                d="M200 0 C 200 400 0 600 0 1000 L 1000 1000 L 1000 0 Z"
-                fill="#E2E8F0"
-                opacity="0.3"></path>
+                d="M1000 0 L 1000 1500 C 800 1400 400 1300 200 1200 C 100 1100 100 900 200 800 C 300 700 300 500 200 400 C 100 300 100 100 200 0 Z"
+                fill="url(#curvedGradient)"></path>
         </svg>
     </div>
 
-    <!-- Fondo global para la zona \"¿Qué hacemos?\" (dots + semicírculo) -->
-    <div class="absolute top-[95vh] inset-x-0 h-[700px] pointer-events-none">
-        <!-- Dots en todo el ancho -->
-        <div
-            class="absolute inset-0 w-full h-full z-10"
-            style="background-image: radial-gradient(#CBD5E1 2px, transparent 2px); background-size: 30px 30px; opacity: 0.55;"
-        >
-        </div>
-
-        <!-- Semicírculo azul suave a la derecha -->
-        <div
-            class="absolute -top-[10%] right-[-20%] w-[70%] h-[65%] bg-gradient-to-b from-[#E6F0FA] to-[#D7E5F6] rounded-l-[999px] z-0"
-        >
-        </div>
-    </div>
-
     <!-- SuccessCases Background - Concentric circles -->
-    <div class="absolute top-[280vh] left-0 w-full h-[800px] pointer-events-none">
-        <svg viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
-            <circle cx="350" cy="-50" r="550" stroke="#E2E8F0" stroke-width="1.5" />
-            <circle cx="350" cy="-50" r="750" stroke="#E2E8F0" stroke-width="1.5" />
-            <circle cx="350" cy="-50" r="950" stroke="#E2E8F0" stroke-width="1.5" />
+    <div
+        class="absolute top-[280vh] left-0 w-full h-[800px] pointer-events-none"
+    >
+        <svg
+            viewBox="0 0 1440 800"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full h-full"
+            preserveAspectRatio="xMidYMid slice"
+        >
+            <circle
+                cx="350"
+                cy="-50"
+                r="550"
+                stroke="#E2E8F0"
+                stroke-width="1.5"></circle>
+            <circle
+                cx="350"
+                cy="-50"
+                r="750"
+                stroke="#E2E8F0"
+                stroke-width="1.5"></circle>
+            <circle
+                cx="350"
+                cy="-50"
+                r="950"
+                stroke="#E2E8F0"
+                stroke-width="1.5"></circle>
         </svg>
     </div>
 
     <!-- ClientsBlog Background - Gray blur element -->
-    <div class="absolute top-[360vh] bottom-0 right-0 w-[50%] h-[80%] bg-gray-200/50 rounded-tl-[100px] blur-3xl pointer-events-none translate-x-1/4 translate-y-1/4"></div>
+    <div
+        class="absolute top-[360vh] bottom-0 right-0 w-[50%] h-[80%] bg-gray-200/50 rounded-tl-[100px] blur-3xl pointer-events-none translate-x-1/4 translate-y-1/4"
+    >
+    </div>
+
+    <!-- ClientsBlog Background - Círculo sólido a la derecha -->
+    <div
+        class="absolute top-[760vh] right-[-20%] w-[800px] h-[800px] rounded-full pointer-events-none"
+        style="background-color: #94A3B8; opacity: 0.1; z-index: 0;"
+    >
+    </div>
+
+    <!-- Contact Background - Patrón de puntos -->
+    <div
+        class="absolute top-[820vh] left-0 right-0 h-[600px] z-0 pointer-events-none"
+        style="background-image: radial-gradient(#CBD5E1 3px, transparent 2px); background-size: 30px 30px; opacity: 0.55;"
+    >
+    </div>
+</div>
+
+<!-- Radar style background entre "¿Cómo lo hacemos?" y "Casos de éxito" - Fuera del contenedor principal -->
+<div
+    class="absolute top-[460vh] left-0 w-full pointer-events-none"
+    style="z-index: 0; transform: translateX(-550px);"
+>
+        <svg
+            viewBox="0 0 1440 1000"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full"
+            style="height: auto; min-height: 840px;"
+            preserveAspectRatio="xMidYMid meet"
+        >
+            <!-- Círculos concéntricos (40% más grandes) -->
+            <circle
+                cx="720"
+                cy="500"
+                r="200"
+                stroke="#94A3B8"
+                stroke-width="1"
+                opacity="0.3"></circle>
+            <circle
+                cx="720"
+                cy="500"
+                r="280"
+                stroke="#94A3B8"
+                stroke-width="1"
+                opacity="0.3"></circle>
+            <circle
+                cx="720"
+                cy="500"
+                r="360"
+                stroke="#94A3B8"
+                stroke-width="1"
+                opacity="0.3"></circle>
+        </svg>
 </div>
 
 <!-- Base background colors for sections -->
 <style>
     /* Fondo base unificado para toda la página */
     body {
-        background-color: #F8FAFC;
+        background-color: #EDF1F4;
     }
 </style>
-

@@ -11,59 +11,51 @@ import strategicPlanning from "../assets/strategic-planning.webp";
 
 const services = [
     {
-        icon: brandBuilding,
-        title: "Publicidad Online y Performance Marketing",
-        description: "Campañas en Google Ads, Facebook, Instagram y WhatsApp Ads enfocadas en resultados. Generamos clientes reales con inversión eficiente."
-    },
-    {
-        icon: digitalGrowth,
-        title: "Brand Building",
-        description: "Construimos marcas sólidas con identidad y storytelling."
-    },
-    {
         icon: performanceMarketing,
-        title: "Digital Growth",
-        description: "Estrategias para escalar tu negocio en el entorno digital."
-    },
-    {
-        icon: creativityAndBrandStrategy,
-        title: "Creatividad y Brand Strategy",
-        description: "Conceptos creativos que potencian tu comunicación."
-    },
-    {
-        icon: strategicPlanning,
-        title: "Planificación Estratégica",
-        description: "Diseñamos planes de acción con objetivos claros."
+        title: "Publicidad Online y Performance Marketing",
+        description: "Gestionamos campañas de Google Ads, Facebook, Instagram y WhatsApp con foco en ventas, clientes potenciales y retorno de inversión."
     },
     {
         icon: socialMediaContent,
-        title: "Analytics & Reporting",
-        description: "Datos y métricas para tomar mejores decisiones."
+        title: "Gestión de redes sociales",
+        description: "Diseñamos, publicamos y analizamos contenido estratégico para potenciar tu presencia digital y generar engagement real."
+    },
+    {
+        icon: strategicPlanning,
+        title: "Estrategia digital",
+        description: "Diseñamos planes de marketing digital adaptados a cada empresa para lograr que crezcan en su sector."
     },
     {
         icon: analyticsAndReporting,
-        title: "Consultoría",
-        description: "Acompañamos tu transformación digital."
+        title: "Analytics & Reporting",
+        description: "Analizamos el rendimiento de tus campañas y redes sociales con métricas claras para optimizar cada acción."
+    },
+    {
+        icon: creativityAndBrandStrategy,
+        title: "Diseño y producción audiovisual",
+        description: "Creamos piezas gráficas y contenidos audiovisuales (videos, animaciones, spots) para potenciar la comunicación digital de tu marca."
+    },
+    {
+        icon: brandBuilding,
+        title: "Branding y construcción de marca",
+        description: "Construimos marcas sólidas con identidad y storytelling para conectar con las audiencias correctas"
     },
     {
         icon: consulting,
-        title: "Social Media Content",
-        description: "Creamos contenidos que conectan con tu audiencia."
+        title: "Consultorías",
+        description: "Te asesoramos en estrategias digitales personalizadas para que tu negocio crezca con decisiones claras y medibles."
+    },
+    {
+        icon: digitalGrowth,
+        title: "Capacitaciones",
+        description: "Entrenamos a equipos en herramientas, redes y performance para que puedan liderar su propia transformación digital."
     }
 ];
 ---
 
-<section class="py-24 relative overflow-hidden" id="servicios">
-    <!-- Fondo de puntos + semicírculo a la derecha -->
+<section class="pt-24 pb-32 relative overflow-hidden" id="servicios">
+    <!-- Semicírculo suave a la derecha -->
     <div class="absolute inset-0 pointer-events-none">
-        <!-- Patrón de puntos a la izquierda -->
-        <div
-            class="absolute inset-0 w-full h-full z-10"
-            style="background-image: radial-gradient(#CBD5E1 2px, transparent 2px); background-size: 30px 30px; opacity: 0.55;"
-        >
-        </div>
-
-        <!-- Semicírculo suave a la derecha -->
         <div
             class="absolute -top-[-10%] right-[-20%] w-[70%] h-[60%] bg-gradient-to-b from-[#E6F0FA] to-[#D7E5F6] rounded-l-[999px] z-0"
         >
@@ -72,18 +64,15 @@ const services = [
 
     <div class="container mx-auto px-8 relative z-10">
         <!-- Header -->
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
-            <div>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">
-                    ¿Qué hacemos?
-                </h2>
-            </div>
-
+        <div class="mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
+                ¿Qué hacemos?
+            </h2>
             <a
                 href="#contact"
                 class="inline-flex items-center gap-3 bg-[#0F172A] text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-opacity-95 transition-colors shadow-lg"
             >
-                PEDÍ UN PRESUPUESTO
+                Quiero saber más en una reunión
                 <span
                     class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-lg"
                     >→</span
@@ -95,9 +84,9 @@ const services = [
         <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 w-full"
         >
-            {services.map((service) => (
+            {services.map((service, index) => (
                 <div
-                    class="service-card relative group bg-white rounded-[2rem] mt-10 pt-14 pb-10 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-all duration-300 flex flex-col h-full opacity-0 translate-x-10"
+                    class={`service-card relative group bg-white rounded-lg pt-12 pb-4 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out flex flex-col h-full opacity-0 translate-x-10 cursor-pointer ${index < 4 ? 'mt-10' : 'mt-[90px]'}`}
                     style="transform-style: preserve-3d; perspective: 1000px;"
                 >
                     <!-- Icono circular -->
@@ -113,13 +102,13 @@ const services = [
                     </div>
 
                     <h3
-                        class="mt-2 mb-3 text-lg font-bold text-slate-900 text-center transition-colors group-hover:text-blue-900"
+                        class="mt-2 mb-2 text-lg font-bold text-slate-900 text-center transition-colors duration-500 ease-out group-hover:text-white"
                         style="transform: translateZ(10px);"
                     >
                         {service.title}
                     </h3>
                     <p
-                        class="text-s text-gray-500 text-center leading-relaxed mb-6 flex-grow"
+                        class="text-s text-gray-500 text-center leading-relaxed mb-2 flex-grow transition-colors duration-500 ease-out group-hover:text-white"
                         style="transform: translateZ(10px);"
                     >
                         {service.description}
@@ -128,7 +117,7 @@ const services = [
                     <!-- Botón flecha -->
                     <div class="flex justify-center mt-auto" style="transform: translateZ(20px);">
                         <div
-                            class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-110"
+                            class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-white group-hover:text-[#083763] group-hover:scale-110"
                         >
                             →
                         </div>
@@ -179,9 +168,10 @@ const services = [
                 gsap.to(el, {
                     rotationX: rotateX,
                     rotationY: rotateY,
+                    backgroundColor: "#083763",
                     scale: 1.05,
                     boxShadow: "0 24px 60px rgba(15,23,42,0.25)",
-                    duration: 0.4,
+                    duration: 0.5,
                     ease: "power2.out",
                 });
             });
@@ -191,9 +181,10 @@ const services = [
                     rotationX: 0,
                     rotationY: 0,
                     scale: 1,
+                    backgroundColor: "#ffffff",
                     boxShadow: "0 18px 40px rgba(15,23,42,0.08)",
-                    duration: 0.7,
-                    ease: "elastic.out(1, 0.5)",
+                    duration: 0.6,
+                    ease: "power2.out",
                 });
             });
         });

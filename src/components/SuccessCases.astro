@@ -1,15 +1,15 @@
 ---
 import arquiBrokersRounded from "../assets/arqui-brokers-rounded.webp";
 import castellsInmueblesRound from "../assets/castells-inmuebles-round.webp";
-import equipamientoGastronomicoSantucciRound from "../assets/equipamiento-gastronomico-santucci-round.webp";
+import seguraSatelitalRounded from "../assets/segura-satelital-rounded.webp";
+import globalCargoRounded from "../assets/global-cargo-rounded.webp";
+import fideciuRounded from "../assets/fideciu-rounded.webp";
 
 const cases = [
     {
         id: 1,
         name: "ARQUIBROKERS",
-        challenge: "Captar clientes en un mercado competitivo.",
-        strategy: "Performance marketing en Google y redes sociales.",
-        results: "+120% leads calificados en 6 meses.",
+        description: "Incrementamos un 120% la generación de leads en el sector inmobiliario.",
         circleColor: "#00205B",
         gradient: null,
         image: arquiBrokersRounded,
@@ -17,30 +17,43 @@ const cases = [
     {
         id: 2,
         name: "CASTELLS INMUEBLES",
-        challenge: "Potenciar la visibilidad y el retorno de inversión.",
-        strategy: "Optimización de presencia digital y pauta.",
-        results: "Duplicamos su presencia y mejoramos el ROI un 80%.",
+        description: "Duplicamos la presencia digital y mejoramos el ROI en campañas online.",
         circleColor: null,
         gradient: "linear-gradient(180deg, #2B5C96 0%, #183052 100%)",
         image: castellsInmueblesRound,
     },
     {
-        id: 3,
-        name: "SANTUCCI",
-        challenge: "Impulsar el crecimiento de la comunidad y ventas.",
-        strategy: "Campañas creativas de contenido y ads.",
-        results: "Aumento significativo de comunidad y ventas online.",
-        circleColor: "#EF5533",
+        id: 1,
+        name: "SEGURA SATELITAL",
+        description: "Incrementamos un 120% la generación de leads en el sector inmobiliario.",
+        circleColor: "#00205B",
         gradient: null,
-        image: equipamientoGastronomicoSantucciRound,
+        image: seguraSatelitalRounded,
+    },
+    {
+        id: 1,
+        name: "GLOBAL CARGO",
+        description: "Incrementamos un 120% la generación de leads en el sector inmobiliario.",
+        circleColor: "#00205B",
+        gradient: null,
+        image: globalCargoRounded,
+    },
+    {
+        id: 1,
+        name: "FIDECIU",
+        description: "Incrementamos un 120% la generación de leads en el sector inmobiliario.",
+        circleColor: "#00205B",
+        gradient: null,
+        image: fideciuRounded,
     },
 ];
 ---
 
 <section class="py-24 relative overflow-hidden" id="casos">
+    <!-- Patrón de puntos en el background -->
     <div
-        class="absolute inset-0 opacity-[0.3] z-0 pointer-events-none"
-        style="background-image: radial-gradient(#94A3B8 1.5px, transparent 1.5px); background-size: 32px 32px;"
+        class="absolute top-75 left-0 right-0 h-[450px] z-0 pointer-events-none"
+        style="background-image: radial-gradient(#CBD5E1 3px, transparent 2px); background-size: 30px 30px; opacity: 0.55;"
     >
     </div>
 
@@ -49,9 +62,13 @@ const cases = [
             <h2
                 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight mb-4 max-w-4xl"
             >
-                Casos de éxito: campañas digitales que generan resultados en
-                Uruguay
+                Casos de éxito
             </h2>
+            <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
+                <p>
+                    Resultados que hablan por sí solos
+                </p>
+            </div>
         </div>
 
         <div class="relative pt-10 overflow-hidden group">
@@ -78,66 +95,46 @@ const cases = [
                                             class="w-full h-full object-cover"
                                         />
                                     ) : (
-                                        <span class="px-4 text-center">
+                                        <span class="px-4 text-left">
                                             {(item as any).name}
                                         </span>
                                     )}
                                 </div>
 
-                                <div class="bg-white rounded-[35px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 pt-28 pb-8 text-center border border-slate-50 flex-1 flex flex-col relative z-10">
-                                    <h3 class="text-2xl font-extrabold text-[#0F172A] uppercase tracking-wide mb-8">
+                                <div class="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 pt-28 pb-8 text-left border border-slate-50 flex-1 flex flex-col relative z-10" style="border-radius: 30px 130px 30px 30px;">
+                                    <h3 class="text-2xl font-extrabold text-[#0F172A] uppercase tracking-wide mb-6 text-left">
                                         {item.name}
                                     </h3>
 
-                                    <div class="space-y-6 flex-grow text-left px-2">
-                                        <div>
-                                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                                                Desafío
-                                            </h4>
+                                    <div class="flex items-center justify-between gap-6 flex-grow">
+                                        <div class="flex-1 text-left">
                                             <p class="text-slate-700 text-sm font-medium leading-relaxed">
-                                                {item.challenge}
+                                                {item.description}
                                             </p>
                                         </div>
-                                        <div>
-                                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                                                Estrategia
-                                            </h4>
-                                            <p class="text-slate-700 text-sm font-medium leading-relaxed">
-                                                {item.strategy}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
-                                                Resultados
-                                            </h4>
-                                            <p class="text-emerald-600 text-sm font-bold leading-relaxed">
-                                                {item.results}
-                                            </p>
-                                        </div>
-                                    </div>
 
-                                    <div class="mt-8 flex justify-center w-full">
-                                        <a
-                                            href="#"
-                                            class="inline-flex items-center gap-2 text-[#0F172A] font-bold hover:text-primary-light transition-colors"
-                                        >
-                                            Quiero estos resultados
-                                            <svg
-                                                width="20"
-                                                height="20"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
+                                        <div class="flex-shrink-0">
+                                            <a
+                                                href="#"
+                                                class="w-12 h-12 rounded-full bg-[#0B1C3E] text-white flex items-center justify-center hover:bg-[#083763] transition-colors shadow-lg"
                                             >
-                                                <path
-                                                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                                                    stroke="currentColor"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                />
-                                            </svg>
-                                        </a>
+                                                <svg
+                                                    width="20"
+                                                    height="20"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        d="M5 12H19M19 12L12 5M19 12L12 19"
+                                                        stroke="currentColor"
+                                                        stroke-width="2"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                    />
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -145,6 +142,15 @@ const cases = [
                     ))
                 }
             </div>
+        </div>
+        <div class="text-center">
+            <a
+                href="#"
+                class="inline-flex items-center gap-2 bg-primary-light text-white px-8 py-4 rounded-full font-semibold mt-10 hover:bg-primary-dark transition-colors shadow-md"
+            >
+                Quiero estos resultados
+                <span>→</span>
+            </a>
         </div>
     </div>
 </section>
