@@ -56,6 +56,14 @@ const services = [
 <section class="pt-24 pb-32 relative overflow-hidden" id="servicios">
     <!-- Semicírculo suave a la derecha -->
     <div class="absolute inset-0 pointer-events-none">
+        <!-- Patrón de puntos a la izquierda -->
+        <div
+            class="absolute inset-0 w-full h-full z-10"
+            style="background-image: radial-gradient(#CBD5E1 2px, transparent 2px); background-size: 30px 30px; opacity: 0.55;"
+        >
+        </div>
+
+        <!-- Semicírculo suave a la derecha -->
         <div
             class="absolute -top-[-10%] right-[-20%] w-[70%] h-[60%] bg-gradient-to-b from-[#E6F0FA] to-[#D7E5F6] rounded-l-[999px] z-0"
         >
@@ -82,42 +90,45 @@ const services = [
 
         <!-- Grid de servicios -->
         <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 w-full"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 w-full"
         >
             {services.map((service, index) => (
                 <div
-                    class={`service-card relative group bg-white rounded-lg pt-12 pb-4 px-8 shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out flex flex-col h-full opacity-0 translate-x-10 cursor-pointer ${index < 4 ? 'mt-10' : 'mt-[90px]'}`}
+                    class={`service-card relative group bg-white rounded-3xl aspect-square w-full max-w-[280px] mx-auto pt-6 pb-3 px-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out flex flex-col opacity-0 translate-x-10 cursor-pointer ${index < 4 ? 'mt-10' : 'mt-[90px]'}`}
                     style="transform-style: preserve-3d; perspective: 1000px;"
                 >
                     <!-- Icono circular -->
                     <div
-                        class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2"
+                        class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2"
                         style="transform: translateZ(20px);"
                     >
                         <img
                             src={service.icon.src}
                             alt={service.title}
-                            class="w-10 h-10 object-contain"
+                            class="w-7 h-7 object-contain"
                         />
                     </div>
 
-                    <h3
-                        class="mt-2 mb-2 text-lg font-bold text-slate-900 text-center transition-colors duration-500 ease-out group-hover:text-white"
-                        style="transform: translateZ(10px);"
-                    >
-                        {service.title}
-                    </h3>
-                    <p
-                        class="text-s text-gray-500 text-center leading-relaxed mb-2 flex-grow transition-colors duration-500 ease-out group-hover:text-white"
-                        style="transform: translateZ(10px);"
-                    >
-                        {service.description}
-                    </p>
+                    <!-- Contenido -->
+                    <div class="flex flex-col flex-1 justify-start items-center pt-4 pb-2">
+                        <h3
+                            class="mb-1.5 text-base font-bold text-slate-900 text-center transition-colors duration-500 ease-out group-hover:text-white px-1"
+                            style="transform: translateZ(10px);"
+                        >
+                            {service.title}
+                        </h3>
+                        <p
+                            class="text-xs text-gray-500 text-center leading-snug mb-0 transition-colors duration-500 ease-out group-hover:text-white px-1"
+                            style="transform: translateZ(10px);"
+                        >
+                            {service.description}
+                        </p>
+                    </div>
 
                     <!-- Botón flecha -->
-                    <div class="flex justify-center mt-auto" style="transform: translateZ(20px);">
+                    <div class="flex justify-center mt-auto mb-1" style="transform: translateZ(20px);">
                         <div
-                            class="w-9 h-9 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center text-lg transform transition-all duration-300 group-hover:bg-white group-hover:text-[#083763] group-hover:scale-110"
+                            class="w-7 h-7 rounded-full bg-[#699FBF] text-white flex items-center justify-center text-xs transform transition-all duration-300 group-hover:scale-110"
                         >
                             →
                         </div>
