@@ -8,14 +8,14 @@ import pertinenciaIcon from "../assets/pertinencia-icon.webp";
 
 // Definimos los estilos comunes para las cards para no repetir tanto código
 // Cada esquina tiene un radio diferente: top-left, top-right, bottom-right, bottom-left
-const cardStyles = "flex-1 bg-white rounded-tl-[20px] rounded-tr-[50px] rounded-br-[15px] rounded-bl-[80px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-6 pl-10 border-b-2 border-gray-50 relative top-4 transition-all duration-300 group-hover:bg-[#083763] group-hover:border-[#083763] cursor-pointer";
-const iconWrapperStyles = "flex-shrink-0 relative z-10 -mr-8 drop-shadow-xl hover:scale-110 transition-transform duration-300";
-const iconImageStyles = "w-20 h-20 object-contain";
+const cardStyles = "w-[400px] bg-white rounded-tl-[20px] rounded-tr-[45px] rounded-br-[15px] rounded-bl-[70px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-4 pl-8 border-b-2 border-gray-50 relative top-3 transition-all duration-300 group-hover:bg-[#083763] group-hover:border-[#083763] cursor-pointer";
+const iconWrapperStyles = "flex-shrink-0 relative z-10 -mr-6 drop-shadow-xl hover:scale-110 transition-transform duration-300";
+const iconImageStyles = "w-14 h-14 object-contain";
 ---
 
-<section class="py-20 relative overflow-hidden">
+<section class="py-12 relative overflow-hidden">
     <div
-        class="container mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center"
+        class="container mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
     >
         <div class="relative pr-4">
             <svg 
@@ -27,7 +27,7 @@ const iconImageStyles = "w-20 h-20 object-contain";
 
             </svg>
 
-            <div class="space-y-8 relative z-10">
+            <div class="space-y-5 relative z-10">
                 <div class="flex items-start group cursor-pointer">
                     <div class={iconWrapperStyles}>
                         <img
@@ -36,17 +36,17 @@ const iconImageStyles = "w-20 h-20 object-contain";
                             class={iconImageStyles}
                         />
                     </div>
-                    <div class={cardStyles}>
-                        <h3 class="text-xl font-bold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
+                    <div class={`${cardStyles} mr-0`}>
+                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
                             Innovación
                         </h3>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed transition-colors duration-300 group-hover:text-white">
+                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
                             Aplicamos tendencias, herramientas y enfoques creativos en todo tipo de empresas, adaptándonos a cada industria y a cada desafío
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start group ml-8">
+                <div class="flex items-start group ml-12">
                     <div class={iconWrapperStyles}>
                         <img
                             src={impactoIcon.src}
@@ -54,17 +54,17 @@ const iconImageStyles = "w-20 h-20 object-contain";
                             class={iconImageStyles}
                         />
                     </div>
-                     <div class={cardStyles}>
-                        <h3 class="text-xl font-bold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
+                     <div class={`${cardStyles} mr-6`}>
+                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
                             Impacto
                         </h3>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed transition-colors duration-300 group-hover:text-white">
+                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
                             Estrategias de marketing digital con resultados medibles: más clientes, más ventas y mayor presencia online
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start group ml-16">
+                <div class="flex items-start group ml-24">
                     <div class={iconWrapperStyles}>
                         <img
                             src={trascendenciaIcon.src}
@@ -72,17 +72,17 @@ const iconImageStyles = "w-20 h-20 object-contain";
                             class={iconImageStyles}
                         />
                     </div>
-                     <div class={cardStyles}>
-                        <h3 class="text-xl font-bold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
+                     <div class={`${cardStyles} mr-12`}>
+                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
                             Trascendencia
                         </h3>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed transition-colors duration-300 group-hover:text-white">
+                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
                             No se trata solo de campañas, sino de cambios estratégicos que llevan a las marcas a nuevos niveles
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start group ml-16">
+                <div class="flex items-start group ml-28">
                     <div class={iconWrapperStyles}>
                         <img
                             src={evolucionIcon.src}
@@ -90,17 +90,17 @@ const iconImageStyles = "w-20 h-20 object-contain";
                             class={iconImageStyles}
                         />
                     </div>
-                     <div class={cardStyles}>
-                        <h3 class="text-xl font-bold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
+                     <div class={`${cardStyles} mr-16`}>
+                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
                             Evolución
                         </h3>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed transition-colors duration-300 group-hover:text-white">
+                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
                             Buscamos ayudar a las marcas a evolucionar y crecer en un ecosistema de mercado dinámico
                         </p>
                     </div>
                 </div>
 
-                <div class="flex items-start group ml-8">
+                <div class="flex items-start group ml-12">
                     <div class={iconWrapperStyles}>
                         <img
                             src={propositoIcon.src}
@@ -108,11 +108,11 @@ const iconImageStyles = "w-20 h-20 object-contain";
                             class={iconImageStyles}
                         />
                     </div>
-                     <div class={cardStyles}>
-                        <h3 class="text-xl font-bold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
+                     <div class={`${cardStyles} mr-6`}>
+                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
                             Propósito
                         </h3>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed transition-colors duration-300 group-hover:text-white">
+                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
                             Creamos experiencias de marca que generen conexiones significativas y cambios tangibles
                         </p>
                     </div>
@@ -126,11 +126,11 @@ const iconImageStyles = "w-20 h-20 object-contain";
                             class={iconImageStyles}
                         />
                     </div>
-                     <div class={cardStyles}>
-                        <h3 class="text-xl font-bold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
+                     <div class={`${cardStyles} mr-0`}>
+                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
                             Pertinencia
                         </h3>
-                        <p class="text-sm text-gray-500 mt-2 leading-relaxed transition-colors duration-300 group-hover:text-white">
+                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
                             Soluciones relevantes y a medida, creadas para responder con precisión a las necesidades de tu marca
                         </p>
                     </div>
@@ -138,11 +138,11 @@ const iconImageStyles = "w-20 h-20 object-contain";
             </div>
         </div>
 
-        <div class="lg:pl-12">
-            <h2 class="text-4xl font-bold text-primary-dark mb-6">
+        <div class="lg:pl-8">
+            <h2 class="text-3xl font-black text-primary-dark mb-4">
                 ¿Por qué Henko?
             </h2>
-            <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
+            <div class="space-y-4 text-gray-600 text-base leading-relaxed">
                 <p>
                     En Henko combinamos estrategia con propósito e innovación constante para lograr resultados que impulsan la evolución y trascendencia de tu marca en el mercado. 
                 </p>
@@ -150,21 +150,21 @@ const iconImageStyles = "w-20 h-20 object-contain";
 
             <a
                 href="#"
-                class="inline-flex items-center gap-2 bg-primary-light text-white px-8 py-4 rounded-full font-semibold mt-10 hover:bg-primary-dark transition-colors shadow-md"
+                class="inline-flex items-center gap-2 bg-primary-light text-white px-6 py-3 rounded-full font-semibold text-sm mt-6 hover:bg-primary-dark transition-colors shadow-md"
             >
                 Quiero saber más
                 <span>→</span>
             </a>
 
-            <div class="grid grid-cols-2 gap-0 mt-16 justify-end opacity-80 w-fit ml-auto" style="transform: rotate(20deg);">
+            <div class="grid grid-cols-2 gap-0 mt-12 justify-end opacity-80 w-fit ml-auto" style="transform: rotate(20deg);">
                 <!-- Círculo superior izquierdo - azul claro -->
-                <div class="w-14 h-14 rounded-full bg-[#759EBC]"></div>
+                <div class="w-10 h-10 rounded-full bg-[#759EBC]"></div>
                 <!-- Círculo superior derecho - azul oscuro -->
-                <div class="w-14 h-14 rounded-full bg-[#083763]"></div>
+                <div class="w-10 h-10 rounded-full bg-[#083763]"></div>
                 <!-- Círculo inferior izquierdo - azul claro -->
-                <div class="w-14 h-14 rounded-full bg-[#759EBC]"></div>
+                <div class="w-10 h-10 rounded-full bg-[#759EBC]"></div>
                 <!-- Círculo inferior derecho - azul claro -->
-                <div class="w-14 h-14 rounded-full bg-[#759EBC]"></div>
+                <div class="w-10 h-10 rounded-full bg-[#759EBC]"></div>
             </div>
         </div>
     </div>

@@ -9,15 +9,15 @@ const cases = [
     {
         id: 1,
         name: "ARQUIBROKERS",
-        description: "Incrementamos un 120% la generación de leads en el sector inmobiliario.",
+        description: "Estrategia de adquisición basada en datos escalables que incrementó un 120% la generación de leads en el sector inmobiliario.",
         circleColor: "#00205B",
         gradient: null,
         image: arquiBrokersRounded,
     },
     {
         id: 2,
-        name: "CASTELLS INMUEBLES",
-        description: "Duplicamos la presencia digital y mejoramos el ROI en campañas online.",
+        name: "CASTELLS",
+        description: "Estrategia de performance orientada a escalar que impulsó la participación en subastas online, fortaleció la adopción de la app y mejoró el ROI digital.",
         circleColor: null,
         gradient: "linear-gradient(180deg, #2B5C96 0%, #183052 100%)",
         image: castellsInmueblesRound,
@@ -25,7 +25,7 @@ const cases = [
     {
         id: 1,
         name: "SEGURA SATELITAL",
-        description: "Incrementamos un 120% la generación de leads en el sector inmobiliario.",
+        description: "Estrategia de adquisición basada en datos que escaló la generación de leads, mejoró el ROI y acompañó el crecimiento del negocio en canales digitales.",
         circleColor: "#00205B",
         gradient: null,
         image: seguraSatelitalRounded,
@@ -33,7 +33,7 @@ const cases = [
     {
         id: 1,
         name: "GLOBAL CARGO",
-        description: "Incrementamos un 120% la generación de leads en el sector inmobiliario.",
+        description: "Estrategia de performance orientada a la aceleración del crecimiento regional, logrando +70% en oportunidades comerciales, expansión de demanda en nuevos mercados y una mejora sostenida del ROI digital.",
         circleColor: "#00205B",
         gradient: null,
         image: globalCargoRounded,
@@ -41,7 +41,7 @@ const cases = [
     {
         id: 1,
         name: "FIDECIU",
-        description: "Incrementamos un 120% la generación de leads en el sector inmobiliario.",
+        description: "Atribución avanzada, optimización por eventos para acelerar expansión de mercado y crecimiento anual con performance marketing.",
         circleColor: "#00205B",
         gradient: null,
         image: fideciuRounded,
@@ -49,11 +49,47 @@ const cases = [
 ];
 ---
 
-<section class="py-24 relative overflow-hidden" id="casos">
+<section class="py-24 relative" id="casos">
+    <!-- Círculos concéntricos en el background -->
+    <div
+        class="absolute top-0 left-0 w-full h-full min-h-[800px] pointer-events-none"
+        style="z-index: 0;"
+    >
+        <svg
+            viewBox="0 0 1440 800"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full h-full"
+            preserveAspectRatio="xMidYMid slice"
+        >
+            <circle
+                cx="350"
+                cy="510"
+                r="300"
+                stroke="#759EBC"
+                stroke-width=".6"
+                opacity="0.4"></circle>
+            <circle
+                cx="350"
+                cy="510"
+                r="380"
+                stroke="#759EBC"
+                stroke-width=".6"
+                opacity="0.4"></circle>
+            <circle
+                cx="350"
+                cy="510"
+                r="460"
+                stroke="#759EBC"
+                stroke-width=".6"
+                opacity="0.4"></circle>
+        </svg>
+    </div>
+
     <!-- Patrón de puntos en el background -->
     <div
         class="absolute top-75 left-0 right-0 h-[450px] z-0 pointer-events-none"
-        style="background-image: radial-gradient(#CBD5E1 3px, transparent 2px); background-size: 30px 30px; opacity: 0.55;"
+        style="background-image: radial-gradient(#CBD5E1 3px, transparent 2px); background-size: 30px 30px; opacity: 0.55; z-index: 1;"
     >
     </div>
 
@@ -101,14 +137,14 @@ const cases = [
                                     )}
                                 </div>
 
-                                <div class="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 pt-28 pb-8 text-left border border-slate-50 flex-1 flex flex-col relative z-10" style="border-radius: 30px 130px 30px 30px;">
+                                <div class="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 pt-28 pb-8 text-left border border-slate-50 flex-1 flex flex-col relative z-10" style="border-radius: 30px 100px 30px 30px;">
                                     <h3 class="text-2xl font-extrabold text-[#0F172A] uppercase tracking-wide mb-6 text-left">
                                         {item.name}
                                     </h3>
 
                                     <div class="flex items-center justify-between gap-6 flex-grow">
                                         <div class="flex-1 text-left">
-                                            <p class="text-slate-700 text-sm font-medium leading-relaxed">
+                                            <p class="text-slate-700 text-sm font-normal leading-relaxed">
                                                 {item.description}
                                             </p>
                                         </div>

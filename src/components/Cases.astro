@@ -9,6 +9,14 @@ const getAltText = (path: string) => {
     const fileName = path.split('/').pop()?.split('.')[0] || 'Cliente';
     return fileName.replace(/-/g, ' ');
 };
+
+// Logos que queremos agrandar (puedes agregar más nombres aquí)
+const enlargedLogos = ['promofarma']; // Ejemplo: nombres de archivos sin extensión
+
+const shouldEnlargeLogo = (path: string) => {
+    const fileName = path.split('/').pop()?.split('.')[0] || '';
+    return enlargedLogos.some(name => fileName.toLowerCase().includes(name.toLowerCase()));
+};
 ---
 
 <section class="py-24 relative overflow-hidden">
@@ -28,27 +36,33 @@ const getAltText = (path: string) => {
         <div class="flex w-max animate-infinite-scroll hover:pause-animation">
             
             <div class="flex items-center gap-16 md:gap-24 px-8 md:px-12">
-                {logos.map((logo) => (
-                    <div class="shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer logo-container">
-                        <Image 
-                            src={logo} 
-                            alt={getAltText(logo.src)} 
-                            class="h-20 md:h-28 w-auto object-contain grayscale opacity-70 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
-                        />
-                    </div>
-                ))}
+                {logos.map((logo) => {
+                    const isEnlarged = shouldEnlargeLogo(logo.src);
+                    return (
+                        <div class={`shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer logo-container ${isEnlarged ? 'logo-enlarged' : ''}`}>
+                            <Image 
+                                src={logo} 
+                                alt={getAltText(logo.src)} 
+                                class={`${isEnlarged ? 'h-35 md:h-40' : 'h-20 md:h-28'} w-auto object-contain grayscale opacity-70 transition-all duration-500 hover:grayscale-0 hover:opacity-100`}
+                            />
+                        </div>
+                    );
+                })}
             </div>
 
             <div class="flex items-center gap-16 md:gap-24 px-8 md:px-12" aria-hidden="true">
-                {logos.map((logo) => (
-                    <div class="shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer logo-container">
-                        <Image 
-                            src={logo} 
-                            alt={getAltText(logo.src)} 
-                            class="h-20 md:h-28 w-auto object-contain grayscale opacity-70 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
-                        />
-                    </div>
-                ))}
+                {logos.map((logo) => {
+                    const isEnlarged = shouldEnlargeLogo(logo.src);
+                    return (
+                        <div class={`shrink-0 flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer logo-container ${isEnlarged ? 'logo-enlarged' : ''}`}>
+                            <Image 
+                                src={logo} 
+                                alt={getAltText(logo.src)} 
+                                class={`${isEnlarged ? 'h-24 md:h-32' : 'h-20 md:h-28'} w-auto object-contain grayscale opacity-70 transition-all duration-500 hover:grayscale-0 hover:opacity-100`}
+                            />
+                        </div>
+                    );
+                })}
             </div>
 
         </div>
