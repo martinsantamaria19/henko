@@ -8,16 +8,17 @@ import pertinenciaIcon from "../assets/pertinencia-icon.webp";
 
 // Definimos los estilos comunes para las cards para no repetir tanto código
 // Cada esquina tiene un radio diferente: top-left, top-right, bottom-right, bottom-left
-const cardStyles = "w-[400px] bg-white rounded-tl-[20px] rounded-tr-[45px] rounded-br-[15px] rounded-bl-[70px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-4 pl-8 border-b-2 border-gray-50 relative top-3 transition-all duration-300 group-hover:bg-[#083763] group-hover:border-[#083763] cursor-pointer";
+// En mobile las cards ocupan todo el ancho disponible y en desktop se limitan a 400px.
+const cardStyles = "w-full max-w-[400px] bg-white rounded-tl-[20px] rounded-tr-[45px] rounded-br-[15px] rounded-bl-[70px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-4 pl-8 border-b-2 border-gray-50 relative top-3 transition-all duration-300 group-hover:bg-[#083763] group-hover:border-[#083763] cursor-pointer";
 const iconWrapperStyles = "flex-shrink-0 relative z-10 -mr-6 drop-shadow-xl hover:scale-110 transition-transform duration-300";
 const iconImageStyles = "w-14 h-14 object-contain";
 ---
 
-<section class="py-12 relative overflow-hidden">
+<section class="py-16 md:py-20 relative overflow-hidden mt-12 md:mt-0">
     <div
-        class="container mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        class="container mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-start md:items-center"
     >
-        <div class="relative pr-4">
+        <div class="relative pr-0 md:pr-4 mb-10 md:mb-0 flex flex-col items-center md:items-start">
             <svg 
                 class="absolute top-0 left-[2.5rem] h-full w-auto -z-0 pointer-events-none opacity-80" 
                 viewBox="0 0 120 800" 
@@ -27,8 +28,8 @@ const iconImageStyles = "w-14 h-14 object-contain";
 
             </svg>
 
-            <div class="space-y-5 relative z-10">
-                <div class="flex items-start group cursor-pointer">
+            <div class="space-y-6 relative z-10 w-full flex flex-col items-center md:items-start">
+                <div class="flex items-start justify-center md:justify-start group cursor-pointer w-full">
                     <div class={iconWrapperStyles}>
                         <img
                             src={innovacionIcon.src}
@@ -46,7 +47,7 @@ const iconImageStyles = "w-14 h-14 object-contain";
                     </div>
                 </div>
 
-                <div class="flex items-start group ml-12">
+                <div class="flex items-start justify-center md:justify-start group w-full md:ml-12">
                     <div class={iconWrapperStyles}>
                         <img
                             src={impactoIcon.src}
@@ -64,7 +65,7 @@ const iconImageStyles = "w-14 h-14 object-contain";
                     </div>
                 </div>
 
-                <div class="flex items-start group ml-24">
+                <div class="flex items-start justify-center md:justify-start group w-full md:ml-24">
                     <div class={iconWrapperStyles}>
                         <img
                             src={trascendenciaIcon.src}
@@ -82,7 +83,7 @@ const iconImageStyles = "w-14 h-14 object-contain";
                     </div>
                 </div>
 
-                <div class="flex items-start group ml-28">
+                <div class="flex items-start justify-center md:justify-start group w-full md:ml-28">
                     <div class={iconWrapperStyles}>
                         <img
                             src={evolucionIcon.src}
@@ -100,7 +101,7 @@ const iconImageStyles = "w-14 h-14 object-contain";
                     </div>
                 </div>
 
-                <div class="flex items-start group ml-12">
+                <div class="flex items-start justify-center md:justify-start group w-full md:ml-12">
                     <div class={iconWrapperStyles}>
                         <img
                             src={propositoIcon.src}
@@ -118,7 +119,7 @@ const iconImageStyles = "w-14 h-14 object-contain";
                     </div>
                 </div>
 
-                <div class="flex items-start group cursor-pointer">
+                <div class="flex items-start justify-center md:justify-start group cursor-pointer w-full">
                     <div class={iconWrapperStyles}>
                         <img
                             src={pertinenciaIcon.src}
@@ -138,11 +139,11 @@ const iconImageStyles = "w-14 h-14 object-contain";
             </div>
         </div>
 
-        <div class="lg:pl-8">
-            <h2 class="text-3xl font-black text-primary-dark mb-4">
+        <div class="lg:pl-8 mt-4 md:mt-0 text-center md:text-left">
+            <h2 class="text-2xl md:text-3xl font-black text-primary-dark mb-4">
                 ¿Por qué Henko?
             </h2>
-            <div class="space-y-4 text-gray-600 text-base leading-relaxed">
+            <div class="space-y-4 text-gray-600 text-sm md:text-base leading-relaxed max-w-xl mx-auto md:mx-0">
                 <p>
                     En Henko combinamos estrategia con propósito e innovación constante para lograr resultados que impulsan la evolución y trascendencia de tu marca en el mercado. 
                 </p>
@@ -156,7 +157,7 @@ const iconImageStyles = "w-14 h-14 object-contain";
                 <span>→</span>
             </a>
 
-            <div class="grid grid-cols-2 gap-0 mt-12 justify-end opacity-80 w-fit ml-auto" style="transform: rotate(20deg);">
+            <div class="grid grid-cols-2 gap-0 mt-10 md:mt-12 justify-center md:justify-end opacity-80 w-full md:w-fit md:ml-auto" style="transform: rotate(20deg);">
                 <!-- Círculo superior izquierdo - azul claro -->
                 <div class="w-10 h-10 rounded-full bg-[#759EBC]"></div>
                 <!-- Círculo superior derecho - azul oscuro -->

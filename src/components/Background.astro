@@ -3,88 +3,94 @@
 ---
 
 <div class="absolute inset-0 pointer-events-none" style="z-index: 0;">
-    <!-- Hero Background - Decorative shapes que fluyen entre secciones -->
-    <!-- Círculo gris grande y sutil en el lado izquierdo (detrás del texto) -->
+    <!-- Hero Background - Círculo gris grande a la izquierda -->
     <div
-        class="absolute top-[15%] left-[2%] w-[700px] h-[700px] rounded-full pointer-events-none"
+        class="absolute top-[15%] left-[2%] w-[320px] h-[320px] md:w-[700px] md:h-[700px] rounded-full pointer-events-none"
         style="background: radial-gradient(circle, rgba(226, 232, 240, 0.6) 0%, rgba(226, 232, 240, 0.4) 30%, rgba(226, 232, 240, 0.25) 50%, rgba(226, 232, 240, 0.15) 70%, transparent 100%); filter: blur(15px); z-index: 0;"
     >
     </div>
 
-    <!-- Forma curvada suave en el lado derecho (detrás de la imagen) - 150vh, principio y fin en el borde derecho -->
+    <!-- Hero Background - forma curvada lateral derecha (solo en pantallas medianas en adelante) -->
     <div
-        class="absolute top-0 right-0 w-[65%] pointer-events-none"
+        class="hidden md:block absolute top-0 right-0 w-[65%] pointer-events-none"
         style="z-index: 0; height: 140vh; min-height: 110vh;"
     >
         <svg
-            viewBox="0 0 1000 1500"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            fill="none"
             class="w-full h-full"
             preserveAspectRatio="none"
+            viewBox="0 0 1000 1500"
         >
-            <!-- Gradiente suave para bordes mezclados que se desvanece gradualmente -->
             <defs>
                 <linearGradient
                     id="curvedGradient"
                     x1="0%"
-                    y1="0%"
                     x2="100%"
+                    y1="0%"
                     y2="100%"
                 >
                     <stop
                         offset="0%"
-                        style="stop-color:#d2e0e9;stop-opacity:0.9"></stop>
-                    <stop
-                        offset="40%"
-                        style="stop-color:#d2e0e9;stop-opacity:0.75"></stop>
-                    <stop
-                        offset="70%"
-                        style="stop-color:#d2e0e9;stop-opacity:0.4"></stop>
-                    <stop
-                        offset="90%"
-                        style="stop-color:#d2e0e9;stop-opacity:0.1"></stop>
+                        style="stop-color:#9ca3af;stop-opacity:.08"></stop>
                     <stop
                         offset="100%"
-                        style="stop-color:#d2e0e9;stop-opacity:0"></stop>
+                        style="stop-color:#9ca3af;stop-opacity:0"></stop>
                 </linearGradient>
             </defs>
-            <!-- Curva rediseñada: Más ancha, extendiéndose hasta x=200 -->
             <path
-                d="M1000 0 L 1000 1500 C 800 1400 400 1300 200 1200 C 100 1100 100 900 200 800 C 300 700 300 500 200 400 C 100 300 100 100 200 0 Z"
-                fill="url(#curvedGradient)"></path>
+                fill="url(#curvedGradient)"
+                d="M1000 0v1500c-200-100-600-200-800-300-100-100-100-300 0-400s100-300 0-400-100-300 0-400Z"
+            ></path>
         </svg>
     </div>
 
-    
-
-    <!-- ClientsBlog Background - Gray blur element -->
+    <!-- Curva suavizada detrás de Contacto (similar a Hero, solo desktop) -->
     <div
-        class="absolute top-[360vh] bottom-0 right-0 w-[50%] h-[80%] bg-gray-200/50 rounded-tl-[100px] blur-3xl pointer-events-none translate-x-1/4 translate-y-1/4"
+        class="hidden md:block absolute right-0 w-[70%] pointer-events-none"
+        style="top: 650vh; height: 220vh; z-index: 0;"
     >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            class="w-full h-full"
+            preserveAspectRatio="none"
+            viewBox="0 0 1000 1800"
+        >
+            <defs>
+                <linearGradient
+                    id="curvedGradientContact"
+                    x1="0%"
+                    x2="100%"
+                    y1="0%"
+                    y2="100%"
+                >
+                    <stop
+                        offset="0%"
+                        style="stop-color:#9ca3af;stop-opacity:.08"></stop>
+                    <stop
+                        offset="100%"
+                        style="stop-color:#9ca3af;stop-opacity:0"></stop>
+                </linearGradient>
+            </defs>
+            <path
+                fill="url(#curvedGradientContact)"
+                d="M1000 0 L1000 80 C990 150 960 240 900 340 C840 440 780 540 720 660 C660 780 620 900 610 1020 C600 1140 620 1260 670 1360 C720 1460 780 1520 840 1560 C880 1590 920 1610 940 1640 C955 1660 965 1680 975 1710 C982 1735 990 1760 1000 1800 L1000 0 Z"
+            ></path>
+        </svg>
     </div>
 
-    <!-- ClientsBlog Background - Círculo sólido a la derecha -->
+    <!-- Patrón de puntos a la izquierda (solo desktop para evitar ruido visual en mobile) -->
     <div
-        class="absolute top-[760vh] right-[-20%] w-[800px] h-[800px] rounded-full pointer-events-none"
-        style="background-color: #94A3B8; opacity: 0.1; z-index: 0;"
-    >
-    </div>
-
-    <!-- Contact Background - Patrón de puntos -->
-    <div
-        class="absolute top-[820vh] left-0 right-0 h-[600px] z-0 pointer-events-none"
-        style="background-image: radial-gradient(#CBD5E1 3px, transparent 2px); background-size: 30px 30px; opacity: 0.55;"
+        class="hidden md:block absolute left-0 right-0 w-full h-[60vh] z-10"
+        style="top: 720vh; background-image: radial-gradient(#CBD5E1 1px, transparent 2px); background-size: 30px 30px; opacity: 0.85;"
     >
     </div>
 </div>
 
-
-
-<!-- Base background colors for sections -->
 <style>
     /* Fondo base unificado para toda la página */
     body {
-        background-color: #EDF1F4;
+        background-color: #edf1f4;
     }
 </style>

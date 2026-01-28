@@ -3,10 +3,10 @@ import logo from "../assets/1-a.webp";
 ---
 
 <footer
-    class="sticky bottom-0 z-0 bg-[#0B1C3E] text-white w-full font-sans overflow-hidden pt-24 pb-12"
+    class="sticky bottom-0 z-0 bg-[#0B1C3E] text-white w-full font-sans overflow-hidden pt-16 md:pt-24 pb-10 md:pb-12"
 >
 
-    <div class="container mx-auto px-8 relative z-10">
+    <div class="container mx-auto px-6 md:px-8 relative z-10">
         <div
             class="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-8"
         >
@@ -160,16 +160,36 @@ import logo from "../assets/1-a.webp";
         <div
             class="flex flex-col md:flex-row justify-between items-center font-normal gap-4 text-xs text-gray-500"
         >
-            <p>
+            <p class="text-center md:text-left">
                 &copy; {new Date().getFullYear()} Henko. Todos los derechos reservados.
             </p>
-            <div class="flex gap-6">
+            <div class="relative group">
+                <!-- Glow -->
+                <div
+                    class="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-emerald-400/30 via-sky-400/30 to-indigo-400/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                >
+                </div>
+                <!-- Pill -->
                 <a
                     href="https://mvdcreativestudio.com"
                     target="_blank"
-                    class="hover:text-white transition-colors"
-                    >Desarrollado por <a class="font-semibold hover:text-white transition-colors" href="https://mvdcreativestudio.com" target="_blank">MVD Creative Studio</a></a
+                    class="relative inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[11px] md:text-xs tracking-[0.18em] uppercase overflow-hidden hover:bg-white/10 hover:border-white/30 transition-colors duration-300"
                 >
+                    <span class="relative z-10 text-[10px] md:text-[11px] text-slate-300">
+                        Desarrollado por
+                    </span>
+                    <span class="relative z-10 flex items-center gap-2 font-semibold text-white">
+                        <span class="h-[1px] w-6 bg-gradient-to-r from-emerald-300 via-sky-300 to-indigo-300"></span>
+                        <span class="tracking-[0.22em]">
+                            MVD CREATIVE STUDIO
+                        </span>
+                    </span>
+                    <!-- Moving highlight -->
+                    <span
+                        class="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700 ease-out"
+                    >
+                    </span>
+                </a>
             </div>
         </div>
     </div>
