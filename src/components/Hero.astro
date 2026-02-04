@@ -3,7 +3,7 @@ import decorativeCircle from "../assets/decorative-circle.webp";
 ---
 
 <section
-    class="relative overflow-visible min-h-screen flex items-center pt-0 lg:pt-0"
+    class="relative overflow-hidden lg:overflow-visible min-h-[60vh] lg:min-h-screen flex items-center pt-30 lg:pt-0"
     id="home"
 >
     <!-- MOBILE: Immersive Background (Hidden on Desktop) -->
@@ -66,11 +66,12 @@ import decorativeCircle from "../assets/decorative-circle.webp";
                     href="#contact"
                     class="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 lg:bg-[#699FBF] lg:border-none text-white px-8 py-4 rounded-full font-normal text-sm hover:bg-white/20 lg:hover:bg-slate-600 transition-all shadow-lg tracking-wide text-center active:scale-95 mt-3 sm:mt-0"
                 >
-                    QUIERO UNA REUNIÓN
+                    <span class="lg:hidden">Obtener más información</span>
+                    <span class="hidden lg:inline">QUIERO UNA REUNIÓN</span>
                 </a>
                 <a
                     href="#contact"
-                    class="w-full sm:w-auto bg-[#00213A] lg:bg-[#00213A] text-white px-8 py-4 rounded-full font-normal text-sm hover:bg-slate-800 transition-all shadow-lg tracking-wide text-center active:scale-95"
+                    class="w-full sm:w-auto bg-[#00213A] lg:bg-[#00213A] text-white px-8 py-4 rounded-full font-normal text-sm hover:bg-slate-800 transition-all shadow-lg tracking-wide text-center active:scale-95 hidden lg:inline-flex"
                 >
                     AGENDÁ UNA LLAMADA
                 </a>
@@ -95,21 +96,21 @@ import decorativeCircle from "../assets/decorative-circle.webp";
 
         <!-- Floating Pills -->
         <div
-            class="absolute top-[60%] -left-16 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl transform -translate-y-1/2 z-20 border border-gray-800"
+            class="absolute top-[35%] -left-16 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl transform -translate-y-1/2 z-20 border border-gray-800"
         >
             <span class="text-yellow-400 text-lg">⚡</span>
             <span class="font-normal text-lg">Trascendencia</span>
         </div>
 
         <div
-            class="absolute bottom-38 -left-0 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl z-20 border border-gray-800"
+            class="absolute top-[55%] -left-16 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl transform -translate-y-1/2 z-20 border border-gray-800"
         >
             <span class="text-cyan-400 text-lg">✦</span>
             <span class="font-normal text-lg">Innovación</span>
         </div>
 
         <div
-            class="absolute -bottom-0 right-120 translate-x-1/2 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl z-20 border border-gray-800"
+            class="absolute bottom-38 -left-0 bg-black text-white px-5 py-3 rounded-full flex items-center gap-3 shadow-xl z-20 border border-gray-800"
         >
             <span class="text-emerald-400 text-lg">↗</span>
             <span class="font-normal text-lg">Impacto</span>

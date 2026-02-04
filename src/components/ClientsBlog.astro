@@ -19,22 +19,41 @@
                 Visitá nuestro blog y descubrí estrategias, análisis y tendencias de marketing digital y performance para empresas en Uruguay y la región.
             </p>
 
+            <!-- En desktop: controles decorativos -->
             <div
-                class="flex items-center gap-4 text-xs font-bold text-gray-400 tracking-widest"
+                class="hidden md:flex items-center gap-4 text-xs font-bold text-gray-400 tracking-widest"
+                aria-hidden="true"
             >
-                <button class="hover:text-primary-dark transition-colors"
-                    >PREV</button
-                >
+                <span>PREV</span>
                 <div class="h-[1px] w-12 bg-gray-300"></div>
-                <button class="hover:text-primary-dark transition-colors"
-                    >NEXT</button
-                >
+                <span>NEXT</span>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Contenedor: en mobile carrusel con flechas, en desktop grid -->
+        <div class="relative w-full">
+            <button
+                type="button"
+                class="blog-carousel-prev absolute left-2 top-1/2 -translate-y-1/2 z-20 md:hidden w-12 h-12 rounded-full bg-white/90 shadow-lg border border-gray-200 flex items-center justify-center text-primary-dark hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:pointer-events-none disabled:scale-100"
+                aria-label="Artículo anterior"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button
+                type="button"
+                class="blog-carousel-next absolute right-2 top-1/2 -translate-y-1/2 z-20 md:hidden w-12 h-12 rounded-full bg-white/90 shadow-lg border border-gray-200 flex items-center justify-center text-primary-dark hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:pointer-events-none disabled:scale-100"
+                aria-label="Siguiente artículo"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+            <div class="blog-carousel-wrapper w-full overflow-hidden md:overflow-visible">
+            <div class="blog-carousel-track flex md:grid md:grid-cols-3 gap-8 w-full transition-transform duration-300 ease-out md:!translate-x-0">
             <article
-                class="bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
+                class="blog-carousel-slide flex-shrink-0 w-[var(--blog-slide-px,100%)] min-w-0 md:w-auto md:min-w-0 bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
             >
                 <div class="h-64 overflow-hidden relative">
                     <div
@@ -71,7 +90,7 @@
             </article>
 
             <article
-                class="bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
+                class="blog-carousel-slide flex-shrink-0 w-[var(--blog-slide-px,100%)] min-w-0 md:w-auto md:min-w-0 bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
             >
                 <div class="h-64 overflow-hidden relative">
                     <div
@@ -108,7 +127,7 @@
             </article>
 
             <article
-                class="bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
+                class="blog-carousel-slide flex-shrink-0 w-[var(--blog-slide-px,100%)] min-w-0 md:w-auto md:min-w-0 bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
             >
                 <div class="h-64 overflow-hidden relative">
                     <div
@@ -144,5 +163,78 @@
                 </div>
             </article>
         </div>
+            </div>
+        </div>
+        <div class="blog-carousel-dots flex md:hidden justify-center gap-2 mt-8" aria-label="Indicadores de slide">
+            <button type="button" class="blog-carousel-dot w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-primary-dark transition-colors aria-[current]:bg-primary-dark aria-[current]:scale-125" aria-label="Slide 1" aria-current="true" data-index="0"></button>
+            <button type="button" class="blog-carousel-dot w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-primary-dark transition-colors aria-[current]:bg-primary-dark aria-[current]:scale-125" aria-label="Slide 2" aria-current="false" data-index="1"></button>
+            <button type="button" class="blog-carousel-dot w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-primary-dark transition-colors aria-[current]:bg-primary-dark aria-[current]:scale-125" aria-label="Slide 3" aria-current="false" data-index="2"></button>
+        </div>
     </div>
 </section>
+
+<script>
+  (function initBlogCarousel() {
+    const wrapper = document.querySelector(".blog-carousel-wrapper") as HTMLElement | null;
+    const track = document.querySelector(".blog-carousel-track") as HTMLElement | null;
+    const prevBtn = document.querySelector(".blog-carousel-prev") as HTMLButtonElement | null;
+    const nextBtn = document.querySelector(".blog-carousel-next") as HTMLButtonElement | null;
+    const dots = document.querySelectorAll(".blog-carousel-dot");
+    const slides = document.querySelectorAll(".blog-carousel-slide");
+    if (!wrapper || !track || !slides.length) return;
+    let index = 0;
+    const total = slides.length;
+    const gap = 32;
+    const AUTOPLAY_INTERVAL_MS = 5000;
+    let autoplayTimer: ReturnType<typeof setInterval> | null = null;
+    function isMobile() { return window.matchMedia("(max-width: 767px)").matches; }
+    function startAutoplay() {
+      if (autoplayTimer) clearInterval(autoplayTimer);
+      autoplayTimer = null;
+      if (!isMobile()) return;
+      autoplayTimer = setInterval(() => { goTo(index >= total - 1 ? 0 : index + 1); }, AUTOPLAY_INTERVAL_MS);
+    }
+    function stopAutoplay() {
+      if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+    }
+    function updateCarousel() {
+      if (!wrapper || !track) return;
+      const w = wrapper;
+      const t = track;
+      if (!isMobile()) {
+        t.style.transform = "";
+        w.style.removeProperty("--blog-slide-px");
+        return;
+      }
+      const width = w.getBoundingClientRect().width;
+      w.style.setProperty("--blog-slide-px", `${width}px`);
+      t.style.transform = `translateX(-${index * (width + gap)}px)`;
+    }
+    function updateControls() {
+      if (prevBtn) prevBtn.disabled = index <= 0;
+      if (nextBtn) nextBtn.disabled = index >= total - 1;
+      dots.forEach((d, i) => d.setAttribute("aria-current", i === index ? "true" : "false"));
+    }
+    function goTo(i: number) {
+      index = Math.max(0, Math.min(i, total - 1));
+      updateCarousel();
+      updateControls();
+      startAutoplay();
+    }
+    prevBtn?.addEventListener("click", () => goTo(index - 1));
+    nextBtn?.addEventListener("click", () => goTo(index + 1));
+    dots.forEach((d, i) => (d as HTMLElement).addEventListener("click", () => goTo(i)));
+    window.addEventListener("resize", () => {
+      if (!isMobile()) index = 0;
+      if (!isMobile()) stopAutoplay(); else startAutoplay();
+      updateCarousel();
+      updateControls();
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopAutoplay(); else if (isMobile()) startAutoplay();
+    });
+    updateCarousel();
+    updateControls();
+    startAutoplay();
+  })();
+</script>

@@ -40,7 +40,7 @@ const CORNER_GLOW_RIGHT_BOTTOM_RGB = hexToRgb(CORNER_GLOW_RIGHT_BOTTOM_HEX);
 ---
 
 <div
-    class="relative bg-primary-dark text-white overflow-hidden flex flex-col min-h-[70vh] md:min-h-[80vh] group max-w-19/20 mx-auto rounded-[6vw] md:rounded-[3vw]"
+    class="relative bg-primary-dark text-white overflow-hidden flex flex-col min-h-[45vh] md:min-h-[80vh] group max-w-19/20 mx-auto rounded-[6vw] md:rounded-[3vw]"
     style={`background:
         radial-gradient(circle at top left, rgba(${CORNER_GLOW_LEFT_TOP_RGB},0.10) 0%, rgba(${CORNER_GLOW_LEFT_TOP_RGB},0) 40%),
         radial-gradient(circle at top right, rgba(${CORNER_GLOW_RIGHT_TOP_RGB},0.10) 0%, rgba(${CORNER_GLOW_RIGHT_TOP_RGB},0) 40%),
@@ -118,8 +118,7 @@ const CORNER_GLOW_RIGHT_BOTTOM_RGB = hexToRgb(CORNER_GLOW_RIGHT_BOTTOM_HEX);
     </div>
 
     <div
-        class="container mx-auto px-6 md:px-16 relative z-10 h-full flex flex-col py-12 md:py-20"
-        style="min-height: 80vh;"
+        class="container mx-auto px-6 md:px-16 relative z-10 h-full flex flex-col py-8 md:py-20 min-h-[45vh] md:min-h-[80vh]"
     >
         <div
             class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 flex-grow items-center"
@@ -261,7 +260,7 @@ const CORNER_GLOW_RIGHT_BOTTOM_RGB = hexToRgb(CORNER_GLOW_RIGHT_BOTTOM_HEX);
                     </div>
 
                     <!-- Indicadores separados con gap -->
-                    <div class="flex gap-2" id="sliderIndicators">
+                    <div class="flex gap-2 justify-center md:justify-start" id="sliderIndicators">
                         <button
                             class="indicator h-3 bg-gray-500 rounded-full transition-all duration-300 hover:bg-opacity-80 cursor-pointer"
                             data-index="0"

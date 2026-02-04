@@ -79,12 +79,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 	</head>
 	<body class="flex flex-col min-h-screen">
 		<!-- <Preloader /> -->
-		<Background />
-		<Header />
-		<main class="flex-grow lg:pt-20 relative z-10">
-			<slot />
-		</main>
-		<Footer />
+		<div class="relative flex flex-col min-h-screen flex-1">
+			<Background />
+			<Header />
+			<main class="flex-grow lg:pt-20 relative z-10">
+				<slot />
+			</main>
+			<Footer />
+		</div>
 		<WhatsAppButton />
 	</body>
 </html>
