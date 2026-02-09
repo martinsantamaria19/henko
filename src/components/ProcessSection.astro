@@ -7,16 +7,56 @@ import propositoIcon from "../assets/proposito-icon.webp";
 import pertinenciaIcon from "../assets/pertinencia-icon.webp";
 
 const processCards = [
-    { title: "Innovación", description: "Aplicamos tendencias, herramientas y enfoques creativos en todo tipo de empresas, adaptándonos a cada industria y a cada desafío", icon: innovacionIcon, alt: "Innovación" },
-    { title: "Impacto", description: "Estrategias de marketing digital con resultados medibles: más clientes, más ventas y mayor presencia online", icon: impactoIcon, alt: "Impacto" },
-    { title: "Trascendencia", description: "No se trata solo de campañas, sino de cambios estratégicos que llevan a las marcas a nuevos niveles", icon: trascendenciaIcon, alt: "Trascendencia" },
-    { title: "Evolución", description: "Buscamos ayudar a las marcas a evolucionar y crecer en un ecosistema de mercado dinámico", icon: evolucionIcon, alt: "Evolución" },
-    { title: "Propósito", description: "Creamos experiencias de marca que generen conexiones significativas y cambios tangibles", icon: propositoIcon, alt: "Propósito" },
-    { title: "Pertinencia", description: "Soluciones relevantes y a medida, creadas para responder con precisión a las necesidades de tu marca", icon: pertinenciaIcon, alt: "Pertinencia" },
+    {
+        title: "Innovación",
+        description:
+            "Aplicamos tendencias, herramientas y enfoques creativos en todo tipo de empresas, adaptándonos a cada industria y a cada desafío",
+        icon: innovacionIcon,
+        alt: "Innovación",
+    },
+    {
+        title: "Impacto",
+        description:
+            "Estrategias de marketing digital con resultados medibles: más clientes, más ventas y mayor presencia online",
+        icon: impactoIcon,
+        alt: "Impacto",
+    },
+    {
+        title: "Trascendencia",
+        description:
+            "No se trata solo de campañas, sino de cambios estratégicos que llevan a las marcas a nuevos niveles",
+        icon: trascendenciaIcon,
+        alt: "Trascendencia",
+    },
+    {
+        title: "Evolución",
+        description:
+            "Buscamos ayudar a las marcas a evolucionar y crecer en un ecosistema de mercado dinámico",
+        icon: evolucionIcon,
+        alt: "Evolución",
+    },
+    {
+        title: "Propósito",
+        description:
+            "Creamos experiencias de marca que generen conexiones significativas y cambios tangibles",
+        icon: propositoIcon,
+        alt: "Propósito",
+    },
+    {
+        title: "Pertinencia",
+        description:
+            "Soluciones relevantes y a medida, creadas para responder con precisión a las necesidades de tu marca",
+        icon: pertinenciaIcon,
+        alt: "Pertinencia",
+    },
 ];
 
-const cardStyles = "w-full max-w-[400px] bg-white rounded-tl-[20px] rounded-tr-[45px] rounded-br-[15px] rounded-bl-[70px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-4 pl-8 border-b-2 border-gray-50 relative top-3 transition-all duration-300 group-hover:bg-[#083763] group-hover:border-[#083763] cursor-pointer";
-const iconWrapperStyles = "flex-shrink-0 relative z-10 -mr-6 drop-shadow-xl hover:scale-110 transition-transform duration-300";
+const cardStyles =
+    "w-full max-w-[400px] bg-white rounded-tl-[20px] rounded-tr-[45px] rounded-br-[15px] rounded-bl-[70px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-4 pl-8 border-b-2 border-gray-50 relative top-3 transition-all duration-300 group-hover:bg-[#083763] group-hover:border-[#083763] cursor-pointer";
+const cardStylesMobile =
+    "w-full max-w-[400px] bg-white rounded-2xl shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-5 border border-gray-100 relative transition-all duration-300 group-hover:bg-[#083763] group-hover:border-[#083763] cursor-pointer";
+const iconWrapperStyles =
+    "flex-shrink-0 relative z-10 -mr-6 drop-shadow-xl hover:scale-110 transition-transform duration-300";
 const iconImageStyles = "w-14 h-14 object-contain";
 ---
 
@@ -24,164 +64,223 @@ const iconImageStyles = "w-14 h-14 object-contain";
     <div
         class="container mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-start md:items-center"
     >
-        <div class="relative pr-0 md:pr-4 mb-10 md:mb-0 flex flex-col items-center md:items-start order-2 lg:order-none">
+        <div
+            class="relative pr-0 md:pr-4 mb-10 md:mb-0 flex flex-col items-center md:items-start order-2 lg:order-none"
+        >
             <!-- Carrusel solo en mobile -->
-            <div class="process-carousel-block w-full lg:hidden relative px-12">
-                <button type="button" class="process-carousel-prev absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 shadow border border-gray-200 flex items-center justify-center text-primary-dark hover:bg-white transition-all disabled:opacity-40 disabled:pointer-events-none" aria-label="Anterior">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                </button>
-                <button type="button" class="process-carousel-next absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 shadow border border-gray-200 flex items-center justify-center text-primary-dark hover:bg-white transition-all disabled:opacity-40 disabled:pointer-events-none" aria-label="Siguiente">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                </button>
-                <div class="process-carousel-wrapper w-full overflow-hidden">
-                    <div class="process-carousel-track flex gap-6 w-full transition-transform duration-300 ease-out">
-                        {processCards.map((item) => (
-                            <div class="process-carousel-slide flex-shrink-0 w-[var(--process-slide-px,100%)] min-w-0 flex items-start justify-center gap-0 group cursor-pointer">
-                                <div class={iconWrapperStyles}><img src={item.icon.src} alt={item.alt} class={iconImageStyles} /></div>
-                                <div class={cardStyles}>
-                                    <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">{item.title}</h3>
-                                    <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">{item.description}</p>
+            <!-- Mobile 3-column Grid -->
+            <!-- Mobile 2-column Grid -->
+            <div class="w-full lg:hidden relative px-2 mb-8">
+                <div class="grid grid-cols-2 gap-3">
+                    {
+                        processCards.map((item) => (
+                            <div class="flex flex-col items-center text-center p-4 bg-white rounded-2xl shadow-sm border border-gray-100 h-full">
+                                <div class="mb-3 drop-shadow-md">
+                                    <img
+                                        src={item.icon.src}
+                                        alt={item.title}
+                                        class="w-10 h-10 object-contain"
+                                    />
                                 </div>
+                                <h3 class="text-xs font-bold text-primary-dark uppercase tracking-wide leading-tight mb-2">
+                                    {item.title}
+                                </h3>
+                                <p class="text-[12.5px] leading-relaxed text-gray-500">
+                                    {item.description}
+                                </p>
                             </div>
-                        ))}
-                    </div>
-                </div>
-                <div class="process-carousel-dots flex justify-center gap-2 mt-6" aria-label="Indicadores">
-                    {processCards.map((_: unknown, i: number) => (
-                        <button type="button" class="process-carousel-dot w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-primary-dark transition-colors aria-[current]:bg-primary-dark aria-[current]:scale-125" aria-label={`Slide ${i + 1}`} aria-current={i === 0 ? "true" : "false"} data-index={i} />
-                    ))}
+                        ))
+                    }
                 </div>
             </div>
             <!-- Desktop: lista de cards -->
             <div class="hidden lg:block relative w-full">
-            <svg 
-                class="absolute top-0 left-[2.5rem] h-full w-auto -z-0 pointer-events-none opacity-80" 
-                viewBox="0 0 120 800" 
-                fill="none" 
-                preserveAspectRatio="none"
-            >
+                <svg
+                    class="absolute top-0 left-[2.5rem] h-full w-auto -z-0 pointer-events-none opacity-80"
+                    viewBox="0 0 120 800"
+                    fill="none"
+                    preserveAspectRatio="none"
+                >
+                </svg>
 
-            </svg>
-
-            <div class="space-y-6 relative z-10 w-full flex flex-col items-center md:items-start">
-                <div class="flex items-start justify-center md:justify-start group cursor-pointer w-full">
-                    <div class={iconWrapperStyles}>
-                        <img
-                            src={innovacionIcon.src}
-                            alt="Innovación"
-                            class={iconImageStyles}
-                        />
+                <div
+                    class="space-y-6 relative z-10 w-full flex flex-col items-center md:items-start"
+                >
+                    <div
+                        class="flex items-start justify-center md:justify-start group cursor-pointer w-full"
+                    >
+                        <div class={iconWrapperStyles}>
+                            <img
+                                src={innovacionIcon.src}
+                                alt="Innovación"
+                                class={iconImageStyles}
+                            />
+                        </div>
+                        <div class={`${cardStyles} mr-0`}>
+                            <h3
+                                class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white"
+                            >
+                                Innovación
+                            </h3>
+                            <p
+                                class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white"
+                            >
+                                Aplicamos tendencias, herramientas y enfoques
+                                creativos en todo tipo de empresas, adaptándonos
+                                a cada industria y a cada desafío
+                            </p>
+                        </div>
                     </div>
-                    <div class={`${cardStyles} mr-0`}>
-                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
-                            Innovación
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
-                            Aplicamos tendencias, herramientas y enfoques creativos en todo tipo de empresas, adaptándonos a cada industria y a cada desafío
-                        </p>
+
+                    <div
+                        class="flex items-start justify-center md:justify-start group w-full md:ml-12"
+                    >
+                        <div class={iconWrapperStyles}>
+                            <img
+                                src={impactoIcon.src}
+                                alt="Impacto"
+                                class={iconImageStyles}
+                            />
+                        </div>
+                        <div class={`${cardStyles} mr-6`}>
+                            <h3
+                                class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white"
+                            >
+                                Impacto
+                            </h3>
+                            <p
+                                class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white"
+                            >
+                                Estrategias de marketing digital con resultados
+                                medibles: más clientes, más ventas y mayor
+                                presencia online
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-start justify-center md:justify-start group w-full md:ml-24"
+                    >
+                        <div class={iconWrapperStyles}>
+                            <img
+                                src={trascendenciaIcon.src}
+                                alt="Trascendencia"
+                                class={iconImageStyles}
+                            />
+                        </div>
+                        <div class={`${cardStyles} mr-12`}>
+                            <h3
+                                class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white"
+                            >
+                                Trascendencia
+                            </h3>
+                            <p
+                                class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white"
+                            >
+                                No se trata solo de campañas, sino de cambios
+                                estratégicos que llevan a las marcas a nuevos
+                                niveles
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-start justify-center md:justify-start group w-full md:ml-28"
+                    >
+                        <div class={iconWrapperStyles}>
+                            <img
+                                src={evolucionIcon.src}
+                                alt="Evolución"
+                                class={iconImageStyles}
+                            />
+                        </div>
+                        <div class={`${cardStyles} mr-16`}>
+                            <h3
+                                class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white"
+                            >
+                                Evolución
+                            </h3>
+                            <p
+                                class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white"
+                            >
+                                Buscamos ayudar a las marcas a evolucionar y
+                                crecer en un ecosistema de mercado dinámico
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-start justify-center md:justify-start group w-full md:ml-12"
+                    >
+                        <div class={iconWrapperStyles}>
+                            <img
+                                src={propositoIcon.src}
+                                alt="Propósito"
+                                class={iconImageStyles}
+                            />
+                        </div>
+                        <div class={`${cardStyles} mr-6`}>
+                            <h3
+                                class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white"
+                            >
+                                Propósito
+                            </h3>
+                            <p
+                                class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white"
+                            >
+                                Creamos experiencias de marca que generen
+                                conexiones significativas y cambios tangibles
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex items-start justify-center md:justify-start group cursor-pointer w-full"
+                    >
+                        <div class={iconWrapperStyles}>
+                            <img
+                                src={pertinenciaIcon.src}
+                                alt="Pertinencia"
+                                class={iconImageStyles}
+                            />
+                        </div>
+                        <div class={`${cardStyles} mr-0`}>
+                            <h3
+                                class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white"
+                            >
+                                Pertinencia
+                            </h3>
+                            <p
+                                class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white"
+                            >
+                                Soluciones relevantes y a medida, creadas para
+                                responder con precisión a las necesidades de tu
+                                marca
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="flex items-start justify-center md:justify-start group w-full md:ml-12">
-                    <div class={iconWrapperStyles}>
-                        <img
-                            src={impactoIcon.src}
-                            alt="Impacto"
-                            class={iconImageStyles}
-                        />
-                    </div>
-                     <div class={`${cardStyles} mr-6`}>
-                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
-                            Impacto
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
-                            Estrategias de marketing digital con resultados medibles: más clientes, más ventas y mayor presencia online
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex items-start justify-center md:justify-start group w-full md:ml-24">
-                    <div class={iconWrapperStyles}>
-                        <img
-                            src={trascendenciaIcon.src}
-                            alt="Trascendencia"
-                            class={iconImageStyles}
-                        />
-                    </div>
-                     <div class={`${cardStyles} mr-12`}>
-                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
-                            Trascendencia
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
-                            No se trata solo de campañas, sino de cambios estratégicos que llevan a las marcas a nuevos niveles
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex items-start justify-center md:justify-start group w-full md:ml-28">
-                    <div class={iconWrapperStyles}>
-                        <img
-                            src={evolucionIcon.src}
-                            alt="Evolución"
-                            class={iconImageStyles}
-                        />
-                    </div>
-                     <div class={`${cardStyles} mr-16`}>
-                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
-                            Evolución
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
-                            Buscamos ayudar a las marcas a evolucionar y crecer en un ecosistema de mercado dinámico
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex items-start justify-center md:justify-start group w-full md:ml-12">
-                    <div class={iconWrapperStyles}>
-                        <img
-                            src={propositoIcon.src}
-                            alt="Propósito"
-                            class={iconImageStyles}
-                        />
-                    </div>
-                     <div class={`${cardStyles} mr-6`}>
-                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
-                            Propósito
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
-                            Creamos experiencias de marca que generen conexiones significativas y cambios tangibles
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex items-start justify-center md:justify-start group cursor-pointer w-full">
-                    <div class={iconWrapperStyles}>
-                        <img
-                            src={pertinenciaIcon.src}
-                            alt="Pertinencia"
-                            class={iconImageStyles}
-                        />
-                    </div>
-                     <div class={`${cardStyles} mr-0`}>
-                        <h3 class="text-base font-semibold text-primary-dark italic transition-colors duration-300 group-hover:text-white">
-                            Pertinencia
-                        </h3>
-                        <p class="text-xs text-gray-500 mt-1.5 leading-relaxed transition-colors duration-300 group-hover:text-white">
-                            Soluciones relevantes y a medida, creadas para responder con precisión a las necesidades de tu marca
-                        </p>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
 
-        <div class="lg:pl-8 mt-4 md:mt-0 text-center md:text-left order-1 lg:order-none">
+        <div
+            class="lg:pl-8 mt-4 md:mt-0 text-center md:text-left order-1 lg:order-none"
+        >
             <h2 class="text-2xl md:text-3xl font-black text-primary-dark mb-4">
                 ¿Por qué Henko?
             </h2>
-            <div class="space-y-4 text-gray-600 text-sm md:text-base leading-relaxed max-w-xl mx-auto md:mx-0">
+            <div
+                class="space-y-4 text-gray-600 text-sm md:text-base leading-relaxed max-w-xl mx-auto md:mx-0"
+            >
                 <p>
-                    En Henko combinamos estrategia con propósito e innovación constante para lograr resultados que impulsan la evolución y trascendencia de tu marca en el mercado. 
+                    En Henko combinamos estrategia con propósito e innovación
+                    constante para lograr resultados que impulsan la evolución y
+                    trascendencia de tu marca en el mercado. Somos una agencia
+                    de marketing digital que ayuda a empresas a crecer a través
+                    de estrategia, creatividad y campañas de publicidad online.
+                    Diseñamos soluciones de marketing pensadas para generar
+                    resultados medibles y un impacto duradero en el
+                    posicionamiento de cada marca.
                 </p>
             </div>
 
@@ -193,7 +292,10 @@ const iconImageStyles = "w-14 h-14 object-contain";
                 <span>→</span>
             </a>
 
-            <div class="grid grid-cols-2 gap-0 mt-10 md:mt-12 justify-center md:justify-end opacity-80 w-full md:w-fit md:ml-auto" style="transform: rotate(20deg);">
+            <div
+                class="hidden md:grid grid-cols-2 gap-0 mt-10 md:mt-12 justify-center md:justify-end opacity-80 w-full md:w-fit md:ml-auto"
+                style="transform: rotate(20deg);"
+            >
                 <!-- Círculo superior izquierdo - azul claro -->
                 <div class="w-10 h-10 rounded-full bg-[#759EBC]"></div>
                 <!-- Círculo superior derecho - azul oscuro -->
@@ -206,45 +308,3 @@ const iconImageStyles = "w-14 h-14 object-contain";
         </div>
     </div>
 </section>
-
-<script>
-  (function initProcessCarousel() {
-    const wrapper = document.querySelector(".process-carousel-wrapper") as HTMLElement | null;
-    const track = document.querySelector(".process-carousel-track") as HTMLElement | null;
-    const prevBtn = document.querySelector(".process-carousel-prev") as HTMLButtonElement | null;
-    const nextBtn = document.querySelector(".process-carousel-next") as HTMLButtonElement | null;
-    const dots = document.querySelectorAll(".process-carousel-dot");
-    const slides = document.querySelectorAll(".process-carousel-slide");
-    if (!wrapper || !track || !slides.length) return;
-    let index = 0;
-    const total = slides.length;
-    const gap = 24;
-    function isMobile() { return window.matchMedia("(max-width: 1023px)").matches; }
-    function updateCarousel() {
-      if (!isMobile() || !wrapper || !track) return;
-      const width = wrapper.getBoundingClientRect().width;
-      wrapper.style.setProperty("--process-slide-px", `${width}px`);
-      track.style.transform = `translateX(-${index * (width + gap)}px)`;
-    }
-    function updateControls() {
-      if (prevBtn) prevBtn.disabled = index <= 0;
-      if (nextBtn) nextBtn.disabled = index >= total - 1;
-      dots.forEach((d: Element, i: number) => d.setAttribute("aria-current", i === index ? "true" : "false"));
-    }
-    function goTo(i: number) {
-      index = Math.max(0, Math.min(i, total - 1));
-      updateCarousel();
-      updateControls();
-    }
-    prevBtn?.addEventListener("click", () => goTo(index - 1));
-    nextBtn?.addEventListener("click", () => goTo(index + 1));
-    dots.forEach((dot, i: number) => (dot as HTMLElement).addEventListener("click", () => goTo(i)));
-    window.addEventListener("resize", () => {
-      if (!isMobile()) index = 0;
-      updateCarousel();
-      updateControls();
-    });
-    updateCarousel();
-    updateControls();
-  })();
-</script>

@@ -1,3 +1,7 @@
+---
+import { blogPosts } from "../data/blog";
+---
+
 <section class="py-20 md:py-24 relative" id="blog">
     <div class="container-2xl mx-auto px-6 md:px-8 relative z-10">
         <div
@@ -6,7 +10,7 @@
             <h2
                 class="text-3xl md:text-6xl pl-0 md:pl-50 font-serif font-bold tracking-tight"
             >
-                Nuestro blog
+                <a href="/blog" class="hover:opacity-90 transition-opacity">Nuestro blog</a>
             </h2>
         </div>
     </div>
@@ -19,14 +23,17 @@
                 Visitá nuestro blog y descubrí estrategias, análisis y tendencias de marketing digital y performance para empresas en Uruguay y la región.
             </p>
 
-            <!-- En desktop: controles decorativos -->
-            <div
-                class="hidden md:flex items-center gap-4 text-xs font-bold text-gray-400 tracking-widest"
-                aria-hidden="true"
-            >
-                <span>PREV</span>
-                <div class="h-[1px] w-12 bg-gray-300"></div>
-                <span>NEXT</span>
+            <!-- En desktop: link al listado -->
+            <div class="hidden md:block">
+                <a
+                    href="/blog"
+                    class="inline-flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-primary-dark tracking-widest transition-colors"
+                >
+                    Ver todos
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
             </div>
         </div>
 
@@ -52,7 +59,9 @@
             </button>
             <div class="blog-carousel-wrapper w-full overflow-hidden md:overflow-visible">
             <div class="blog-carousel-track flex md:grid md:grid-cols-3 gap-8 w-full transition-transform duration-300 ease-out md:!translate-x-0">
-            <article
+            {blogPosts.map((post) => (
+            <a
+                href={`/blog/${post.slug}`}
                 class="blog-carousel-slide flex-shrink-0 w-[var(--blog-slide-px,100%)] min-w-0 md:w-auto md:min-w-0 bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
             >
                 <div class="h-64 overflow-hidden relative">
@@ -61,8 +70,8 @@
                     >
                     </div>
                     <img
-                        src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Creative Design"
+                        src={post.image}
+                        alt={post.imageAlt}
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                 </div>
@@ -70,105 +79,29 @@
                     <div
                         class="flex justify-between items-center text-xs text-gray-400 mb-4 font-medium uppercase tracking-wide"
                     >
-                        <span>Creative Design</span>
-                        <span>31/05/2025</span>
+                        <span>{post.category}</span>
+                        <span>{post.date}</span>
                     </div>
                     <h3
-                        class="font-bold text-xl text-[#1A1A1A] mb-3 leading-tight group-hover:text-blue-600 transition-colors"
+                        class="font-bold text-xl text-[#1A1A1A] mb-3 leading-tight group-hover:text-primary-dark transition-colors"
                     >
-                        It is a long established fact that a reader will be
-                        distracted
+                        {post.title}
                     </h3>
                     <p
                         class="text-sm text-gray-500 leading-relaxed line-clamp-3"
                     >
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration in
-                        some form, by injected humour.
+                        {post.excerpt}
                     </p>
                 </div>
-            </article>
-
-            <article
-                class="blog-carousel-slide flex-shrink-0 w-[var(--blog-slide-px,100%)] min-w-0 md:w-auto md:min-w-0 bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
-            >
-                <div class="h-64 overflow-hidden relative">
-                    <div
-                        class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"
-                    >
-                    </div>
-                    <img
-                        src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Creative Design"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                </div>
-                <div class="p-8 flex-1 flex flex-col">
-                    <div
-                        class="flex justify-between items-center text-xs text-gray-400 mb-4 font-medium uppercase tracking-wide"
-                    >
-                        <span>Creative Design</span>
-                        <span>31/05/2025</span>
-                    </div>
-                    <h3
-                        class="font-bold text-xl text-[#1A1A1A] mb-3 leading-tight group-hover:text-blue-600 transition-colors"
-                    >
-                        It is a long established fact that a reader will be
-                        distracted
-                    </h3>
-                    <p
-                        class="text-sm text-gray-500 leading-relaxed line-clamp-3"
-                    >
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration in
-                        some form.
-                    </p>
-                </div>
-            </article>
-
-            <article
-                class="blog-carousel-slide flex-shrink-0 w-[var(--blog-slide-px,100%)] min-w-0 md:w-auto md:min-w-0 bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full flex flex-col"
-            >
-                <div class="h-64 overflow-hidden relative">
-                    <div
-                        class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"
-                    >
-                    </div>
-                    <img
-                        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Creative Design"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                </div>
-                <div class="p-8 flex-1 flex flex-col">
-                    <div
-                        class="flex justify-between items-center text-xs text-gray-400 mb-4 font-medium uppercase tracking-wide"
-                    >
-                        <span>Creative Design</span>
-                        <span>31/05/2025</span>
-                    </div>
-                    <h3
-                        class="font-bold text-xl text-[#1A1A1A] mb-3 leading-tight group-hover:text-blue-600 transition-colors"
-                    >
-                        It is a long established fact that a reader will be
-                        distracted
-                    </h3>
-                    <p
-                        class="text-sm text-gray-500 leading-relaxed line-clamp-3"
-                    >
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration in
-                        some form.
-                    </p>
-                </div>
-            </article>
+            </a>
+            ))}
         </div>
             </div>
         </div>
         <div class="blog-carousel-dots flex md:hidden justify-center gap-2 mt-8" aria-label="Indicadores de slide">
-            <button type="button" class="blog-carousel-dot w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-primary-dark transition-colors aria-[current]:bg-primary-dark aria-[current]:scale-125" aria-label="Slide 1" aria-current="true" data-index="0"></button>
-            <button type="button" class="blog-carousel-dot w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-primary-dark transition-colors aria-[current]:bg-primary-dark aria-[current]:scale-125" aria-label="Slide 2" aria-current="false" data-index="1"></button>
-            <button type="button" class="blog-carousel-dot w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-primary-dark transition-colors aria-[current]:bg-primary-dark aria-[current]:scale-125" aria-label="Slide 3" aria-current="false" data-index="2"></button>
+            {blogPosts.map((_, i) => (
+            <button type="button" class="blog-carousel-dot w-2.5 h-2.5 rounded-full bg-gray-300 hover:bg-primary-dark transition-colors aria-[current]:bg-primary-dark aria-[current]:scale-125" aria-label={`Slide ${i + 1}`} aria-current={i === 0 ? "true" : "false"} data-index={i}></button>
+            ))}
         </div>
     </div>
 </section>

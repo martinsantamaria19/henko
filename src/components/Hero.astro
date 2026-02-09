@@ -1,60 +1,86 @@
 ---
 import decorativeCircle from "../assets/decorative-circle.webp";
+
+const heroSlides = [
+    {
+        title: "Diseñamos estrategias digitales con impacto que perduran",
+        subtitle: "Marketing digital enfocado en resultados.",
+    },
+    {
+        title: "Soluciones digitales que transforman negocios",
+        subtitle: "Somos una agencia de marketing digital que potencia al máximo tus resultados.",
+    },
+    {
+        title: "Marketing que impulsa. Resultados que perduran. Somos Henko",
+        subtitle: "",
+    },
+];
 ---
 
 <section
-    class="relative overflow-hidden lg:overflow-visible min-h-[60vh] lg:min-h-screen flex items-center pt-30 lg:pt-0"
+    class="relative overflow-x-hidden overflow-y-visible min-h-[60vh] lg:min-h-screen flex items-center pt-40 lg:pt-0 lg:pr-4"
     id="home"
 >
-    <!-- MOBILE: Immersive Background (Hidden on Desktop) -->
-    <!-- Extended height and negative top to ensure full coverage including top gap -->
+    <!-- MOBILE: fondo claro alineado con la estética del sitio (sin azul) -->
     <div
-        class="absolute -top-[10vh] left-0 w-full h-[120vh] z-0 lg:hidden pointer-events-none"
+        class="absolute inset-0 z-0 lg:hidden bg-[#F5F7FA]"
+        aria-hidden="true"
     >
-        <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            alt="Background"
-            class="w-full h-full object-cover"
-        />
-        <!-- Dark Gradient Overlay -->
-        <div
-            class="absolute inset-0 bg-gradient-to-b from-[#0B1C3E]/60 via-[#0B1C3E]/80 to-[#0B1C3E]"
-        >
-        </div>
-
-        <!-- Decorative subtle particles -->
-        <div
-            class="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] animate-pulse-slow"
-        >
-        </div>
     </div>
 
     <div
-        class="container mx-auto max-w-18/20 px-6 md:px-8 relative z-10 h-full flex flex-col lg:flex-row items-center justify-start lg:justify-start"
+        class="container mx-auto max-w-18/20 px-6 md:px-8 lg:px-10 relative z-10 h-full flex flex-col lg:flex-row items-center justify-start lg:justify-start"
     >
-        <!-- Text Content -->
+        <!-- Text Content: padding-right en lg para que no quede bajo la imagen -->
         <div
-            class="w-full lg:w-[70%] space-y-0 lg:space-y-6 text-center lg:text-left -mt-12 lg:-mt-16"
+            class="w-full lg:max-w-[58%] lg:pr-[2rem] space-y-0 lg:space-y-6 text-center lg:text-left -mt-12 lg:-mt-16"
         >
-            <!-- Headline -->
-            <h1 class="leading-[1.1] hero-text-container">
-                <div class="overflow-hidden relative">
-                    <span
-                        class="font-light block text-[11vw] lg:text-[clamp(2.5rem,5vw,5rem)] text-white/90 lg:text-slate-900 hero-text-line translate-y-full"
-                        >De la creatividad</span
-                    >
+            <!-- Headline: slider en flujo normal; cada bloque ocupa su alto y los puntos/línea quedan siempre debajo. -->
+            <div class="hero-text-container flex flex-col">
+                <h1 class="hero-heading relative leading-[1.2] min-h-0">
+                    {heroSlides.map((slide, i) => (
+                        <div
+                            class:list={[
+                                "hero-slide flex flex-col items-start w-full",
+                                i === 0 ? "hero-slide-active opacity-100 block" : "opacity-0 pointer-events-none absolute left-0 right-0 top-0 hidden",
+                            ]}
+                            data-slide-index={i}
+                            aria-hidden={i !== 0}
+                        >
+                            <div class="hero-title-wrap w-full">
+                                <span
+                                    class="font-black italic block text-[10vw] sm:text-[9vw] lg:text-[clamp(2rem,4.5vw,4.5rem)] text-[#0B1C3E] hero-text-line"
+                                    >{slide.title}</span
+                                >
+                            </div>
+                            {slide.subtitle ? (
+                                <div class="hero-subtitle-wrap w-full mt-2 lg:mt-3">
+                                    <span
+                                        class="font-light block text-[4.5vw] sm:text-[4vw] lg:text-[clamp(1rem,1.5vw,1.35rem)] text-slate-600 hero-subtitle-line"
+                                        >{slide.subtitle}</span
+                                    >
+                                </div>
+                            ) : null}
+                        </div>
+                    ))}
+                </h1>
+                <!-- Indicadores del slider (siempre debajo del título/subtítulo) -->
+                <div class="hero-dots hidden lg:flex gap-2 mt-4 lg:mt-5 justify-center lg:justify-start opacity-0 shrink-0" aria-label="Cambiar frase">
+                    {heroSlides.map((_, i) => (
+                        <button
+                            type="button"
+                            class="hero-dot w-2 h-2 rounded-full bg-slate-400 transition-all duration-300 hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-400/50"
+                            data-slide={i}
+                            aria-label={`Ir a frase ${i + 1}`}
+                            aria-current={i === 0 ? "true" : undefined}
+                        />
+                    ))}
                 </div>
-                <div class="overflow-hidden relative">
-                    <span
-                        class="font-black italic block text-[13vw] lg:text-[clamp(3rem,6vw,6rem)] text-white lg:text-[#0B1C3E] hero-text-line translate-y-full"
-                        >al impacto real</span
-                    >
-                </div>
-            </h1>
+            </div>
 
-            <!-- Mobile-only decorative divider -->
+            <!-- Línea decorativa solo en desktop (oculta en mobile) -->
             <div
-                class="w-0 h-1 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto lg:hidden rounded-full hero-divider"
+                class="hidden lg:block w-0 h-1 bg-gradient-to-r from-[#699FBF] to-[#0B1C3E] mx-auto rounded-full hero-divider"
             >
             </div>
 
@@ -64,10 +90,10 @@ import decorativeCircle from "../assets/decorative-circle.webp";
             >
                 <a
                     href="#contact"
-                    class="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 lg:bg-[#699FBF] lg:border-none text-white px-8 py-4 rounded-full font-normal text-sm hover:bg-white/20 lg:hover:bg-slate-600 transition-all shadow-lg tracking-wide text-center active:scale-95 mt-3 sm:mt-0"
+                    class="w-full sm:w-auto bg-[#699FBF] lg:bg-[#699FBF] text-white px-8 py-4 rounded-full font-normal text-sm hover:bg-slate-600 transition-all shadow-lg tracking-wide text-center active:scale-95 mt-3 sm:mt-0 border-0"
                 >
-                    <span class="lg:hidden">Obtener más información</span>
-                    <span class="hidden lg:inline">QUIERO UNA REUNIÓN</span>
+                    <span class="lg:hidden">Agendá una llamada</span>
+                    <span class="hidden lg:inline">HABLAR CON UN EXPERTO</span>
                 </a>
                 <a
                     href="#contact"
@@ -81,7 +107,7 @@ import decorativeCircle from "../assets/decorative-circle.webp";
 
     <!-- DESKTOP: Image/Visual Content (Hidden on Mobile) -->
     <div
-        class="absolute right-0 top-9/20 -translate-y-1/2 w-[40%] h-[85%] z-20 hidden lg:block"
+        class="absolute right-0 top-9/20 -translate-y-1/2 w-[38%] max-w-[520px] h-[85%] z-20 hidden lg:block"
     >
         <!-- Main Image Mask/Shape -->
         <div
@@ -134,19 +160,132 @@ import decorativeCircle from "../assets/decorative-circle.webp";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
     gsap.registerPlugin(ScrollTrigger);
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const initHeroAnimations = () => {
-            const tl = gsap.timeline();
+    const SLIDER_INTERVAL = 5200; // tiempo visible por slide (suficiente para leer, transición no suma trancazo)
+    const TRANSITION_DURATION = 0.36; // transición corta y fluida
+    const CROSSFADE_OVERLAP = 0.12; // la nueva empieza a aparecer mientras la anterior sigue saliendo
 
-            // 1. Text Reveal (Staggered from bottom with clip-path feel)
-            tl.to(".hero-text-line", {
+    document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll<HTMLElement>(".hero-slide");
+        const dots = document.querySelectorAll<HTMLElement>(".hero-dot");
+        let currentIndex = 0;
+        let sliderTimer: ReturnType<typeof setInterval> | null = null;
+
+        const goToSlide = (index: number) => {
+            const next = (index + slides.length) % slides.length;
+            if (next === currentIndex) return;
+            const prevIndex = currentIndex;
+            currentIndex = next;
+
+            const prevSlide = slides[prevIndex];
+            const nextSlide = slides[next];
+            const nextTitle = nextSlide?.querySelector(".hero-text-line");
+            const nextSubtitle = nextSlide?.querySelector(".hero-subtitle-line");
+
+            // Preparar el siguiente: visible pero transparente, superpuesto (absolute) para no mover el layout
+            nextSlide?.classList.add("hero-slide-active", "z-10", "absolute", "left-0", "right-0", "top-0");
+            nextSlide?.classList.remove("hidden");
+            nextSlide?.setAttribute("aria-hidden", "false");
+            gsap.set(nextSlide, { opacity: 0, y: 6 });
+            gsap.set(nextTitle, { y: "100%" });
+            gsap.set(nextSubtitle, { y: "100%" });
+
+            prevSlide?.setAttribute("aria-hidden", "true");
+            prevSlide?.classList.remove("hero-slide-active", "z-10");
+
+            // Una sola timeline: salida e entrada se solapan (crossfade fluido)
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    prevSlide?.classList.add("hidden", "absolute", "left-0", "right-0", "top-0");
+                    prevSlide?.classList.remove("block");
+                    gsap.set(prevSlide, { opacity: 1, y: 0 });
+                    // Siguiente pasa a flujo normal para que la altura sea correcta
+                    nextSlide?.classList.remove("absolute", "left-0", "right-0", "top-0");
+                    nextSlide?.classList.add("block");
+                },
+            });
+            tl.to(prevSlide, {
+                opacity: 0,
+                y: -8,
+                duration: TRANSITION_DURATION,
+                ease: "power2.out",
+            });
+            tl.to(
+                nextSlide,
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: TRANSITION_DURATION - CROSSFADE_OVERLAP,
+                    ease: "power2.out",
+                },
+                `-=${TRANSITION_DURATION - CROSSFADE_OVERLAP}`,
+            );
+            tl.to(nextTitle ?? [], {
                 y: 0,
-                duration: 1.5,
-                stagger: 0.2,
-                ease: "power4.out",
+                duration: 0.28,
+                ease: "power2.out",
+            }, "<");
+            tl.to(nextSubtitle ?? [], {
+                y: 0,
+                duration: 0.26,
+                ease: "power2.out",
+                delay: 0.04,
+            }, "<");
+
+            dots.forEach((dot, i) => {
+                dot.setAttribute("aria-current", i === currentIndex ? "true" : "false");
+                dot.classList.toggle("!bg-slate-700", i === currentIndex);
+                dot.classList.toggle("scale-125", i === currentIndex);
+            });
+        };
+
+        const startSlider = () => {
+            if (sliderTimer) clearInterval(sliderTimer);
+            sliderTimer = setInterval(() => goToSlide(currentIndex + 1), SLIDER_INTERVAL);
+        };
+
+        const initHeroAnimations = () => {
+            // Estado inicial: título y subtítulo “abajo” para el reveal
+            gsap.set(".hero-slide-active .hero-text-line", { y: "100%" });
+            gsap.set(".hero-slide-active .hero-subtitle-line", { y: "100%" });
+
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    startSlider();
+                },
             });
 
-            // 2. Divider (Mobile only)
+            // 1. Text Reveal del primer slide (rápido y fluido)
+            tl.to(".hero-slide-active .hero-text-line", {
+                y: 0,
+                duration: 0.7,
+                ease: "power2.out",
+            });
+            tl.to(
+                ".hero-slide-active .hero-subtitle-line",
+                {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "power2.out",
+                },
+                "-=0.45",
+            );
+
+            // 2. Dots e indicadores
+            tl.to(
+                ".hero-dots",
+                {
+                    opacity: 1,
+                    duration: 0.6,
+                    ease: "power2.out",
+                },
+                "-=0.6",
+            );
+            const activeDot = document.querySelector(".hero-dot[data-slide='0']");
+            if (activeDot) {
+                activeDot.classList.add("!bg-slate-700", "scale-125");
+            }
+
+            // 3. Divider (Mobile only)
             tl.to(
                 ".hero-divider",
                 {
@@ -157,7 +296,7 @@ import decorativeCircle from "../assets/decorative-circle.webp";
                 "-=1.2",
             );
 
-            // 3. Buttons Fade In
+            // 4. Buttons Fade In
             tl.to(
                 ".hero-buttons",
                 {
@@ -170,11 +309,17 @@ import decorativeCircle from "../assets/decorative-circle.webp";
             );
         };
 
-        // Check if preloader exists
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                goToSlide(i);
+                if (sliderTimer) clearInterval(sliderTimer);
+                sliderTimer = setInterval(() => goToSlide(currentIndex + 1), SLIDER_INTERVAL);
+            });
+        });
+
         if (document.getElementById("preloader")) {
             window.addEventListener("preloader-done", initHeroAnimations);
         } else {
-            // Fallback for dev or if preloader is missing
             initHeroAnimations();
         }
     });

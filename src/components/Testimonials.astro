@@ -1,5 +1,8 @@
 ---
 import arquiBrokersRounded from "../assets/arqui-brokers-rounded-testimonials.webp";
+import castellsInmueblesRound from "../assets/castells-rounded.webp";
+import globalCargoRound from "../assets/global-cargo-rounded2.webp";
+import acqualifeRound from "../assets/acqua-life-rounded.webp";
 ---
 
 <section class="py-20 md:py-24 bg-[#EDF1F4] relative overflow-hidden" id="testimonials">
@@ -303,93 +306,151 @@ import arquiBrokersRounded from "../assets/arqui-brokers-rounded-testimonials.we
                 </div>
 
                 <!-- Testimonio 2 -->
-                 <!--
                 <div class="flex-shrink-0 select-none testimonial-slide" data-slide-width>
                     <div class="px-4 md:px-8 flex justify-center">
                         <div
-                            class="bg-transparent rounded-[2.5rem] p-8 md:p-12 w-full max-w-4xl h-full flex flex-row items-center gap-8 md:gap-12"
+                            class="bg-transparent rounded-[2.5rem] p-8 md:p-12 w-full max-w-4xl h-full flex flex-col md:flex-row items-center gap-6 md:gap-12"
                         >
-                        <div class="shrink-0 relative w-32 h-32 md:w-40 md:h-40">
+                        <!-- Logo con forma asimétrica -->
+                        <div class="shrink-0 relative w-40 h-40 md:w-56 md:h-56 mb-6 md:mb-0">
                             <svg class="w-full h-full" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
-                                    <clipPath id="asymmetric-shape-2">
+                                    <clipPath id="asymmetric-shape-1">
                                         <circle cx="80" cy="80" r="75" />
                                     </clipPath>
                                 </defs>
-                                <rect x="0" y="0" width="160" height="160" fill="#2B5C96" clip-path="url(#asymmetric-shape-2)" />
-                                <text x="80" y="95" text-anchor="middle" fill="white" font-size="52" font-weight="bold" font-family="Arial, sans-serif">CI</text>
+                                <image
+                                    href={castellsInmueblesRound.src}
+                                    x="0"
+                                    y="0"
+                                    width="160"
+                                    height="160"
+                                    clip-path="url(#asymmetric-shape-1)"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
                             </svg>
                         </div>
-                        <div class="flex-1">
+                        <!-- Contenido del testimonio -->
+                        <div class="flex-1 text-center md:text-left">
                             <div class="mb-4">
                                 <h3
                                     class="text-xl md:text-2xl font-bold text-[#0F172A] mb-1"
                                 >
-                                    Castells Inmuebles
+                                    Andrés Zugarramurdi
                                 </h3>
                                 <p
                                     class="text-[#759EBC] font-semibold text-sm md:text-base tracking-wide"
                                 >
-                                    Dirección General
+                                    Encargado de Marketing (Castells)
                                 </p>
                             </div>
                             <p
                                 class="text-[#4A5568] text-base md:text-lg leading-relaxed font-normal"
                             >
-                                Lograron duplicar nuestra presencia digital
-                                en tiempo récord. La estrategia de <b
-                                    >Brand Building</b
-                                > fue clave para nuestro posicionamiento actual.
+                            Henko se convirtió en un socio estratégico para nuestro crecimiento digital. Más que una agencia de marketing digital, es un equipo que acompaña de forma cercana, trabaja con datos y optimiza campañas de manera constante para lograr resultados medibles y sostenidos en el tiempo.
                             </p>
                         </div>
                     </div>
                     </div>
                 </div>
-                -->
 
                 <!-- Testimonio 3 -->
-                 <!--
                 <div class="flex-shrink-0 select-none testimonial-slide" data-slide-width>
                     <div class="px-4 md:px-8 flex justify-center">
                         <div
-                            class="bg-transparent rounded-[2.5rem] p-8 md:p-12 w-full max-w-4xl h-full flex flex-row items-center gap-8 md:gap-12"
+                            class="bg-transparent rounded-[2.5rem] p-8 md:p-12 w-full max-w-4xl h-full flex flex-col md:flex-row items-center gap-6 md:gap-12"
                         >
-                        <div class="shrink-0 relative w-32 h-32 md:w-40 md:h-40">
+                        <!-- Logo con forma asimétrica -->
+                        <div class="shrink-0 relative w-40 h-40 md:w-56 md:h-56 mb-6 md:mb-0">
                             <svg class="w-full h-full" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
-                                    <clipPath id="asymmetric-shape-3">
+                                    <clipPath id="asymmetric-shape-1">
                                         <circle cx="80" cy="80" r="75" />
                                     </clipPath>
                                 </defs>
-                                <rect x="0" y="0" width="160" height="160" fill="#F97316" clip-path="url(#asymmetric-shape-3)" />
-                                <text x="80" y="95" text-anchor="middle" fill="white" font-size="52" font-weight="bold" font-family="Arial, sans-serif">S</text>
+                                <image
+                                    href={acqualifeRound.src}
+                                    x="0"
+                                    y="0"
+                                    width="160"
+                                    height="160"
+                                    clip-path="url(#asymmetric-shape-1)"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
                             </svg>
                         </div>
-                        <div class="flex-1">
+                        <!-- Contenido del testimonio -->
+                        <div class="flex-1 text-center md:text-left">
                             <div class="mb-4">
                                 <h3
                                     class="text-xl md:text-2xl font-bold text-[#0F172A] mb-1"
                                 >
-                                    Santucci
+                                    Marcelo B.
                                 </h3>
                                 <p
                                     class="text-[#759EBC] font-semibold text-sm md:text-base tracking-wide"
                                 >
-                                    Gerencia Comercial
+                                    Director (Acqualife)
                                 </p>
                             </div>
                             <p
                                 class="text-[#4A5568] text-base md:text-lg leading-relaxed font-normal"
                             >
-                                La creatividad en las campañas de redes
-                                sociales nos permitió conectar con una
-                                audiencia mucho más joven y dinámica.
+                                Valoramos el trabajo que venimos desarrollando junto a Henko a lo largo de los años para fortalecer la presencia digital de nuestra marca a través de campañas en Google Ads, Meta Ads y otros medios digitales. Es una agencia de marketing digital con foco en performance, que trabaja con objetivos claros y logra superar año a año las metas de crecimiento y resultados.
                             </p>
                         </div>
                     </div>
                     </div>
                 </div>
-                -->
+
+                <!-- Testimonio 4 -->
+                <div class="flex-shrink-0 select-none testimonial-slide" data-slide-width>
+                    <div class="px-4 md:px-8 flex justify-center">
+                        <div
+                            class="bg-transparent rounded-[2.5rem] p-8 md:p-12 w-full max-w-4xl h-full flex flex-col md:flex-row items-center gap-6 md:gap-12"
+                        >
+                        <!-- Logo con forma asimétrica -->
+                        <div class="shrink-0 relative w-40 h-40 md:w-56 md:h-56 mb-6 md:mb-0">
+                            <svg class="w-full h-full" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <clipPath id="asymmetric-shape-1">
+                                        <circle cx="80" cy="80" r="75" />
+                                    </clipPath>
+                                </defs>
+                                <image
+                                    href={globalCargoRound.src}
+                                    x="0"
+                                    y="0"
+                                    width="160"
+                                    height="160"
+                                    clip-path="url(#asymmetric-shape-1)"
+                                    preserveAspectRatio="xMidYMid meet"
+                                />
+                            </svg>
+                        </div>
+                        <!-- Contenido del testimonio -->
+                        <div class="flex-1 text-center md:text-left">
+                            <div class="mb-4">
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-[#0F172A] mb-1"
+                                >
+                                    Sergio A.
+                                </h3>
+                                <p
+                                    class="text-[#759EBC] font-semibold text-sm md:text-base tracking-wide"
+                                >
+                                    CEO (Global Cargo)
+                                </p>
+                            </div>
+                            <p
+                                class="text-[#4A5568] text-base md:text-lg leading-relaxed font-normal"
+                            >
+                            Es un gusto trabajar con el equipo de Henko. Son un partner estratégico en marketing digital, siempre atentos a los detalles y con una forma de trabajo clara y eficiente. Logran muy buenos resultados en campañas digitales, combinando profesionalismo, análisis de datos y una calidez humana que marca la diferencia
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
 
             </div>
         </div>

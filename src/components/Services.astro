@@ -3,7 +3,6 @@ import analyticsAndReporting from "../assets/analytics-and-reporting.webp";
 import brandBuilding from "../assets/brand-building.webp";
 import consulting from "../assets/consulting.webp";
 import creativityAndBrandStrategy from "../assets/creativity-and-brand-strategy.webp";
-import decorativeCircle from "../assets/decorative-circle.webp";
 import digitalGrowth from "../assets/digital-growth.webp";
 import performanceMarketing from "../assets/performance-marketing.webp";
 import socialMediaContent from "../assets/social-media-content.webp";
@@ -13,64 +12,72 @@ const services = [
     {
         icon: performanceMarketing,
         title: "Publicidad Online y Performance Marketing",
-        description: "Gestionamos campañas de Google Ads, Facebook, Instagram y WhatsApp con foco en ventas, clientes potenciales y retorno de inversión."
+        description:
+            "Gestionamos campañas de Google Ads, Facebook, Instagram y WhatsApp con foco en ventas, clientes potenciales y retorno de inversión.",
     },
     {
         icon: socialMediaContent,
         title: "Gestión de redes sociales",
-        description: "Diseñamos, publicamos y analizamos contenido estratégico para potenciar tu presencia digital y generar engagement real."
+        description:
+            "Diseñamos, publicamos y analizamos contenido estratégico para potenciar tu presencia digital y generar engagement real.",
     },
     {
         icon: strategicPlanning,
         title: "Estrategia digital",
-        description: "Diseñamos planes de marketing digital adaptados a cada empresa para lograr que crezcan en su sector."
+        description:
+            "Diseñamos planes de marketing digital adaptados a cada empresa para lograr que crezcan en su sector.",
     },
     {
         icon: analyticsAndReporting,
         title: "Analytics & Reporting",
-        description: "Analizamos el rendimiento de tus campañas y redes sociales con métricas claras para optimizar cada acción."
+        description:
+            "Analizamos el rendimiento de tus campañas y redes sociales con métricas claras para optimizar cada acción.",
     },
     {
         icon: creativityAndBrandStrategy,
         title: "Diseño y producción audiovisual",
-        description: "Creamos piezas gráficas y contenidos audiovisuales (videos, animaciones, spots) para potenciar la comunicación digital de tu marca."
+        description:
+            "Creamos piezas gráficas y contenidos audiovisuales (videos, animaciones, spots) para potenciar la comunicación digital de tu marca.",
     },
     {
         icon: brandBuilding,
         title: "Branding y construcción de marca",
-        description: "Construimos marcas sólidas con identidad y storytelling para conectar con las audiencias correctas"
+        description:
+            "Construimos marcas sólidas con identidad y storytelling para conectar con las audiencias correctas",
     },
     {
         icon: consulting,
         title: "Consultorías",
-        description: "Te asesoramos en estrategias digitales personalizadas para que tu negocio crezca con decisiones claras y medibles."
+        description:
+            "Te asesoramos en estrategias digitales personalizadas para que tu negocio crezca con decisiones claras y medibles.",
     },
     {
         icon: digitalGrowth,
         title: "Capacitaciones",
-        description: "Entrenamos a equipos en herramientas, redes y performance para que puedan liderar su propia transformación digital."
-    }
+        description:
+            "Entrenamos a equipos en herramientas, redes y performance para que puedan liderar su propia transformación digital.",
+    },
 ];
 ---
 
-<section class="pt-0 md:pt-24 pb-24 md:pb-32 relative overflow-hidden" id="servicios">
-    <!-- Semicírculo y patrón solo en desktop amplio para no recargar mobile/tablet -->
+<section
+    class="pt-0 md:pt-24 pb-24 md:pb-32 relative overflow-hidden"
+    id="servicios"
+>
+    <!-- Background Decorations -->
     <div class="hidden lg:block absolute inset-0 pointer-events-none">
-        <!-- Patrón de puntos a la izquierda -->
         <div
             class="absolute inset-0 w-full h-[60vh] z-10"
             style="background-image: radial-gradient(#CBD5E1 3px, transparent 2px); background-size: 30px 30px; opacity: 0.85;"
         >
         </div>
-
-        <!-- Semicírculo suave a la derecha -->
         <div
             class="absolute -top-[-10%] right-[-20%] w-[70%] h-[60%] bg-gradient-to-b from-[#d2e0e9] to-[#d2e0e9] rounded-l-[999px] z-0"
         >
         </div>
     </div>
 
-    <div class="container mx-auto px-6 md:px-8 relative z-10">
+    <div class="container mx-auto px-[15px] md:px-8 relative z-10">
         <!-- Header -->
         <div class="mb-10 md:mb-16 text-center md:text-left">
             <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 md:mb-6">
@@ -78,64 +85,83 @@ const services = [
             </h2>
             <a
                 href="#contact"
-                class="inline-flex items-center gap-3 bg-[#0F172A] text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-opacity-95 transition-colors shadow-lg"
+                class="hidden md:inline-flex items-center gap-3 bg-[#0F172A] text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-opacity-95 transition-colors shadow-lg"
             >
                 Quiero saber más en una reunión
-                <span
-                    class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-lg"
-                    >→</span
-                >
+                <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-lg">→</span>
             </a>
         </div>
 
-        <!-- Grid de servicios: en mobile solo 3 visibles + "Ver más" -->
+        <!-- Grid Container -->
         <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-0 w-full"
             id="servicios-grid"
         >
-            {services.slice(0, 3).map((service) => (
-                <div
-                    class="service-card relative group bg-white rounded-3xl w-full max-w-[280px] mx-auto pt-5 pb-3 px-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out flex flex-col opacity-0 translate-x-10 cursor-pointer mt-10"
-                    style="transform-style: preserve-3d; perspective: 1000px; min-height: 240px; max-height: 260px;"
-                >
-                    <div
-                        class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2"
-                        style="transform: translateZ(20px);"
-                    >
-                        <img src={service.icon.src} alt={service.title} class="w-7 h-7 object-contain" />
+            {services.map((service, index) => {
+                const isSecondRow = index >= 4;
+                const isHiddenOnMobile = index >= 3; // Keep first 3 visible
+                
+                // Consistency Classes
+                // We use min-heights on the text elements to ensure alignment across cards
+                const wrapperClasses = `w-full h-full flex flex-col ${isSecondRow ? 'lg:pt-[90px]' : ''} ${isHiddenOnMobile ? 'services-extra hidden md:flex' : ''}`;
+                
+                return (
+                    <div class={wrapperClasses}>
+                        <div 
+                            class="service-card relative group bg-white rounded-3xl w-full md:max-w-[320px] mx-auto pt-8 pb-6 px-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out flex flex-col h-full opacity-0 translate-x-10 cursor-pointer border border-transparent hover:border-slate-100"
+                            style="transform-style: preserve-3d; perspective: 1000px;"
+                        >
+                            <!-- Icon -->
+                            <div
+                                class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2"
+                                style="transform: translateZ(20px);"
+                            >
+                                <img src={service.icon.src} alt={service.title} class="w-7 h-7 object-contain" />
+                            </div>
+
+                            <!-- Content Area -->
+                            <div class="flex flex-col flex-1 mt-4">
+                                <!-- Title: Fixed min-height for alignment -->
+                                <h3
+                                    class="text-base font-bold text-slate-900 text-center mb-3 min-h-[3.5rem] flex items-center justify-center transition-colors duration-500 group-hover:text-white leading-tight"
+                                    style="transform: translateZ(10px);"
+                                >
+                                    {service.title}
+                                </h3>
+                                
+                                <!-- Description: Flex grow to push footer down -->
+                                <div class="flex-1">
+                                    <p
+                                        class="text-[13px] text-gray-500 text-center leading-relaxed transition-colors duration-500 group-hover:text-white line-clamp-4"
+                                        style="transform: translateZ(10px);"
+                                    >
+                                        {service.description}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Footer / Arrow -->
+                            <div class="mt-6 flex justify-center shrink-0" style="transform: translateZ(20px);">
+                                <div class="w-8 h-8 rounded-full bg-[#699FBF] text-white flex items-center justify-center text-sm transform transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-[#699FBF]">
+                                    →
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex flex-col flex-1 justify-start items-center mt-3 pt-3 pb-2">
-                        <h3 class="mb-1 text-base font-bold text-slate-900 text-center transition-colors duration-500 ease-out group-hover:text-white px-1" style="transform: translateZ(10px);">{service.title}</h3>
-                        <p class="text-xs text-gray-500 text-center leading-snug mb-2 transition-colors duration-500 ease-out group-hover:text-white px-1" style="transform: translateZ(10px);">{service.description}</p>
-                    </div>
-                    <div class="flex justify-center mt-0" style="transform: translateZ(20px);">
-                        <div class="w-7 h-7 rounded-full bg-[#699FBF] text-white flex items-center justify-center text-xs transform transition-all duration-300 group-hover:scale-110">→</div>
-                    </div>
-                </div>
-            ))}
-            {services.slice(3).map((service, index) => (
-                <div
-                    class={`service-card services-extra relative group bg-white rounded-3xl w-full max-w-[280px] mx-auto pt-5 pb-3 px-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] transition-all duration-500 ease-out flex flex-col opacity-0 translate-x-10 cursor-pointer hidden md:!block ${index === 0 ? 'mt-10' : 'mt-10 lg:mt-[90px]'}`}
-                    style="transform-style: preserve-3d; perspective: 1000px; min-height: 240px; max-height: 260px;"
-                >
-                    <div
-                        class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white shadow-[0_10px_25px_rgba(15,23,42,0.12)] flex items-center justify-center border border-slate-100 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2"
-                        style="transform: translateZ(20px);"
-                    >
-                        <img src={service.icon.src} alt={service.title} class="w-7 h-7 object-contain" />
-                    </div>
-                    <div class="flex flex-col flex-1 justify-start items-center mt-3 pt-3 pb-2">
-                        <h3 class="mb-1 text-base font-bold text-slate-900 text-center transition-colors duration-500 ease-out group-hover:text-white px-1" style="transform: translateZ(10px);">{service.title}</h3>
-                        <p class="text-xs text-gray-500 text-center leading-snug mb-2 transition-colors duration-500 ease-out group-hover:text-white px-1" style="transform: translateZ(10px);">{service.description}</p>
-                    </div>
-                    <div class="flex justify-center mt-0" style="transform: translateZ(20px);">
-                        <div class="w-7 h-7 rounded-full bg-[#699FBF] text-white flex items-center justify-center text-xs transform transition-all duration-300 group-hover:scale-110">→</div>
-                    </div>
-                </div>
-            ))}
+                );
+            })}
         </div>
-        <div class="flex justify-center md:hidden mt-8" id="servicios-ver-mas-wrap">
-            <button type="button" id="servicios-ver-mas-btn" class="text-[#0F172A] font-semibold text-sm py-3 px-6 rounded-full border-2 border-[#0F172A] hover:bg-[#0F172A] hover:text-white transition-colors" aria-expanded="false">Ver más</button>
+
+        <!-- Mobile View More Button -->
+        <div class="flex justify-center md:hidden mt-10">
+            <button
+                type="button"
+                id="servicios-ver-mas-btn"
+                class="text-[#0F172A] font-semibold text-sm py-3 px-8 rounded-full border-2 border-[#0F172A] hover:bg-[#0F172A] hover:text-white transition-colors"
+                aria-expanded="false"
+            >
+                Ver más
+            </button>
         </div>
     </div>
 </section>
@@ -146,28 +172,57 @@ const services = [
     gsap.registerPlugin(ScrollTrigger);
 
     document.addEventListener("DOMContentLoaded", () => {
+        // Mobile Toggle Logic
         const verMasBtn = document.getElementById("servicios-ver-mas-btn");
         const extraCards = document.querySelectorAll(".services-extra");
+        
         function updateVerMasState(expanded: boolean) {
             if (!verMasBtn) return;
             verMasBtn.setAttribute("aria-expanded", String(expanded));
             verMasBtn.textContent = expanded ? "Ver menos" : "Ver más";
             extraCards.forEach((card) => {
-                (card as HTMLElement).classList.toggle("hidden", !expanded);
+                if (expanded) {
+                    card.classList.remove("hidden");
+                    card.classList.add("flex"); 
+                } else {
+                    card.classList.add("hidden");
+                    card.classList.remove("flex");
+                }
             });
         }
+        
         verMasBtn?.addEventListener("click", () => {
             const expanded = verMasBtn.getAttribute("aria-expanded") === "true";
             updateVerMasState(!expanded);
         });
+
+        // Resize Reset
         window.addEventListener("resize", () => {
-            if (!window.matchMedia("(max-width: 767px)").matches) updateVerMasState(false);
+            if (!window.matchMedia("(max-width: 767px)").matches) {
+                // Determine logic for tablet/desktop if needed
+                 extraCards.forEach((card) => {
+                    card.classList.remove("hidden");
+                    card.classList.add("flex");
+                });
+            } else {
+                 const expanded = verMasBtn?.getAttribute("aria-expanded") === "true";
+                 if (!expanded) {
+                     extraCards.forEach((card) => {
+                        card.classList.add("hidden");
+                        card.classList.remove("flex");
+                    });
+                 }
+            }
         });
-        // 1. Entrance Animation (Stagger)
-        gsap.to(".service-card", {
+
+        // Animations
+        const cards = document.querySelectorAll(".service-card");
+
+        // Stagger Entrance
+        gsap.to(cards, {
             scrollTrigger: {
                 trigger: "#servicios",
-                start: "top 80%", // Start when top of section hits 80% of viewport
+                start: "top 80%",
             },
             x: 0,
             opacity: 1,
@@ -176,23 +231,18 @@ const services = [
             ease: "power3.out",
         });
 
-        // 2. 3D Tilt Effect
-        const cards = document.querySelectorAll(".service-card");
-
+        // 3D Tilt Interaction
         cards.forEach((card) => {
-            card.addEventListener("mousemove", (e) => {
-                const mouseEvent = e as MouseEvent;
-                // Cast to HTMLElement to access offset properties
-                const el = card as HTMLElement;
+            const el = card as HTMLElement;
+            
+            el.addEventListener("mousemove", (e) => {
                 const rect = el.getBoundingClientRect();
-                const x = mouseEvent.clientX - rect.left;
-                const y = mouseEvent.clientY - rect.top;
-
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-
-                const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
-                const rotateY = ((x - centerX) / centerX) * 10;
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
 
                 gsap.to(el, {
                     rotationX: rotateX,
@@ -200,19 +250,19 @@ const services = [
                     backgroundColor: "#083763",
                     scale: 1.05,
                     boxShadow: "0 24px 60px rgba(15,23,42,0.25)",
-                    duration: 0.5,
+                    duration: 0.4,
                     ease: "power2.out",
                 });
             });
 
-            card.addEventListener("mouseleave", () => {
-                gsap.to(card, {
+            el.addEventListener("mouseleave", () => {
+                gsap.to(el, {
                     rotationX: 0,
                     rotationY: 0,
                     scale: 1,
                     backgroundColor: "#ffffff",
                     boxShadow: "0 18px 40px rgba(15,23,42,0.08)",
-                    duration: 0.6,
+                    duration: 0.5,
                     ease: "power2.out",
                 });
             });
