@@ -10,10 +10,10 @@
     >
     </div>
 
-    <!-- Hero Background - forma curvada lateral derecha (solo en pantallas medianas en adelante) -->
+    <!-- Hero Background - forma curvada lateral derecha (visible también en mobile, ajustada) -->
     <div
-        class="hidden md:block absolute top-0 right-0 w-[65%] pointer-events-none"
-        style="z-index: 0; height: 140vh; min-height: 110vh;"
+        class="bg-curve-hero absolute top-0 right-0 w-[80%] md:w-[65%] pointer-events-none"
+        style="z-index: 0;"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -45,10 +45,10 @@
         </svg>
     </div>
 
-    <!-- Curva suavizada detrás de Contacto (similar a Hero, solo desktop) -->
+    <!-- Curva suavizada detrás de Contacto (visible también en mobile, ajustada) -->
     <div
-        class="hidden md:block absolute right-0 w-[70%] pointer-events-none"
-        style="top: 650vh; height: 220vh; z-index: 0;"
+        class="bg-curve-contact absolute right-0 w-[85%] md:w-[70%] pointer-events-none"
+        style="top: 650vh; z-index: 0;"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -86,5 +86,24 @@
     /* Fondo base unificado para toda la página */
     body {
         background-color: #edf1f4;
+    }
+    /* Curvas decorativas: alturas responsive */
+    .bg-curve-hero {
+        height: 120vh;
+        min-height: 90vh;
+    }
+    @media (min-width: 768px) {
+        .bg-curve-hero {
+            height: 140vh;
+            min-height: 110vh;
+        }
+    }
+    .bg-curve-contact {
+        height: 180vh;
+    }
+    @media (min-width: 768px) {
+        .bg-curve-contact {
+            height: 220vh;
+        }
     }
 </style>

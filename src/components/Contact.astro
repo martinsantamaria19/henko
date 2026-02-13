@@ -3,12 +3,26 @@
 ---
 
 <section class="py-20 md:py-24 relative overflow-hidden" id="contact">
-    <!-- Patrón de puntos (solo desktop) -->
+    <!-- Patrón de puntos (visible en mobile con tamaño ajustado) -->
     <div
-        class="hidden md:block absolute left-0 right-0 w-full h-[50vh] z-0 pointer-events-none mt-5"
-        style="background-image: radial-gradient(#CBD5E1 3px, transparent 2px); background-size: 30px 30px; opacity: 0.85; margin-top: -50px;"
+        class="absolute left-0 right-0 w-full h-[28vh] md:h-[50vh] z-0 pointer-events-none mt-5 contact-dots"
+        style="margin-top: -50px;"
     >
     </div>
+    <style>
+        .contact-dots {
+            background-image: radial-gradient(#CBD5E1 2.5px, transparent 2px);
+            background-size: 22px 22px;
+            opacity: 0.8;
+        }
+        @media (min-width: 768px) {
+            .contact-dots {
+                background-image: radial-gradient(#CBD5E1 3px, transparent 2px);
+                background-size: 30px 30px;
+                opacity: 0.85;
+            }
+        }
+    </style>
     <div class="container mx-auto px-6 md:px-8 relative z-10">
         <div
             class="contact-card bg-[#ecf1f4] rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 shadow-2xl max-w-6xl mx-auto overflow-hidden relative"

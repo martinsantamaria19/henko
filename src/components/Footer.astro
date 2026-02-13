@@ -1,17 +1,20 @@
 ---
 import logo from "../assets/1-a.webp";
+import hubspotCert from "../assets/hubspot-certificate.webp";
+import facebookCert from "../assets/facebook-certificate.webp";
+import googleCert from "../assets/google-partner-certificate.webp";
 ---
 
 <footer
-    class="sticky bottom-0 z-0 bg-[#0B1C3E] text-white w-full font-sans overflow-hidden pt-16 md:pt-24 pb-10 md:pb-12"
+    class="sticky bottom-0 z-0 bg-[#0B1C3E] text-white w-full font-sans pt-16 md:pt-24 pb-14 md:pb-25 overflow-x-hidden"
 >
 
     <div class="container mx-auto px-6 md:px-8 relative z-10">
         <div
-            class="flex flex-col md:flex-row justify-between items-start gap-16 md:gap-8"
+            class="flex flex-col md:flex-row md:flex-wrap justify-between items-start gap-16 md:gap-8"
         >
             <!-- Brand Column -->
-            <div class="flex flex-col gap-8 max-w-sm">
+            <div class="flex flex-col gap-8 max-w-sm md:flex-[0_0_auto]">
                 <a href="/" class="block w-40">
                     <img
                         src={logo.src}
@@ -72,7 +75,7 @@ import logo from "../assets/1-a.webp";
             </div>
 
             <!-- Links Container -->
-            <div class="flex flex-wrap gap-16 md:gap-24">
+            <div class="flex flex-wrap gap-16 md:gap-24 md:flex-[0_0_auto]">
                 <!-- Menu -->
                 <div>
                     <h3
@@ -156,6 +159,41 @@ import logo from "../assets/1-a.webp";
                         </li>
                         <li class="text-gray-500 mt-2">Montevideo, Uruguay</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Certificaciones: fila ancho completo, centrado -->
+            <div class="w-full flex flex-col items-center justify-center gap-3 text-[11px] text-gray-400/80 mt-8 md:mt-10 md:basis-full min-w-0 px-0">
+                <div class="flex justify-center w-full">
+                    <span class="uppercase tracking-[0.18em] text-gray-500/80">
+                        Certificaciones
+                    </span>
+                </div>
+                <div class="flex flex-row flex-nowrap justify-center items-center gap-1 sm:gap-3 md:gap-6 w-full max-w-full min-w-0">
+                    <div class="flex items-center justify-center shrink-0 min-w-0 flex-1 basis-0 max-w-[32%]">
+                        <img
+                            src={hubspotCert.src}
+                            alt="Certificación HubSpot"
+                            class="max-h-20 sm:max-h-14 md:max-h-[8.25rem] w-full max-w-full h-auto object-contain object-center opacity-90 brightness-0 invert hover:brightness-100 hover:invert-0 hover:opacity-100 hover:scale-105 transition-all duration-300"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="flex items-center justify-center shrink-0 min-w-0 flex-1 basis-0 max-w-[32%]">
+                        <img
+                            src={facebookCert.src}
+                            alt="Certificación Meta / Facebook"
+                            class="max-h-20 sm:max-h-14 md:max-h-[8.25rem] w-full max-w-full h-auto object-contain object-center opacity-80 grayscale hover:opacity-100 hover:grayscale-0 hover:scale-105 transition-all duration-300"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="flex items-center justify-center shrink-0 min-w-0 flex-1 basis-0 max-w-[32%]">
+                        <img
+                            src={googleCert.src}
+                            alt="Certificación Google"
+                            class="max-h-20 sm:max-h-14 md:max-h-[8.25rem] w-full max-w-full h-auto object-contain object-center opacity-90 brightness-0 invert hover:brightness-100 hover:invert-0 hover:opacity-100 hover:scale-105 transition-all duration-300"
+                            loading="lazy"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

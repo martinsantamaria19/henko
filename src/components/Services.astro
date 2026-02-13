@@ -64,18 +64,31 @@ const services = [
     class="pt-0 md:pt-24 pb-24 md:pb-32 relative overflow-hidden"
     id="servicios"
 >
-    <!-- Background Decorations -->
-    <div class="hidden lg:block absolute inset-0 pointer-events-none">
+    <!-- Background Decorations: puntos y forma (visible en mobile ajustados) -->
+    <div class="absolute inset-0 pointer-events-none">
+        <!-- Patrón de puntos: tamaño responsive -->
         <div
-            class="absolute inset-0 w-full h-[60vh] z-10"
-            style="background-image: radial-gradient(#CBD5E1 3px, transparent 2px); background-size: 30px 30px; opacity: 0.85;"
+            class="services-dots absolute inset-0 w-full h-[50vh] md:h-[60vh] z-10"
         >
         </div>
         <div
-            class="absolute -top-[-10%] right-[-20%] w-[70%] h-[60%] bg-gradient-to-b from-[#d2e0e9] to-[#d2e0e9] rounded-l-[999px] z-0"
+            class="absolute md:inset-auto -top-[5%] right-[-35%] md:-top-[-10%] md:right-[-20%] w-[85%] md:w-[70%] h-[45%] md:h-[60%] bg-gradient-to-b from-[#d2e0e9] to-[#d2e0e9] rounded-l-[999px] z-0"
         >
         </div>
     </div>
+    <style>
+        .services-dots {
+            background-image: radial-gradient(#CBD5E1 2.5px, transparent 2px);
+            background-size: 22px 22px;
+            opacity: 0.75;
+        }
+        @media (min-width: 1024px) {
+            .services-dots {
+                background-size: 30px 30px;
+                opacity: 0.85;
+            }
+        }
+    </style>
 
     <div class="container mx-auto px-[15px] md:px-8 relative z-10">
         <!-- Header -->
@@ -123,8 +136,8 @@ const services = [
                             <div class="flex flex-col flex-1 mt-4">
                                 <!-- Title: Fixed min-height for alignment -->
                                 <h3
-                                    class="text-base font-bold text-slate-900 text-center mb-3 min-h-[3.5rem] flex items-center justify-center transition-colors duration-500 group-hover:text-white leading-tight"
-                                    style="transform: translateZ(10px);"
+                                    class="text-[18px] font-bold text-slate-900 text-center mb-3 min-h-[3.5rem] flex items-center justify-center transition-colors duration-500 group-hover:text-white leading-tight"
+                                    style="transform: translateZ(50px);"
                                 >
                                     {service.title}
                                 </h3>
@@ -132,7 +145,7 @@ const services = [
                                 <!-- Description: Flex grow to push footer down -->
                                 <div class="flex-1">
                                     <p
-                                        class="text-[13px] text-gray-500 text-center leading-relaxed transition-colors duration-500 group-hover:text-white line-clamp-4"
+                                        class="text-[15px] text-gray-500 text-center leading-relaxed transition-colors duration-500 group-hover:text-white line-clamp-4"
                                         style="transform: translateZ(10px);"
                                     >
                                         {service.description}
