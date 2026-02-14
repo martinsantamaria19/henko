@@ -42,7 +42,7 @@
                     </p>
                 </div>
 
-                <form class="space-y-8 max-w-4xl mx-auto">
+                <form id="contact-form" class="space-y-8 max-w-4xl mx-auto">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                         <div class="input-group group relative">
                             <input
@@ -104,10 +104,12 @@
                         </label>
                     </div>
 
-                    <div class="pt-4">
+                    <div class="pt-4 space-y-3">
+                        <p id="contact-feedback" class="text-center text-sm min-h-[1.25rem]" aria-live="polite"></p>
                         <button
                             type="submit"
-                            class="magnetic-btn submit-btn group relative w-full px-12 py-5 bg-[#0F172A] text-white font-semibold cursor-pointer rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 text-center"
+                            id="contact-submit-btn"
+                            class="magnetic-btn submit-btn group relative w-full px-12 py-5 bg-[#0F172A] text-white font-semibold cursor-pointer rounded-full overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 text-center disabled:opacity-70 disabled:cursor-not-allowed"
                         >
                             <span
                                 class="relative z-10 flex items-center justify-center gap-3 text-md"
@@ -288,7 +290,58 @@
             );
         // Removed explicit button animation to ensure visibility
 
-        // Magnetic Button Effect Removed as per user request
+        // Envío del formulario al webhook de n8n (Resend)
+        const N8N_WEBHOOK_URL = "https://n8n.srv1206881.hstgr.cloud/webhook/96fdc4bc-e402-43ad-8775-cd92caad3c2a"; // TODO: Change to the actual webhook URL
+        const form = document.getElementById("contact-form");
+        const submitBtn = document.getElementById("contact-submit-btn");
+        const feedbackEl = document.getElementById("contact-feedback");
+
+        function setFeedback(text: string, isError = false) {
+            if (!feedbackEl) return;
+            feedbackEl.textContent = text;
+            feedbackEl.className = "text-center text-sm min-h-[1.25rem] " + (isError ? "text-red-600" : "text-green-600");
+        }
+
+        if (form && submitBtn) {
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const name = document.getElementById("name");
+                const email = document.getElementById("email");
+                const phone = document.getElementById("phone");
+                const message = document.getElementById("message");
+                if (!name || !email || !phone || !message) return;
+
+                const payload = {
+                    name: (name as HTMLInputElement).value.trim(),
+                    email: (email as HTMLInputElement).value.trim(),
+                    phone: (phone as HTMLInputElement).value.trim(),
+                    message: (message as HTMLTextAreaElement).value.trim(),
+                };
+
+                if (!payload.email) {
+                    setFeedback("Por favor ingresá tu email.", true);
+                    return;
+                }
+
+                submitBtn.setAttribute("disabled", "true");
+                setFeedback("Enviando...");
+
+                try {
+                    const res = await fetch(N8N_WEBHOOK_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload),
+                    });
+                    if (!res.ok) throw new Error("Error en el envío");
+                    setFeedback("¡Mensaje enviado! Te responderemos pronto.");
+                    (form as HTMLFormElement).reset();
+                } catch {
+                    setFeedback("No pudimos enviar el mensaje. Intentá de nuevo más tarde.", true);
+                } finally {
+                    submitBtn.removeAttribute("disabled");
+                }
+            });
+        }
     });
 </script>
 
