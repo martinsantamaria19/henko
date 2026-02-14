@@ -250,41 +250,41 @@
         });
 
         tl.from(".contact-card", {
-            y: 100,
+            y: 60,
             opacity: 0,
-            duration: 1,
-            ease: "power3.out",
+            duration: 0.45,
+            ease: "power2.out",
         })
             .from(
                 ".contact-title",
                 {
-                    y: 30,
+                    y: 24,
                     opacity: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
+                    duration: 0.35,
+                    ease: "power2.out",
                 },
-                "-=0.5",
+                "-=0.3",
             )
             .from(
                 ".contact-subtitle",
                 {
-                    y: 20,
+                    y: 16,
                     opacity: 0,
-                    duration: 0.8,
-                    ease: "power3.out",
+                    duration: 0.35,
+                    ease: "power2.out",
                 },
-                "-=0.6",
+                "-=0.25",
             )
             .from(
                 "form .input-group",
                 {
-                    y: 30,
+                    y: 20,
                     opacity: 0,
-                    duration: 0.8,
-                    stagger: 0.1,
-                    ease: "power3.out",
+                    duration: 0.3,
+                    stagger: 0.05,
+                    ease: "power2.out",
                 },
-                "-=0.4",
+                "-=0.2",
             );
         // Removed explicit button animation to ensure visibility
 

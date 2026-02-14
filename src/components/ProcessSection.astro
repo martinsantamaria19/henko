@@ -62,30 +62,32 @@ const iconImageStyles = "w-14 h-14 object-contain";
 
 <section class="py-10 md:py-20 relative overflow-hidden mt-6 md:mt-0">
     <div
-        class="container mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-start md:items-center"
+        class="container mx-auto px-[15px] md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-start md:items-center"
     >
         <div
             class="relative pr-0 md:pr-4 mb-10 md:mb-0 flex flex-col items-center md:items-start order-2 lg:order-none"
         >
-            <!-- Carrusel solo en mobile -->
-            <!-- Mobile 3-column Grid -->
-            <!-- Mobile 2-column Grid -->
-            <div class="w-full lg:hidden relative px-2 mb-8">
-                <div class="grid grid-cols-2 gap-3">
+            <!-- Mobile: contenedor ancho (como qué hacemos) + cards expandibles -->
+            <div class="w-full lg:hidden relative mb-8">
+                <div class="grid grid-cols-2 gap-3 items-start">
                     {
-                        processCards.map((item) => (
-                            <div class="flex flex-col items-center text-center p-4 bg-white rounded-2xl shadow-sm border border-gray-100 h-full">
-                                <div class="mb-3 drop-shadow-md">
+                        processCards.map((item, index) => (
+                            <div
+                                class="process-value-card flex flex-col items-center text-center p-4 bg-white rounded-2xl shadow-sm border border-gray-100 cursor-pointer transition-all duration-200 active:scale-[0.98]"
+                                data-expanded="false"
+                                data-card-index={index}
+                            >
+                                <div class="mb-3 drop-shadow-md flex-shrink-0">
                                     <img
                                         src={item.icon.src}
                                         alt={item.title}
                                         class="w-10 h-10 object-contain"
                                     />
                                 </div>
-                                <h3 class="text-xs font-bold text-primary-dark uppercase tracking-wide leading-tight mb-2">
+                                <h3 class="text-xs font-bold text-primary-dark uppercase tracking-wide leading-tight mb-2 flex-shrink-0">
                                     {item.title}
                                 </h3>
-                                <p class="text-[12.5px] leading-relaxed text-gray-500">
+                                <p class="process-value-card-desc text-[12.5px] leading-relaxed text-gray-500 line-clamp-4">
                                     {item.description}
                                 </p>
                             </div>
@@ -308,3 +310,23 @@ const iconImageStyles = "w-14 h-14 object-contain";
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".process-value-card");
+        cards.forEach((card) => {
+            const desc = card.querySelector(".process-value-card-desc");
+            if (!desc) return;
+            card.addEventListener("click", () => {
+                const expanded = card.getAttribute("data-expanded") === "true";
+                if (expanded) {
+                    card.setAttribute("data-expanded", "false");
+                    desc.classList.add("line-clamp-4");
+                } else {
+                    card.setAttribute("data-expanded", "true");
+                    desc.classList.remove("line-clamp-4");
+                }
+            });
+        });
+    });
+</script>

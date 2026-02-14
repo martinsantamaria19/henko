@@ -14,7 +14,7 @@ import logo from "../assets/1-a.webp";
 >
     <!-- Logo -->
     <div class="logo relative z-[110] pointer-events-auto">
-        <a href="#home">
+        <a href="/">
             <img
                 src={logo.src}
                 alt="Henko"
@@ -28,25 +28,25 @@ import logo from "../assets/1-a.webp";
         <ul class="flex gap-8 text-sm font-normal text-gray-600">
             <li>
                 <a
-                    href="#home"
+                    href="/#home"
                     class="text-lg hover:text-primary-dark transition-colors"
                     >Home</a>
             </li>
             <li>
                 <a
-                    href="#quienes-somos"
+                    href="/#quienes-somos"
                     class="text-lg hover:text-primary-dark transition-colors"
                     >Nosotros</a>
             </li>
             <li>
                 <a
-                    href="#servicios"
+                    href="/#servicios"
                     class="text-lg hover:text-primary-dark transition-colors"
                     >Servicios</a>
             </li>
             <li>
                 <a
-                    href="#casos"
+                    href="/#casos"
                     class="text-lg hover:text-primary-dark transition-colors"
                     >Casos</a>
             </li>
@@ -58,7 +58,7 @@ import logo from "../assets/1-a.webp";
             </li>
             <li>
                 <a
-                    href="#contact"
+                    href="/#contact"
                     class="text-lg hover:text-primary-dark transition-colors"
                     >Contacto</a>
             </li>
@@ -102,28 +102,28 @@ import logo from "../assets/1-a.webp";
             <ul class="flex flex-col gap-6">
                 <li class="overflow-hidden">
                     <a
-                        href="#home"
+                        href="/#home"
                         class="mobile-link block text-4xl font-bold text-white translate-y-full"
                         >Home</a
                     >
                 </li>
                 <li class="overflow-hidden">
                     <a
-                        href="#quienes-somos"
+                        href="/#quienes-somos"
                         class="mobile-link block text-4xl font-bold text-white translate-y-full"
                         >Nosotros</a
                     >
                 </li>
                 <li class="overflow-hidden">
                     <a
-                        href="#servicios"
+                        href="/#servicios"
                         class="mobile-link block text-4xl font-bold text-white translate-y-full"
                         >Servicios</a
                     >
                 </li>
                 <li class="overflow-hidden">
                     <a
-                        href="#casos"
+                        href="/#casos"
                         class="mobile-link block text-4xl font-bold text-white translate-y-full"
                         >Casos</a
                     >
@@ -137,7 +137,7 @@ import logo from "../assets/1-a.webp";
                 </li>
                 <li class="overflow-hidden">
                     <a
-                        href="#contact"
+                        href="/#contact"
                         class="mobile-link block text-4xl font-bold text-white translate-y-full"
                         >Contacto</a
                     >
@@ -172,19 +172,23 @@ import logo from "../assets/1-a.webp";
         // MOVE MENU TO BODY TO AVOID CLIPPING
         document.body.appendChild(mobileMenu);
 
-        // Close on link click and scroll to section
+        // Close on link click; en la home hacemos scroll suave, en otras páginas dejamos navegar a /#sección
         mobileLinks.forEach((link) => {
             link.addEventListener("click", (e) => {
+                const href = link.getAttribute("href") || "";
+                const isOnHome = window.location.pathname === "/" || window.location.pathname === "";
+                const isHashLink = href === "/" || href.startsWith("/#") || href.startsWith("#");
+                const hash = href.startsWith("/#") ? href.slice(2) : href.startsWith("#") ? href.slice(1) : null;
+
+                // En otra página: no prevenir (navegar a /#sección). En home, /blog tampoco lo prevenimos.
+                if (!isOnHome || href === "/blog") return;
+
                 e.preventDefault();
                 e.stopPropagation();
-                const href = link.getAttribute("href");
                 
                 if (isOpen) {
-                    // Close menu first
                     isOpen = false;
                     menuToggle.classList.remove("is-active");
-                    
-                    // Revert header styles
                     gsap.to(header, {
                         backgroundColor: "rgba(255,255,255,0.5)",
                         borderColor: "rgba(255,255,255,0.6)",
@@ -193,55 +197,27 @@ import logo from "../assets/1-a.webp";
                         duration: 0.3,
                     });
                     header.style.pointerEvents = "auto";
-                    
-                    // Revert colors
-                    gsap.to(hamburgerSpans, {
-                        backgroundColor: "#1e293b",
-                        duration: 0.3,
-                    });
+                    gsap.to(hamburgerSpans, { backgroundColor: "#1e293b", duration: 0.3 });
                     gsap.to(logoImg, { filter: "none", duration: 0.3 });
-                    
-                    // Hide Overlay
                     gsap.to(mobileMenu, {
                         autoAlpha: 0,
                         duration: 0.3,
                         ease: "power3.in",
-                        onComplete: () => {
-                            mobileMenu.style.pointerEvents = "none";
-                        }
+                        onComplete: () => { mobileMenu.style.pointerEvents = "none"; }
                     });
-                    
-                    // Stagger Links Out
-                    gsap.to(mobileLinks, {
-                        y: "100%",
-                        duration: 0.3,
-                        stagger: 0.05,
-                        ease: "power3.in",
-                    });
-                    
-                    // Footer fade out
-                    gsap.to(mobileFooter, {
-                        opacity: 0,
-                        duration: 0.3,
-                    });
-                    
+                    gsap.to(mobileLinks, { y: "100%", duration: 0.3, stagger: 0.05, ease: "power3.in" });
+                    gsap.to(mobileFooter, { opacity: 0, duration: 0.3 });
                     document.body.style.overflow = "auto";
                 }
                 
-                // Scroll to section after menu closes
-                if (href && href.startsWith("#")) {
+                // En la home: scroll suave a la sección
+                if (hash && isOnHome) {
                     setTimeout(() => {
-                        const targetId = href.substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        
-                        if (targetElement) {
-                            const headerHeight = header ? header.offsetHeight + 24 : 100;
+                        const targetElement = document.getElementById(hash);
+                        if (targetElement && header) {
+                            const headerHeight = header.offsetHeight + 24;
                             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                            
-                            window.scrollTo({
-                                top: targetPosition,
-                                behavior: "smooth"
-                            });
+                            window.scrollTo({ top: targetPosition, behavior: "smooth" });
                         }
                     }, 400);
                 }
