@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://henko.agency/sitemap-index.xml
+Sitemap: https://henko.com.uy/sitemap-index.xml
